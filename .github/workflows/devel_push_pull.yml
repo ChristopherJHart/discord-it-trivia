@@ -83,7 +83,7 @@ jobs:
       - name: Install bot dependencies
         run: pip install -r requirements-test.txt
       - name: Run unit tests with pytest
-        run: python -m pytest ./tests/unit
+        run: python -m pytest ./tests/
   build-container-and-push-with-dev-tag:
     needs:
       - format
