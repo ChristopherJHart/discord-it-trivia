@@ -7,18 +7,96 @@
     Get a question from the Cisco Certified Network Associate exam question
     pool.
   questions:
-    - prompt: "Which of the following describes a MAC address?"
+    - prompt: >-
+        A switch is powered on for the first time and receives an Ethernet
+        frame from a host. What will the switch do with the frame with an empty
+        CAM table?
       type: "multiple choice"
       correct_choice: 1
       choices:
         - id: 1
-          text: "example one"
+          text: "The switch will flood the frame out of all up/up interfaces."
         - id: 2
-          text: "example two"
+          text: >-
+            The switch will flood the frame out of all up/up interfaces that
+            are in a Spanning Tree Protocol Forwarding state.
         - id: 3
-          text: "example three"
+          text: "The switch will drop the frame."
         - id: 4
-          text: "example four"
+          text: >-
+            The switch will forward the frame directly to the destination host.
+    - prompt: >-
+        A network operator configured an SVI (Switch Virtual Interface) for
+        management purposes on a switch. However, they cannot ICMP ping the IP
+        address of the SVI. What command did they forget to use on the SVI?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: "no shutdown"
+        - id: 2
+          text: "no ip redirects"
+        - id: 3
+          text: "ip icmp respond"
+        - id: 4
+          text: "no switchport"
+    - prompt: >-
+        A network administrator asks you to take a Class A network (10.0.0.0)
+        and divide it into two usable networks. What is the subnet mask for
+        each of the two network?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: "255.128.0.0"
+        - id: 2
+          text: "255.255.0.0"
+        - id: 3
+          text: "256.128.0.0"
+        - id: 4
+          text: "256.256.0.0"
+    - prompt: >-
+        Collisions are a symptom of what configuration mistake on an Ethernet
+        interface?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: "Interface duplex mismatch"
+        - id: 2
+          text: "Interface speed mismatch"
+        - id: 3
+          text: "Damaged or faulty cabling"
+        - id: 4
+          text: "Network congestion"
+    - prompt: >-
+        What protocol do IPv6 hosts using SLAAC use to discover the first part
+        of the address and prefix length?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: "NDP (Neighbor Discovery Protocol)"
+        - id: 2
+          text: "NS (Neighbor Solicitation)"
+        - id: 3
+          text: "NA (Neighbor Announcement)"
+        - id: 4
+          text: "RA (Router Advertisement)"
+    - prompt: >-
+        How many hosts are available to use on a network with a subnet mask of
+        255.255.252.0?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: "1022"
+        - id: 2
+          text: "1024"
+        - id: 3
+          text: "1023"
+        - id: 4
+          text: "1021"
 - meta_name: "Cisco Certified Network Professional"
   meta_description: >-
     Question pool for the Cisco Certified Network Professional exam.
