@@ -38,6 +38,12 @@ def test_exam_command_names_unique(question_pool: List[dict]) -> None:
     assert len(all_command_names) == len(unique_command_names)
 
 
+def test_exam_command_names_single_world(question_pool: List[dict]) -> None:
+    """Ensure that the command_name key of each exam is a single word."""
+    for exam in question_pool:
+        assert len(exam.get("command_name").split(" ")) == 1
+
+
 def test_exam_command_descriptions(question_pool: List[dict]) -> None:
     """Ensure that each exam in the question pool has a stringy command_description key."""
     for exam in question_pool:
