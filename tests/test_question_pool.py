@@ -31,6 +31,13 @@ def test_exam_command_names(question_pool: List[dict]) -> None:
         assert isinstance(exam.get("command_name"), str)
 
 
+def test_exam_command_names_unique(question_pool: List[dict]) -> None:
+    """Ensure that the command_name key of each exam is globally unique."""
+    all_command_names = [e.get("command_name") for e in question_pool]
+    unique_command_names = list(set(all_command_names))
+    assert len(all_command_names) == len(unique_command_names)
+
+
 def test_exam_command_descriptions(question_pool: List[dict]) -> None:
     """Ensure that each exam in the question pool has a stringy command_description key."""
     for exam in question_pool:
