@@ -1,3 +1,5 @@
+"""Test utility functions in bot.core.util module."""
+
 from typing import List
 import pytest
 from disnake import Embed
@@ -351,6 +353,7 @@ from bot.core.util import normalize_embed
     ],
 )
 def test_normalize_embed(embed: Embed, expected_embeds: List[Embed]) -> None:
+    """Test bot.core.util.normalize_embed() function."""
     assert [e.to_dict() for e in normalize_embed(embed)] == [
         e.to_dict() for e in expected_embeds
     ]
