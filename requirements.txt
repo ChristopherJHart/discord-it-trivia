@@ -1,0 +1,4 @@
+disnake==2.4.0
+structlog
+pydantic[dotenv]
+pyyaml

@@ -1,0 +1,41 @@
+---
+- meta_name: "Cisco Certified Network Associate"
+  meta_description: >-
+    Question pool for the Cisco Certified Network Associate exam.
+  command_name: "ccna"
+  command_description: >-
+    Get a question from the Cisco Certified Network Associate exam question
+    pool.
+  questions:
+    - prompt: "Which of the following describes a MAC address?"
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: "example one"
+        - id: 2
+          text: "example two"
+        - id: 3
+          text: "example three"
+        - id: 4
+          text: "example four"
+- meta_name: "Cisco Certified Network Professional"
+  meta_description: >-
+    Question pool for the Cisco Certified Network Professional exam.
+  command_name: "ccnp"
+  command_description: >-
+    Get a question from the Cisco Certified Network Professional exam question
+    pool.
+  questions:
+    - prompt: "Which of the following describes an IPv4 address?"
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: "example one"
+        - id: 2
+          text: "example two"
+        - id: 3
+          text: "example three"
+        - id: 4
+          text: "example four"

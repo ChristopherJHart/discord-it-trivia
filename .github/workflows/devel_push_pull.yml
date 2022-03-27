@@ -1,0 +1,109 @@
+# This workflow performs the following:
+#   1. Check for proper Python code formatting with Black.
+#   2. Lint Python code and docstrings using flake8.
+#   3. Run Python unit tests using pytest.
+
+---
+name: Discord IT Trivia Bot devel branch push or PR
+
+on: # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - devel
+  pull_request:
+    branches:
+      - devel
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+      - name: Install dependencies
+        run: pip install black
+      - name: Format with black
+        run: |
+          black ./bot --check
+          black ./tests --check
+  lint-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+      - name: Install dependencies
+        run: |
+          pip install wheel
+          pip install flake8
+          pip install flake8-docstrings
+          pip install -r requirements.txt
+      - name: Lint with flake8
+        run: |
+          flake8 ./bot --max-line-length=100 --docstring-convention=google
+          flake8 ./tests --max-line-length=100 --docstring-convention=google
+  lint-yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+      - name: Install dependencies
+        run: |
+          pip install yamllint
+      - name: Lint YAML with yamllint
+        run: |
+          yamllint .pre-commit-config.yaml .github/workflows
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+      - name: Install bot dependencies
+        run: pip install -r requirements-test.txt
+      - name: Run unit tests with pytest
+        run: python -m pytest ./tests/unit
+  build-container-and-push-with-dev-tag:
+    needs:
+      - format
+      - lint-python
+      - lint-yaml
+      - unit-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to DockerHub via Action
+        uses: docker/login-action@v1
+        with:
+          username: chrisjhart
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: DockerHub Setup
+        uses: docker/setup-buildx-action@v1
+      - name: Build and push to DockerHub
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: chrisjhart/discord-it-trivia:dev
