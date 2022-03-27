@@ -11,6 +11,7 @@ from bot.embeds.trivia import (
     trivia_ok_correct,
     trivia_ok_incorrect,
 )
+from bot.core.config import settings
 from bot.core.util import send_embed, exam_from_pool
 
 logger = structlog.getLogger(name=__name__)
@@ -51,7 +52,7 @@ async def trivia(inter: ApplicationCommandInteraction) -> None:
         await response.add_reaction(index_to_emoji_mapping.get(index))
 
     start_time = datetime.now()
-    end_time = start_time + timedelta(seconds=180)
+    end_time = start_time + timedelta(seconds=settings.QUESTION_TIMEOUT)
     logger.info(
         "New question active",
         start_time=start_time.isoformat(),
@@ -67,7 +68,7 @@ async def trivia(inter: ApplicationCommandInteraction) -> None:
         try:
             logger.info("Waiting for next reaction")
             reaction, user = await discord_bot.wait_for(
-                "reaction_add", timeout=180, check=check
+                "reaction_add", timeout=settings.QUESTION_TIMEOUT, check=check
             )
         except asyncio.TimeoutError:
             pass

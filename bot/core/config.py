@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     """Schema for bot settings."""
 
     QUESTION_POOL_FILEPATH: FilePath = "models/question_pool.yaml"
+    QUESTION_TIMEOUT: int = 180
     DEBUG: bool = False
     DISCORD_TOKEN: str = None
     TEST_GUILD: int = None
