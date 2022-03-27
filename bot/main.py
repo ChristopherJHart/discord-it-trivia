@@ -49,7 +49,7 @@ from disnake.ext import commands  # noqa: E402
 from bot.commands.trivia import trivia  # noqa: E402
 from bot.core.util import question_pool  # noqa: E402
 
-pool = question_pool()
+pool = question_pool(settings.QUESTION_POOL_FILEPATH)
 
 for exam in pool:
     command = commands.InvokableSlashCommand(

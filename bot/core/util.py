@@ -9,7 +9,6 @@ from structlog.contextvars import (
     bind_contextvars,
     unbind_contextvars,
 )
-from bot.core.config import settings
 
 logger = structlog.getLogger(name=__name__)
 
@@ -141,9 +140,9 @@ async def send_embed(
             unbind_contextvars("guild_id", "guild_name", "channel_id", "channel_name")
 
 
-def question_pool() -> List[dict]:
+def question_pool(filepath: str) -> List[dict]:
     """Open question pool YAML file and return contents."""
-    with open(settings.QUESTION_POOL_FILEPATH) as pool_file:
+    with open(filepath) as pool_file:
         return load(pool_file, SafeLoader)
 
 
