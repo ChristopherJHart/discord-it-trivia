@@ -31,7 +31,7 @@ def test_exam_command_names(question_pool: List[dict]) -> None:
         assert isinstance(exam.get("command_name"), str)
 
 
-def test_exam_command_names(question_pool: List[dict]) -> None:
+def test_exam_command_descriptions(question_pool: List[dict]) -> None:
     """Ensure that each exam in the question pool has a stringy command_description key."""
     for exam in question_pool:
         assert exam.get("command_description") is not None
