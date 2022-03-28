@@ -46,7 +46,7 @@ jobs:
       - name: Use Ansible to deploy to production
         run: >
           ansible-playbook
-          -i ${{ secrets.PRODUCTION_HOST }}
+          -i '${{ secrets.PRODUCTION_HOST }},'
           ./tools/ansible/deploy.yaml
           -e ansible_user=${{ secrets.PRODUCTION_USERNAME }}
           -e ansible_password=${{ secrets.PRODUCTION_PASSWORD }}
