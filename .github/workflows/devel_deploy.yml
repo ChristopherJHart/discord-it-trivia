@@ -30,3 +30,36 @@ jobs:
           push: true
           tags: "chrisjhart/discord-it-trivia:${{ env.TAG }},\
             chrisjhart/discord-it-trivia:latest"
+  deploy-to-production:
+    needs:
+      - build-container-and-push-with-latest-tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Ansible
+        run: |
+          sudo apt -y update
+          sudo apt install software-properties-common
+          sudo apt-add-repository --yes --update ppa:ansible/ansible
+          sudo apt -y install ansible
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Use Ansible to deploy to production
+        run: >
+          ansible-playbook
+          -i ${{ secrets.PRODUCTION_HOST }}
+          ./tools/ansible/deploy.yaml
+          -e ansible_user=${{ secrets.PRODUCTION_USERNAME }}
+          -e ansible_password=${{ secrets.PRODUCTION_PASSWORD }}
+          -e ansible_become_password=${{ secrets.PRODUCTION_PASSWORD }}
+          -e ansible_port=${{ secrets.PRODUCTION_SSH_PORT }}
+          -e bot_container_tag=latest
+          -e docker_login_username=${{ secrets.DOCKERHUB_USERNAME }}
+          -e docker_login_password=${{ secrets.DOCKERHUB_TOKEN }}
+          -e discord_token=${{ secrets.DISCORD_TOKEN }}
+          -e repository_filepath=/home/runner/work/discord-it-trivia/
+          -e host_beat_config_filepath=/src/discord-it-trivia/config
+          -e elk_url=${{ secrets.ELK_URL }}
+          -e elk_path=${{ secrets.ELK_PATH }}
+          -e elk_username=${{ secrets.ELK_USERNAME }}
+          -e elk_password=${{ secrets.ELK_PASSWORD }}
+          -e elk_index=${{ secrets.ELK_INDEX }}

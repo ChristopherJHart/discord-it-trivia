@@ -1,0 +1,23 @@
+filebeat.inputs:
+    - type: container
+      paths:
+        - "/var/lib/docker/containers/*/*.log"
+
+processors:
+    - add_docker_metadata:
+        host: "unix:///var/run/docker.sock"
+    - decode_json_fields:
+        fields: ["message"]
+        target: "json"
+
+output.elasticsearch:
+      hosts: {{ elk_url }}
+      path: {{ elk_path }}
+      protocol: "https"
+      username: {{ elk_username }}
+      password: {{ elk_password }}
+      indices:
+        - index: "{{ elk_index }}-%{[agent.version]}-%{+yyyy.MM.dd}"
+
+logging.json: true
+logging.metrics.enabled: false

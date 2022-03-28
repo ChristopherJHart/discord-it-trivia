@@ -1,0 +1,103 @@
+---
+- name: Stand up Discord IT Trivia bot environment
+  hosts: all
+  tasks:
+    - name: Install Docker Python package via pip3
+      ansible.builtin.pip:
+        name: docker
+        executable: pip3
+    - name: Create Discord IT Trivia group
+      ansible.builtin.group:
+        name: discord-it-trivia
+        state: present
+      become: true
+    - name: Add user to Discord IT Trivia group
+      ansible.builtin.user:
+        name: "{{ ansible_user }}"
+        groups:
+          - discord-it-trivia
+          - docker
+        append: true
+      become: true
+    - name: Create Discord IT Trivia configuration directory
+      ansible.builtin.file:
+        path: "{{ host_beat_config_filepath }}"
+        mode: g+rwx
+        group: discord-it-trivia
+        state: directory
+      become: true
+    - name: Copy Filebeat configuration template to remote host
+      ansible.builtin.template:
+        src: "{{ repository_filepath }}/tools/ansible/templates/filebeat.j2"
+        dest: "{{ host_beat_config_filepath }}/filebeat/filebeat.docker.yml"
+        owner: root
+        group: discord-it-trivia
+        mode: "0770"
+      become: true
+    - name: Copy Filebeat Dockerfile to remote host
+      ansible.builtin.copy:
+        src: "{{ repository_filepath }}/config/filebeat/Dockerfile"
+        dest: "{{ host_beat_config_filepath }}/filebeat/Dockerfile"
+        owner: root
+        group: discord-it-trivia
+        mode: "0770"
+      become: true
+    - name: Build Filebeat
+      community.general.docker_image:
+        name: chrisjhart/filebeat:latest
+        build:
+          path: "{{ host_beat_config_filepath }}/filebeat"
+        source: build
+        force_source: true # Needed to force re-build for some unknown reason.
+    - name: Stop Filebeat
+      community.general.docker_container:
+        name: discord-it-trivia-filebeat
+        image: chrisjhart/filebeat:latest
+        state: stopped
+    - name: Start Filebeat
+      community.general.docker_container:
+        name: discord-it-trivia-filebeat
+        image: chrisjhart/filebeat:latest
+        volumes:
+          - /var/lib/docker/containers:/var/lib/docker/containers:ro
+          - /var/run/docker.sock:/var/run/docker.sock:ro
+        networks:
+          - name: discord-it-trivia
+            aliases:
+              - discord-it-trivia-filebeat
+        command: --strict.perms=false
+        restart_policy: unless-stopped
+        state: started
+    - name: Log into DockerHub
+      community.general.docker_login:
+        username: "{{ docker_login_username }}"
+        password: "{{ docker_login_password }}"
+      when: bot_container_tag == "latest"
+    - name: Create Docker network
+      community.general.docker_network:
+        name: discord-it-trivia
+        state: present
+    - name: Stop Discord IT Trivia bot container
+      community.general.docker_container:
+        name: discord-it-trivia
+        image: "chrisjhart/discord-it-trivia:{{ bot_container_tag }}"
+        state: stopped
+    - name: Pull and start Discord IT Trivia bot
+      community.general.docker_container:
+        name: discord-it-trivia
+        hostname: discord-it-trivia
+        image: "chrisjhart/discord-it-trivia:{{ bot_container_tag }}"
+        env:
+          DISCORD_TOKEN: "{{ discord_token }}"
+        pull: "{{ 'true' if bot_container_tag == 'latest' else omit }}"
+        networks:
+          - name: discord-it-trivia
+            aliases:
+              - discord-it-trivia
+        restart_policy: unless-stopped
+        state: started
+    - name: Log out of DockerHub
+      community.general.docker_login:
+        username: "{{ docker_login_username }}"
+        state: absent
+      when: bot_container_tag == "latest"
