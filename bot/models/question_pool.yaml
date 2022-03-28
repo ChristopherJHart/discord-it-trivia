@@ -43,7 +43,7 @@
     - prompt: >-
         A network administrator asks you to take a Class A network (10.0.0.0)
         and divide it into two usable networks. What is the subnet mask for
-        each of the two network?
+        each of the two networks?
       type: "multiple choice"
       correct_choice: 1
       choices:
