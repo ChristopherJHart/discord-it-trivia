@@ -43,7 +43,7 @@
       become: true
     - name: Copy Filebeat Dockerfile to remote host
       ansible.builtin.copy:
-        src: "{{ repository_filepath }}/config/filebeat/Dockerfile"
+        src: "{{ repository_filepath }}/tools/config/filebeat/Dockerfile"
         dest: "{{ host_beat_config_filepath }}/filebeat/Dockerfile"
         owner: root
         group: discord-it-trivia
