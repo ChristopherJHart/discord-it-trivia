@@ -26,6 +26,13 @@
         group: discord-it-trivia
         state: directory
       become: true
+    - name: Create Discord IT Trivia Filebeat configuration directory
+      ansible.builtin.file:
+        path: "{{ host_beat_config_filepath }}/filebeat"
+        mode: g+rwx
+        group: discord-it-trivia
+        state: directory
+      become: true
     - name: Copy Filebeat configuration template to remote host
       ansible.builtin.template:
         src: "{{ repository_filepath }}/tools/ansible/templates/filebeat.j2"
