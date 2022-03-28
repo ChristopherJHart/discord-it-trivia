@@ -44,6 +44,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Use Ansible to deploy to production
+        # yamllint disable rule:line-length
         run: >
           ansible-playbook
           -i '${{ secrets.PRODUCTION_HOST }},'
@@ -57,10 +58,11 @@ jobs:
           -e docker_login_username=${{ secrets.DOCKERHUB_USERNAME }}
           -e docker_login_password=${{ secrets.DOCKERHUB_TOKEN }}
           -e discord_token=${{ secrets.DISCORD_TOKEN }}
-          -e repository_filepath=/home/runner/work/discord-it-trivia/
+          -e repository_filepath=/home/runner/work/discord-it-trivia/discord-it-trivia
           -e host_beat_config_filepath=/src/discord-it-trivia/config
           -e elk_url=${{ secrets.ELK_URL }}
           -e elk_path=${{ secrets.ELK_PATH }}
           -e elk_username=${{ secrets.ELK_USERNAME }}
           -e elk_password=${{ secrets.ELK_PASSWORD }}
           -e elk_index=${{ secrets.ELK_INDEX }}
+        # yamllint enable rule:line-length
