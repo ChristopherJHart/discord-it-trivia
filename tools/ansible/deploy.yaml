@@ -19,6 +19,15 @@
           - docker
         append: true
       become: true
+    - name: Log into DockerHub
+      community.general.docker_login:
+        username: "{{ docker_login_username }}"
+        password: "{{ docker_login_password }}"
+      when: bot_container_tag == "latest"
+    - name: Create Docker network
+      community.general.docker_network:
+        name: discord-it-trivia
+        state: present
     - name: Create Discord IT Trivia configuration directory
       ansible.builtin.file:
         path: "{{ host_beat_config_filepath }}"
@@ -75,15 +84,6 @@
         command: --strict.perms=false
         restart_policy: unless-stopped
         state: started
-    - name: Log into DockerHub
-      community.general.docker_login:
-        username: "{{ docker_login_username }}"
-        password: "{{ docker_login_password }}"
-      when: bot_container_tag == "latest"
-    - name: Create Docker network
-      community.general.docker_network:
-        name: discord-it-trivia
-        state: present
     - name: Stop Discord IT Trivia bot container
       community.general.docker_container:
         name: discord-it-trivia
