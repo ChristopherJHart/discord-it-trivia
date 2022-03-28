@@ -21,8 +21,8 @@ run:
 	docker run --rm --name $(CONTAINER_NAME) chrisjhart/$(CONTAINER_NAME):latest
 
 run-dev: build
-	docker run --rm --name $(CONTAINER_NAME) -v $(PWD)/.env:/app/.env chrisjhart/$(CONTAINER_NAME):latest
-	docker logs -f $(CONTAINER_NAME)
+	docker run --rm --name $(CONTAINER_NAME)-dev -v $(PWD)/.env:/app/.env chrisjhart/$(CONTAINER_NAME):latest
+	docker logs -f $(CONTAINER_NAME)-dev
 
 run-debug:
 	docker run --rm --name $(CONTAINER_NAME) chrisjhart/$(CONTAINER_NAME):latest -c "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 ./main.py

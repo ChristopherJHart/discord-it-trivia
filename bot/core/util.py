@@ -148,7 +148,10 @@ def question_pool(filepath: str) -> List[dict]:
 
 def exam_from_pool(exam_name: str) -> Optional[List[dict]]:
     """Get data about exam from question pool."""
-    pool = question_pool()
+    # TODO: Import here so unit tests work properly. This is a hack, refactor later.
+    from bot.core.config import settings
+
+    pool = question_pool(settings.QUESTION_POOL_FILEPATH)
     for exam in pool:
         if exam.get("command_name") == exam_name:
             return exam
