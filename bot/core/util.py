@@ -3,7 +3,13 @@
 from typing import List, Optional
 from yaml import SafeLoader, load
 from aiohttp.client_exceptions import ClientOSError
-from disnake import ApplicationCommandInteraction, Embed, Forbidden, HTTPException
+from disnake import (
+    ApplicationCommandInteraction,
+    Embed,
+    Forbidden,
+    HTTPException,
+    InteractionResponded,
+)
 import structlog
 from structlog.contextvars import (
     bind_contextvars,
@@ -123,6 +129,9 @@ async def send_embed(
         )
         try:
             await inter.response.send_message(embed=e, ephemeral=ephemeral)
+            logger.info("Sent embed", embed=e.to_dict())
+        except InteractionResponded:
+            await inter.followup.send(embed=e, ephemeral=ephemeral)
             logger.info("Sent embed", embed=e.to_dict())
         except Forbidden:
             logger.warning("Failed to send message due to permissions error")
