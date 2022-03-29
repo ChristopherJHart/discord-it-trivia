@@ -4,7 +4,8 @@ from random import choice, shuffle
 import asyncio
 from datetime import datetime, timedelta
 import structlog
-from disnake import ApplicationCommandInteraction, Reaction, Member
+from structlog.contextvars import clear_contextvars, bind_contextvars
+from disnake import ApplicationCommandInteraction, Reaction, Member, Forbidden
 from bot.client import discord_bot
 from bot.embeds.trivia import (
     trivia_ok_multiple_choice_question,
@@ -23,6 +24,14 @@ async def trivia(inter: ApplicationCommandInteraction) -> None:
     This coroutine is passed into a dynamically-created slash command. Each exam in the question
     pool gets its own command.
     """
+    clear_contextvars()
+    bind_contextvars(
+        guild_id=inter.guild.id,
+        guild_name=inter.guild.name,
+        channel_id=inter.channel.id,
+        channel_name=inter.channel.name,
+        command_name=inter.application_command.name,
+    )
     exam = exam_from_pool(inter.application_command.name)
     question = choice(exam.get("questions"))
     prompt = question.get("prompt")
@@ -49,7 +58,10 @@ async def trivia(inter: ApplicationCommandInteraction) -> None:
         9: "9️⃣",
     }
     for index, answer_choice in enumerate(answer_choices, start=1):
-        await response.add_reaction(index_to_emoji_mapping.get(index))
+        try:
+            await response.add_reaction(index_to_emoji_mapping.get(index))
+        except Forbidden:
+            logger.warning("Failed to add reaction to message due to permissions issue")
 
     start_time = datetime.now()
     end_time = start_time + timedelta(seconds=settings.QUESTION_TIMEOUT)
@@ -113,3 +125,4 @@ async def trivia(inter: ApplicationCommandInteraction) -> None:
                             )
 
     logger.info("Question is no longer active")
+    clear_contextvars()
