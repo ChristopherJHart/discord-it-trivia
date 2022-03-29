@@ -162,7 +162,10 @@
           text: "3 seconds"
         - id: 4
           text: "30 seconds"
-    - choices:
+    - prompt: "How many usable hosts are present in a Class C network?"
+      correct_choice: 3
+      type: "multiple choice"
+      choices:
         - id: 1
           text: "255"
         - id: 2
@@ -171,11 +174,13 @@
           text: "254"
         - id: 4
           text: "64"
-      correct_choice: 3
-      prompt: >-
-        For a Class C IPv4 Address, how many usable hosts are there by default?
+      explanation: >-
+        A Class C network defines a maximum of 2,097,152 (2^21) /24 networks.
+        Each network supports up to 254 (2^8-2) hosts.
+    - prompt: Which Cisco IOS command shows active OSPF neighbor adjacencies?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: show ip ospf neighbor
         - id: 2
@@ -184,10 +189,12 @@
           text: show ip ospf database
         - id: 4
           text: show protocols
-      correct_choice: 1
-      prompt: Which Cisco IOS command shows OSPF neighbor adjacencies?
+    - prompt: >-
+        Which of the following describes an attack type where attackers
+        manipulate a routing table?
       type: "multiple choice"
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: Session Hijacking
         - id: 2
@@ -196,12 +203,10 @@
           text: DNS Spoofing
         - id: 4
           text: Replay Attack
-      correct_choice: 2
-      prompt: >-
-        Which of the following describes the attack type where a routing table
-        is manipulated by attackers?
+    - prompt: "What are the two main types of Site-to-Site VPNs?"
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: Extranet Based VPN/Intranet Based VPN
         - id: 2
@@ -210,10 +215,12 @@
           text: Included Based VPN/Internet Based VPN
         - id: 4
           text: Extranet Based VPN/Excluded Based VPN
-      correct_choice: 1
-      prompt: What are the two main types of Site-to-Site VPNs?
+    - prompt: >-
+        Which of the below describes the technical term for a wireless network
+        name?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: WLAN-ID
         - id: 2
@@ -222,12 +229,12 @@
           text: WID
         - id: 4
           text: SSID
-      correct_choice: 4
-      prompt: >-
-        Which of the below describes the technical term for a wireless network
-        name?
+    - prompt: >-
+        Which of the below are the main characteristic of REST
+        (Representational State Transfer) APIs?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: Scalable
         - id: 2
@@ -236,17 +243,16 @@
           text: Flexible
         - id: 4
           text: All of the other choices
-      correct_choice: 4
-      prompt: >-
-        Which of the below are the main characteristic of REST
-        (Representational State Transfer)?
-      type: "multiple choice"
       explanation: >-
         One of the key advantages of REST APIs is that they provide a great
         deal of flexibility. Data is not tied to resources or methods, so REST
         can handle multiple types of calls, return different data formats and
         even change structurally with the correct implementation of hypermedia.
-    - choices:
+    - prompt: >-
+        What Cisco IOS configuration command enables the DHCP Snooping feature?
+      type: "multiple choice"
+      correct_choice: 2
+      choices:
         - id: 1
           text: run snooping
         - id: 2
@@ -255,11 +261,11 @@
           text: run dhcp snooping
         - id: 4
           text: enable snooping
-      correct_choice: 2
-      prompt: >-
-        What Cisco IOS configuration command enables the DHCP Snooping feature?
+    - prompt: >-
+        What is the broadcast address for a Class C network of 192.168.145.0?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: 192.168.145.255
         - id: 2
@@ -268,55 +274,39 @@
           text: 192.168.0.0
         - id: 4
           text: 192.168.145.0
-      correct_choice: 1
-      prompt: >-
-        What is the broadcast address for a Class C network of 192.168.145.0?
+    - prompt: >-
+        Which of the below types of packets does a host broadcast to
+        learn the MAC address associated with a specific IPv4 address in the
+        same IPv4 subnet as the host?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
-          text: ICMP Reply
+          text: ICMP Echo Reply
         - id: 2
-          text: ICMP Request
+          text: ICMP Echo Request
         - id: 3
           text: ARP Request
         - id: 4
-          text: None of the available options
-      correct_choice: 3
-      prompt: >-
-        Which of the below types of packets does a host broadcast to
-        learn the MAC address associated with a specific IP address in the same
-        IP subnet as the host?
-      type: "multiple choice"
-    - choices:
-        - id: 1
-          text: Source IP
-        - id: 2
-          text: MAC addresses
-        - id: 3
-          text: Source MAC
-        - id: 4
-          text: All of the other choices
-      correct_choice: 3
-      prompt: >-
+          text: ARP Reply
+    - prompt: >-
         Which of the below packet characteristics are used to build an Ethernet
         switch's switching table?
       type: "multiple choice"
-    - choices:
-        - id: 1
-          text: "255"
-        - id: 2
-          text: "128"
-        - id: 3
-          text: "254"
-        - id: 4
-          text: "64"
       correct_choice: 3
-      explanation: >-
-        Class C defines a maximum of 2,097,152 (2^21) /24 networks. Each
-        network supports up to 254 (2^8-2) hosts.
-      prompt: How many usable hosts are in a Class C network?
+      choices:
+        - id: 1
+          text: Source IP address
+        - id: 2
+          text: Destination MAC address
+        - id: 3
+          text: Source MAC address
+        - id: 4
+          text: All of the other choices
+    - prompt: Which of the following are ones are wireless security protocols?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: WPA3 (Wi-Fi Protected Access 3)
         - id: 2
@@ -325,10 +315,12 @@
           text: WPA (Wi-Fi Protected Access)
         - id: 4
           text: All of the other choices
-      correct_choice: 4
-      prompt: Which of the following are ones are wireless security protocols?
+    - prompt: >-
+        Which of the following are valid DAI (Dynamic Arp Inspection) trust
+        states?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: Passive
         - id: 2
@@ -337,12 +329,11 @@
           text: Trusted
         - id: 4
           text: Trusted & Untrusted
-      correct_choice: 4
-      prompt: >-
-        Which of the following are valid DAI (Dynamic Arp Inspection) trust
-        states?
+    - prompt: >-
+        Which of the following generates a syslog with a severity of Notice?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: A network device has restarted.
         - id: 2
@@ -351,11 +342,10 @@
           text: An ARP inspection has failed.
         - id: 4
           text: A routing instance has flapped.
-      correct_choice: 4
-      prompt: >-
-        Which of the following generates a syslog with a severity of Notice?
+    - prompt: What type of IPv6 address starts with "FE80"?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: Link Local
         - id: 2
@@ -364,10 +354,11 @@
           text: Anycast
         - id: 4
           text: Global Unicast
-      correct_choice: 1
-      prompt: What type of IPv6 address starts with "FE80"?
+    - prompt: >-
+        What is the typical subnet mask of an IPv6 global unicast address?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: /32
         - id: 2
@@ -376,11 +367,12 @@
           text: /64
         - id: 4
           text: /128
-      correct_choice: 3
-      prompt: >-
-        What is the typical subnet mask of an IPv6 global unicast address?
+    - prompt: >-
+        What link-local multicast IP address are OSPF Hello packets destined
+        to?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: 224.0.0.5
         - id: 2
@@ -389,12 +381,13 @@
           text: 224.0.0.10
         - id: 4
           text: 224.0.0.1
-      correct_choice: 1
-      prompt: >-
-        What link-local multicast IP address are OSPF Hello packets destined
-        to?
+    - prompt: >-
+        Interface GigabitEthernet0/0/0 on a router is assigned an IP address of
+        192.168.192.10/29. Including the router interface, how many hosts can
+        have IP addresses on the LAN attached to the router interface?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: "6"
         - id: 2
@@ -403,13 +396,10 @@
           text: "30"
         - id: 4
           text: "62"
-      correct_choice: 1
-      prompt: >-
-        You have an interface on a router with the IP address of
-        192.168.192.10/29. Including the router interface, how many hosts can
-        have IP addresses on the LAN attached to the router interface?
+    - prompt: What is the length of the DSCP field in an IPv4 header?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: 3 bits
         - id: 2
@@ -418,10 +408,12 @@
           text: 6 bits
         - id: 4
           text: 8 bits
-      correct_choice: 3
-      prompt: The DSCP field constitutes how many fields in the IP header?
+    - prompt: >-
+        In SDN (Software-Defined Networking) architectures, which plane is
+        distributed and responsible for forwarding user traffic?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: management plane
         - id: 2
@@ -430,12 +422,11 @@
           text: policy plane
         - id: 4
           text: data plane
-      correct_choice: 4
-      prompt: >-
-        In software defined architectures, which plane is distributed and
-        responsible for traffic forwarding?
+    - prompt: >-
+        How many more bits are used in an IPv6 address than in an IPv4 address?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: "96"
         - id: 2
@@ -444,11 +435,12 @@
           text: "48"
         - id: 4
           text: "64"
-      correct_choice: 1
-      prompt: >-
-        How many more bits are used in an IPv6 address than in an IPv4 address?
+    - prompt: >-
+        If an Ethernet switch has five hosts attached, how many collision
+        domains are created?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: "1"
         - id: 2
@@ -457,12 +449,12 @@
           text: "5"
         - id: 4
           text: "6"
-      correct_choice: 3
-      prompt: >-
-        If a switch has five workstations attached, how many collision domains
-        are created?
+    - prompt: >-
+        Which IPv6 address is the equivalent of the IPv4 interface loopback
+        address 127.0.0.1?
       type: "multiple choice"
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: 2000::/3
         - id: 2
@@ -471,12 +463,10 @@
           text: 0::/10
         - id: 4
           text: "::"
-      correct_choice: 2
-      prompt: >-
-        Which IPv6 address is the equivalent of the IPv4 interface loopback
-        address 127.0.0.1?
+    - prompt: Which of the following IPv6 addresses is valid?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: 2031:0:130F::9C0:876A:130B
         - id: 2
@@ -485,10 +475,12 @@
           text: 2001:0db8:0:130H::87C:140B
         - id: 4
           text: 2001:0db8:0000:130F:0000:0000:08GC:140B
-      correct_choice: 1
-      prompt: What IPv6 address is valid?
+    - prompt: >-
+        Which component of VPN technology ensures that data is unaltered
+        between the sender and recipient?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: authentication
         - id: 2
@@ -497,12 +489,14 @@
           text: data integrity
         - id: 4
           text: encryption
-      correct_choice: 3
-      prompt: >-
-        Which component of VPN technology ensures that data is unaltered
-        between the sender and recipient?
+    - prompt: >-
+        A network administrator is asked to configure 113 point-to-point
+        links. Which IP addressing scheme best defines the address range and
+        subnet mask that meet the requirement and wastes the fewest subnet and
+        host addresses?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: 10.10.1.0/25 subnetted with mask 255.255.255.252
         - id: 2
@@ -511,13 +505,6 @@
           text: 10.10.0.0/16 subnetted with mask 255.255.255.252
         - id: 4
           text: 10.10.0.0/23 subnetted with mask 255.255.255.252
-      correct_choice: 4
-      prompt: >-
-        The network administrator is asked to configure 113 point-to-point
-        links. Which IP addressing scheme best defines the address range and
-        subnet mask that meet the requirement and waste the fewest subnet and
-        host addresses?
-      type: "multiple choice"
     - choices:
         - id: 1
           text: 10.10.0.0/23 subnetted with mask 255.255.255.252
