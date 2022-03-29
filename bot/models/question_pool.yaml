@@ -2908,7 +2908,7 @@
         - id: 4
           text: Fedora
       correct_choice: 3
-      prompt: Guest Shell is populated with which distrobution of linux?
+      prompt: Guest Shell is populated with which distribution of linux?
       type: multiple choice
     - choices:
         - id: 1
