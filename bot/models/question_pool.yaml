@@ -147,7 +147,7 @@
           text: "LSA (Link State Advertisement) Packets"
       explanation:
     - prompt: >-
-        What's the default time for the OSPF routing protocol's Hello Interval?
+        What's the default timer for the OSPF routing protocol's Hello Interval?
       type: "multiple choice"
       tags:
         - OSPF
