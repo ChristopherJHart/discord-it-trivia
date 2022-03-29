@@ -95,13 +95,19 @@ async def trivia(inter: ApplicationCommandInteraction) -> None:
                     correct_answer_choice_id=question.get("correct_choice"),
                 )
                 if selected_answer_choice.get("id") == question.get("correct_choice"):
-                    await inter.followup.send(embed=trivia_ok_correct(), ephemeral=True)
+                    await inter.followup.send(
+                        embed=trivia_ok_correct(
+                            explanation=question.get("explanation")
+                        ),
+                        ephemeral=True,
+                    )
                 else:
                     for index, answer_choice in enumerate(answer_choices, start=1):
                         if answer_choice.get("id") == question.get("correct_choice"):
                             await inter.followup.send(
                                 embed=trivia_ok_incorrect(
-                                    f"{index}. {answer_choice.get('text')}"
+                                    f"{index}. {answer_choice.get('text')}",
+                                    explanation=question.get("explanation"),
                                 ),
                                 ephemeral=True,
                             )

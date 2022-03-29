@@ -37,13 +37,15 @@ def trivia_ok_multiple_choice_question(
 
 
 @command_ok(title="__Trivia Answer Correct__")
-def trivia_ok_correct(embed: Embed) -> Embed:
+def trivia_ok_correct(embed: Embed, explanation: Optional[str] = None) -> Embed:
     """Embed for when answer to trivia question is correct."""
     embed.add_field(
         name="Response",
         value="Your answer to the trivia question was correct!",
         inline=False,
     )
+    if explanation is not None:
+        embed.add_field(name="Explanation", value=explanation, inline=False)
     return embed
 
 
