@@ -1757,3 +1757,1177 @@
         10. Under what conditions will R1 choose as its best route the route
         through R22?
       type: multiple choice
+- meta_name: >-
+    350-601 DCCOR - Implementing and Operating Cisco Data Center Core
+    Technologies
+  meta_description: >-
+    Question pool for the 350-601 DCCOR - Implementing and Operating Cisco Data
+    Center Core Technologies exam.
+  command_name: "dccor"
+  command_description: >-
+    Get a question from the Cisco 350-601 DCCOR exam question pool.
+  questions:
+    - choices:
+        - id: 1
+          text: 10 seconds
+        - id: 2
+          text: 15 seconds
+        - id: 3
+          text: 3 seconds
+        - id: 4
+          text: 30 seconds
+      correct_choice: 1
+      prompt: "What's the default time for OSPF hello_interval "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: 30 seconds
+        - id: 2
+          text: 10 seconds
+        - id: 3
+          text: 40 seconds
+        - id: 4
+          text: 25 seconds
+      correct_choice: 3
+      explanation:
+        "if a router does not receive a hello packet within 40 seconds the
+        neighbor is removed from the routing table "
+      prompt: "What is the default time for OSPF dead_interval "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Least hops
+        - id: 2
+          text: Highest bandwidth
+        - id: 3
+          text: "Lowest Latency "
+        - id: 4
+          text: Shortest Path First
+      correct_choice: 4
+      explanation:
+        After the ospf routers are converged, each router will use Dijkstra's
+        shortest path first (SPF) algorithm to build its route table
+      prompt: "What algorithm is used to build an OSPF routing table "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: FF02::5
+        - id: 2
+          text: "FF08::"
+        - id: 3
+          text: FF02::6
+        - id: 4
+          text: FF08::5
+      correct_choice: 1
+      explanation:
+        OSPFv3 expands on OSPFv2 to provide support. for IPv6 routing table
+        prefixes and the larger size IPv6 addresses, OSPF Hello address FF02::5
+      prompt: "What is the OSPFv3 hello address "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "It forwards the LSA out of every OSPF-enabled interface "
+        - id: 2
+          text: It keeps the LSA information and updates its routing table
+        - id: 3
+          text: It forwards the LSA to the designated router only
+        - id: 4
+          text: It forwards the LSA to the designated and backup router only
+      correct_choice: 1
+      explanation:
+        The LSA is flooded out of every OSPF enabled interface. This guarantees
+        that all the routers in the network have identical routing information
+      prompt: What happens when an OSPF router receives an LSA?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Type 8,10,11
+        - id: 2
+          text: Type 9,10,11
+        - id: 3
+          text: Type 8,9,10
+        - id: 4
+          text: Type 10,11,12
+      correct_choice: 2
+      explanation: >-
+        Opaque LSAs consist of a standard LSA header followed by application
+        specific information. OSPFv2 uses opaque LSAs to support the OSPFv2
+        graceful restart capabilities.
+      prompt: What are the opaque LSAs?        _
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: >-
+            Network Summary LSA, sent by the area border router to an external
+            area for each destination in the local area.
+        - id: 2
+          text: >-
+            ASBR Summary - LSA sent out by the area border router to an
+            external area
+        - id: 3
+          text: >-
+            Network LSA - LSA sent out by the DR. This LSA lists all routers in
+            the multi-access network
+        - id: 4
+          text: NSSA External LSA
+      correct_choice: 1
+      explanation:
+        This LSA includes the link cost from the area border router to the
+        local destination
+      prompt: Describe OPSFv2 type 3 LSA
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Group Traversing
+        - id: 2
+          text: Refresh Grouping
+        - id: 3
+          text: LSA Grouping
+        - id: 4
+          text: "Group Pacing "
+      correct_choice: 4
+      explanation:
+        used to control the flood rate of LSA updates on your network. Can
+        reduce high CPU of buffer usage
+      prompt: >-
+        What OSPF feature groups LSAs with similar refresh times to allow OSPF
+        to pack multiple LSAs into an OSPF update message
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Type 4
+        - id: 2
+          text: Type 3
+        - id: 3
+          text: Type 2
+        - id: 4
+          text: Type 8
+      correct_choice: 2
+      explanation: "Network Summary (Type 3) LSAs "
+      prompt: >-
+        The ABR sends ____ type LSAs from one connected area to the backbone
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "All routers in the stub area are stub routers "
+        - id: 2
+          text: NO ASBR routers exist in a stub area
+        - id: 3
+          text: You cannot configure virtual links in the stub area
+        - id: 4
+          text: Stub areas must connect to another AS
+      correct_choice: 4
+      prompt: Which one of these is NOT a requirement for a stub area
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Area 0 Link
+        - id: 2
+          text: Stub Link
+        - id: 3
+          text: Virtual Link
+        - id: 4
+          text: Backbone Link
+      correct_choice: 3
+      explanation: >-
+        You can also use virtual links to temporarily recover from a
+        partitioned area, which occurs when a link within an area fails,
+        isolating part of the area from reaching the designated ABR to the
+        backbone area
+      prompt: What is used if one OSPF area cannot connect directly to area 0
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: 224.0.0.6
+        - id: 2
+          text: 224.0.0.255
+        - id: 3
+          text: 224.0.0.5
+        - id: 4
+          text: 224.0.0.1
+      correct_choice: 3
+      explanation: "OSPF uses 224.0.0.5 to communicate with neighbors "
+      prompt: "Which address is used for OSPFv2 Multicast "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Simple password, AES
+        - id: 2
+          text: Simple password, MD5
+        - id: 3
+          text: MD5, AES
+        - id: 4
+          text: MD5, DES
+      correct_choice: 2
+      prompt: What are the two authentication methods of OSPFv2
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: enable OSPF
+        - id: 2
+          text: feature OSPF
+        - id: 3
+          text: set OSPF
+        - id: 4
+          text: start OSPF
+      correct_choice: 2
+      prompt: Which command is used to enable OSPFv2
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "ip ospf hello-interval "
+        - id: 2
+          text: ospf hello-interval
+        - id: 3
+          text: set ospf hello
+        - id: 4
+          text: ip ospf hello interval
+      correct_choice: 1
+      prompt: What command is used to change OSPF default hello interval
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Shortest Path First (SPF)
+        - id: 2
+          text: Best-Path
+        - id: 3
+          text: Least Hops
+        - id: 4
+          text: Path-Vector
+      correct_choice: 4
+      prompt: >-
+        What algorithm is used by BGP to exchange routing information between
+        BGP speakers
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Neighbor
+        - id: 2
+          text: "Director "
+        - id: 3
+          text: Default Router
+        - id: 4
+          text: Peer
+      correct_choice: 4
+      prompt:
+        A BGP ___ is a BGP speaker that has an active TCP connection to another
+        BGP speaker
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "8080"
+        - id: 2
+          text: "179"
+        - id: 3
+          text: "189"
+        - id: 4
+          text: "443"
+      correct_choice: 2
+      prompt: What port is used to create a TCP session with a BGP peer
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: full
+        - id: 2
+          text: "incremental "
+        - id: 3
+          text: graduated
+        - id: 4
+          text: complete
+      correct_choice: 2
+      prompt: "BGP sends out ___ updates when a topology change occurs "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: loopback
+        - id: 2
+          text: Authentication
+        - id: 3
+          text: Matching Time
+        - id: 4
+          text: Router ID
+      correct_choice: 4
+      prompt: BGP must have _____ to establish sessions with BGP peers
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Best-Path
+        - id: 2
+          text: Shortest Path First
+        - id: 3
+          text: Path-Vector
+        - id: 4
+          text: Smallest Path
+      correct_choice: 1
+      prompt: What algorithm does BGP use for path selection
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: IPv4 Unicast
+        - id: 2
+          text: IPv4 Broadcast
+        - id: 3
+          text: IPv6 Unicast
+        - id: 4
+          text: IPv6 Multicast
+      correct_choice: 2
+      explanation: "IPv4 Multicast is supported, not IPv4 Broadcast "
+      prompt: Which addresses are NOT supported by MP-BGP
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: show ipv6 route BGP
+        - id: 2
+          text: show bgp ipv6 route
+        - id: 3
+          text: "show ipv6 bgp routing-table "
+        - id: 4
+          text: show route ipv6 BGP
+      correct_choice: 1
+      prompt: "What command is used to view the IPv6 BGP routing table "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: 30 seconds
+        - id: 2
+          text: 15 seconds
+        - id: 3
+          text: "90 seconds "
+        - id: 4
+          text: 60 seconds
+      correct_choice: 4
+      prompt: What is the default keep alive interval for BGP
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Anycast
+        - id: 2
+          text: Unicast
+        - id: 3
+          text: Multicast
+        - id: 4
+          text: Broadcast
+      correct_choice: 3
+      prompt: >-
+        What protocol is used to distribute data to multiple recipients in a
+        single session
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: IANA
+        - id: 2
+          text: IGMP
+        - id: 3
+          text: BFD
+        - id: 4
+          text: PIM
+      correct_choice: 2
+      explanation:
+        "Internet Group Management Protocol (IGMP) is a IPv4 protocol that
+        a host uses to request multicast data for a particular group. "
+      prompt: >-
+        ___ is used by hosts that want to receive multicast data to request
+        membership in a multicast group
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: IGMPv2 and IGMPv3
+        - id: 2
+          text: Only IGMPv2
+        - id: 3
+          text: Only IGMPv3
+        - id: 4
+          text: NX OS does not support IGMP
+      correct_choice: 1
+      prompt: NX OS supports what version(s) of IGMP
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Switch IGMP snooping
+        - id: 2
+          text: Multicast Distribution Trees (MDT)
+        - id: 3
+          text: Multicast Listener Discovery (MLD)
+        - id: 4
+          text: Protocol Independent Multicast (PIM)
+      correct_choice: 3
+      explanation: >-
+        MLD is an IPv6 protocol that a host uses to request multicast data for
+        a particular group. Using the information obtained through MLD, the
+        software maintains a list of multicast group or channel memberships on
+        a per-interface basis
+      prompt:
+        ____ is an IPv6 protocol that a host uses to request multicast data for
+        a particular group
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Dense
+        - id: 2
+          text: Bi-Directional
+        - id: 3
+          text: "Sparse "
+        - id: 4
+          text: Light
+      correct_choice: 3
+      # yamllint disable rule:line-length
+      explanation: https://www.metaswitch.com/knowledge-center/reference/what-is-protocol-independent-multicast-pim
+      # yamllint enable rule:line-length
+      prompt: >-
+        What PIM mode must routers explicitly tell their upstream neighbors
+        about their interest in particular groups and sources
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: ARP
+        - id: 2
+          text: Fabric Services
+        - id: 3
+          text: IGMP
+        - id: 4
+          text: Peer-link
+      correct_choice: 2
+      prompt: >-
+        What protocol do vPC peers use to synchronize forwarding-plane
+        information and implement necessary configuration checks?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: PortFast
+        - id: 2
+          text: RSTP
+        - id: 3
+          text: "Root Guard "
+        - id: 4
+          text: STP
+      correct_choice: 1
+      prompt:
+        What STP feature causes an interface to be placed in a forwarding state
+        as soon as the interface is physically active?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: SPF
+        - id: 2
+          text: BFD
+        - id: 3
+          text: STP
+        - id: 4
+          text: NTP
+      correct_choice: 3
+      explanation:
+        "Spanning Tree Protocol prevents layer 2 loops by allowing only one
+        active path to exist between any layer 2 devices "
+      prompt: Which protocol prevents layer 2 loops
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "Spanning Tree prevents broadcast storms "
+        - id: 2
+          text: Spanning Tree frames are called BPDUs
+        - id: 3
+          text: >-
+            Spanning Tree allows multiple active paths to exist between any
+            layer 2 devices
+        - id: 4
+          text: >-
+            Spanning Tree port priority and path cost determine which port on
+            the switch is put in a forwarding and blocking state
+      correct_choice: 3
+      prompt: "What statement is NOT true regarding Spanning Tree "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Edge Port
+        - id: 2
+          text: Network Port
+        - id: 3
+          text: Normal Port
+        - id: 4
+          text: Bi-Directional Port
+      correct_choice: 4
+      prompt: Which is NOT a valid STP port type
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: The port is shutdown
+        - id: 2
+          text: The port is switched to a network port
+        - id: 3
+          text: The port works as intended
+        - id: 4
+          text: The port could create a bridging loop
+      correct_choice: 4
+      explanation: >-
+        Edge ports are normally connected to end hosts. An edge port can be
+        either an access port or a trunk port. The edge port immediately
+        transitions to a forwarding state without moving through blocking or
+        learning.
+      prompt: What happens if a STP edge port is connected to another switch
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Normal Ports
+        - id: 2
+          text: Host Ports
+        - id: 3
+          text: Edge Ports
+        - id: 4
+          text: "Multi- Ports "
+      correct_choice: 1
+      explanation: "The default spanning tree interface is a normal port "
+      prompt: >-
+        Spanning tree ___ ports can connect to hosts, switches, or bridges
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "STP bridge assurance "
+        - id: 2
+          text: "BPDU Guard "
+        - id: 3
+          text: Loop Guard
+        - id: 4
+          text: BPDU Filtering
+      correct_choice: 2
+      explanation:
+        "BPDU guard is useful for edge ports that should never be connected
+        to another switch "
+      prompt: What STP extension disables ports that receives a BPDU frame
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: BPDU Guard
+        - id: 2
+          text: Loop Guard
+        - id: 3
+          text: "Root Guard "
+        - id: 4
+          text: STP Bridge Assurance
+      correct_choice: 3
+      prompt: >-
+        What STP extension prevents a port from becoming a root port or a
+        blocked port?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "Must be configured on a per interface basis "
+        - id: 2
+          text: Must be enabled on a port that should ever receive a BPDU
+        - id: 3
+          text: Can be configured Globally
+        - id: 4
+          text: "Generates an err-disabled alert is BPDU is received "
+      correct_choice: 1
+      prompt: "What is NOT true about BPDU Guard "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: STP
+        - id: 2
+          text: PVST+
+        - id: 3
+          text: Rapid PVST+
+        - id: 4
+          text: RSTP
+      correct_choice: 3
+      prompt: What is the default STP mode for Nexus switches
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: >-
+            It immediately deletes dynamic MAC addresses that were learned by
+            all ports on the switch
+        - id: 2
+          text: >-
+            It sets a timer to delete all MAC addresses that were learned
+            dynamically by ports in the same STP instance "
+        - id: 3
+          text: >-
+            It sets a timer to delete dynamic MAC addresses that were learned
+            by all ports on the switch
+        - id: 4
+          text: >-
+            It immediately deletes all MAC addresses that were learned
+            dynamically by ports in the same STP instance
+      correct_choice: 2
+      prompt: >-
+        Which option describes how a switch in Rapid PVST+ mode responds to a
+        topology change
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Edge ports block the root port
+        - id: 2
+          text: The edge port Immediately transitions to a forwarding state
+        - id: 3
+          text: >-
+            You should configure only on ports that connect to a single end
+            device as edge port
+        - id: 4
+          text: >-
+            Edge ports do not generate topology changes when the link changes
+      correct_choice: 1
+      prompt: What is NOT true about Rapid PVST+ Edge ports
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Redundancy
+        - id: 2
+          text: Bandwidth
+        - id: 3
+          text: Spanning Tree
+        - id: 4
+          text: Latency
+      correct_choice: 4
+      prompt: "What is NOT a benefit of port channels "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Static, PAgP
+        - id: 2
+          text: PAgP, LACP
+        - id: 3
+          text: Static, LACP
+        - id: 4
+          text: "Static, Combined "
+      correct_choice: 3
+      explanation: PAgp is not supported by NX OS
+      prompt: Which two port channel modes are supported by NX OS
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Active/Active
+        - id: 2
+          text: Active/Passive
+        - id: 3
+          text: ON/ON
+        - id: 4
+          text: Passive/Passive
+      correct_choice: 3
+      explanation: Port status UP (LACP disabled)
+      prompt: >-
+        What Channel mode combination would be used for static configuration?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: >-
+            allows the creation of layer 2 port channels that spans 2 switches
+        - id: 2
+          text: "vPC are managed and configured independently "
+        - id: 3
+          text: "vPC eliminate STP blocks "
+        - id: 4
+          text: vPC creates a single logical switch
+      correct_choice: 4
+      explanation:
+        "Cisco Catalyst Virtual switching system (VSS) creates a single logical
+        switch while vPC is managed and configured independently "
+      prompt: What is NOT not a benefit of vPC
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: CDP
+        - id: 2
+          text: DHCP
+        - id: 3
+          text: LLDP
+        - id: 4
+          text: IS-IS
+      correct_choice: 3
+      explanation: "Link Layer Discovery Protocol "
+      prompt: >-
+        In a Cisco ACI cluster, which protocol does the Cisco APIC use to
+        discover nodes?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Switches
+        - id: 2
+          text: APIC
+        - id: 3
+          text: Routers
+        - id: 4
+          text: VMs or Servers
+      correct_choice: 4
+      prompt: What is an endpoint in ACI?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: IS-IS
+        - id: 2
+          text: "FabricPath "
+        - id: 3
+          text: VLAN
+        - id: 4
+          text: VXLAN
+      correct_choice: 4
+      prompt: >-
+        Which network protocol is used for Cisco ACI fabric data plane
+        forwarding
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Two controllers, N+1 redundancy
+        - id: 2
+          text: "Three Controllers, N+2 redundancy "
+        - id: 3
+          text: One Controller
+        - id: 4
+          text: Three Controllers, 3N redundancy
+      correct_choice: 2
+      prompt: >-
+        What is the minimum number of Cisco APIC controllers required to form a
+        cisco APIC cluster
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Tenants
+        - id: 2
+          text: Bridge Domain
+        - id: 3
+          text: Application Profiles
+        - id: 4
+          text: Endpoint Groups
+      correct_choice: 1
+      prompt: >-
+        ___ is a logical container for application policies that enable an
+        administrator to exercise domain-based access control
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Tenants
+        - id: 2
+          text: Bridge Domain
+        - id: 3
+          text: Application Profiles
+        - id: 4
+          text: Endpoint Groups
+      correct_choice: 3
+      prompt:
+        ____ defines the policies, services, and relationships between endpoint
+        groups (EPGs)
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: EPG
+        - id: 2
+          text: AEP
+        - id: 3
+          text: BD
+        - id: 4
+          text: Tenant
+      correct_choice: 2
+      explanation:
+        Attachable Entity Profile. An AEP is required to deploy VLAN pools
+        on leaf switches
+      prompt:
+        ___ represents a group of external entities with similar infrastructure
+        policy requirements
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Broad network access
+        - id: 2
+          text: Rapid Elasticity
+        - id: 3
+          text: Measured Service
+        - id: 4
+          text: On-demand manual service
+      correct_choice: 4
+      prompt: >-
+        which of the following is NOT a characteristic of cloud computing?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: to scale rapidly outward and inward commensurate with demand
+        - id: 2
+          text: control and optimize resource usage
+        - id: 3
+          text: >-
+            unilaterally provision computing capabilities such as server time
+            and network storage
+        - id: 4
+          text: "automatically installs software patches "
+      correct_choice: 1
+      prompt: Define Rapid Elasticity
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Public Cloud
+        - id: 2
+          text: Hybrid Cloud
+        - id: 3
+          text: Multi Cloud
+        - id: 4
+          text: Private Cloud
+      correct_choice: 2
+      prompt: >-
+        what type of cloud model is composed of two or more clouds that retain
+        unique entities but are bound together
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: TCP 161
+        - id: 2
+          text: UDP 161
+        - id: 3
+          text: UDP 163
+        - id: 4
+          text: TCP 163
+      correct_choice: 2
+      prompt: What protocol and port are used in SNMP polling by default?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: SOAP
+        - id: 2
+          text: CoPP
+        - id: 3
+          text: IS-IS
+        - id: 4
+          text: POAP
+      correct_choice: 4
+      explanation: "PowerOn Auto Provisioning "
+      prompt: >-
+        ___ automates the process of upgrading software images and installing
+        configuration files on the cisco nexus switches that are being deployed
+        in the network for the first time
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "Its software stamped "
+        - id: 2
+          text: "Its Centralized "
+        - id: 3
+          text: It's more accurate than NTP
+        - id: 4
+          text: "PTP operates in a physical scope called a PTP domain "
+      correct_choice: 3
+      prompt: "What statement is true about Precision Time Protocol "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: show snmp status
+        - id: 2
+          text: "show snmp host "
+        - id: 3
+          text: show host snmp
+        - id: 4
+          text: show snmp
+      correct_choice: 2
+      prompt: "what command is used to view SNMP status "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: E ports and TE ports
+        - id: 2
+          text: F ports and NP ports
+        - id: 3
+          text: E ports and F ports
+        - id: 4
+          text: TF ports and TNP ports
+      correct_choice: 3
+      prompt: Which one of the following will NOT form a SAN port channel
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "128"
+        - id: 2
+          text: "256"
+        - id: 3
+          text: "512"
+        - id: 4
+          text: "1024"
+      correct_choice: 2
+      prompt: >-
+        What is the maximum number of VSANs that can be configured on a switch
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: FCID
+        - id: 2
+          text: WWP
+        - id: 3
+          text: HBA
+        - id: 4
+          text: WWN
+      correct_choice: 4
+      explanation: World Wide Name - which is assigned by the manufacturer
+      prompt: "Every Fibre Channel port has a hard-encoded address called the "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "based on link state protocol "
+        - id: 2
+          text: "dynamically compute routes "
+        - id: 3
+          text: "supports only one path "
+        - id: 4
+          text: "Selects alternate path in the event of a failure "
+      correct_choice: 3
+      prompt: "Which option for FSPF is false "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: FLOGI
+        - id: 2
+          text: PLOGI
+        - id: 3
+          text: PRLI
+        - id: 4
+          text: FCNS
+      correct_choice: 1
+      prompt: "___ happens between an N port and an F port "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: iFCP
+        - id: 2
+          text: FCIP
+        - id: 3
+          text: iSCSI
+        - id: 4
+          text: FCoE
+      correct_choice: 3
+      prompt: >-
+        Which method is a TCP/IP-based protocol for establishing and managing
+        connections between IP-based storage devices, hosts, and clients?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Syslog
+        - id: 2
+          text: System Event logs
+        - id: 3
+          text: SNMP
+        - id: 4
+          text: Audit Log
+      correct_choice: 4
+      prompt:
+        If you suspect some changes have been made to the UCS configuration and
+        want to check who initiated them, what log do you check?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "Unified management "
+        - id: 2
+          text: Resource Optimizations
+        - id: 3
+          text: Lower Traffic Latency
+        - id: 4
+          text: All of the above
+      correct_choice: 4
+      prompt: A hyperflex solution will provide which of the following?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: They are logical containers
+        - id: 2
+          text: Where the host places virtual disk files and other VM files
+        - id: 3
+          text: They hide specifics of physical storage devices
+        - id: 4
+          text: They provide a nonstandard model for storing VM files
+      correct_choice: 4
+      explanation: They provide a uniform model for storing VM files
+      prompt: " Which statement is NOT true about datastores"
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "A quorum "
+        - id: 2
+          text: A plenum
+        - id: 3
+          text: A Majority
+        - id: 4
+          text: A Minimum
+      correct_choice: 1
+      prompt: What is used by hyperflex to make decisions
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: One node becomes the master
+        - id: 2
+          text: A split brain might occur
+        - id: 3
+          text: Data is processes as usual
+        - id: 4
+          text: both nodes stop receiving traffic
+      correct_choice: 2
+      # yamllint disable rule:line-length
+      explanation: >-
+        A "split brain" might occur if both nodes continue to process data
+        without obtaining a quorum https://www.cisco.com/c/en/us/products/collateral/hyperconverged-infrastructure/hyperflex-hx-series/whitepaper-c11-741999.html
+      # yamllint enable rule:line-length
+      prompt: What happens when two hyperflex nodes lose connection?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: A witness
+        - id: 2
+          text: Additional management link
+        - id: 3
+          text: A 3rd node
+        - id: 4
+          text: A single management interface
+      correct_choice: 1
+      explanation: >-
+        A witness or arbiter can vote if a failure occurs within a cluster
+      prompt: Which component is required in a hyperflex two node cluster?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: SATA SSD
+        - id: 2
+          text: SAS SSD
+        - id: 3
+          text: NVMe
+        - id: 4
+          text: HDD
+      correct_choice: 3
+      explanation:
+        NVMe drives connect directly to the CPU rather than through latency
+        inducing PCIe switches
+      prompt: >-
+        Which storage drive is recommended for high performance mission
+        critical data center workloads?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "node that adds compute resources "
+        - id: 2
+          text: node that adds storage resources
+        - id: 3
+          text: a node that the represents the physical hardware the VM runs on
+        - id: 4
+          text: "a node that ads graphics "
+      correct_choice: 3
+      prompt: Which answer best describes 'converged node'
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "3"
+        - id: 2
+          text: "2"
+        - id: 3
+          text: "4"
+        - id: 4
+          text: "5"
+      correct_choice: 2
+      prompt: >-
+        The HX data platform high availability feature ensures that the storage
+        cluster maintains at least ___ copies of all your data during normal
+        operations with 3 or more fully functioning nodes
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Missing
+        - id: 2
+          text: Healthy
+        - id: 3
+          text: Warning
+        - id: 4
+          text: Unknown
+      correct_choice: 1
+      prompt: Which is NOT a hyperflex operational status
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "You can configure security keys locally or remotely "
+        - id: 2
+          text: The key is stored in memory
+        - id: 3
+          text: The data on the disk is always stored in encrypted form
+        - id: 4
+          text: Encryption for SEDs is done by the software
+      correct_choice: 4
+      explanation: Encryption/decryption is done through the hardware
+      prompt: "Which statement about HX self encrypting drives is false "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: EEM policies can be configured in the CLI
+        - id: 2
+          text: EEM Policies are configured on the supervisor
+        - id: 3
+          text: EEM maintains event logs on the supervisor
+        - id: 4
+          text: EEM cannot take automatic actions based on events
+      correct_choice: 4
+      prompt: "Which statment about EEM is NOT true "
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: show event manager system-policy
+        - id: 2
+          text: show running-config eem
+        - id: 3
+          text: "show running-config applet "
+        - id: 4
+          text: show event manager policy active detailed
+      correct_choice: 2
+      prompt: >-
+        which command will display information about the running config for EEM
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: dev-ops
+        - id: 2
+          text: read only
+        - id: 3
+          text: network-admin
+        - id: 4
+          text: admin
+      correct_choice: 3
+      prompt: >-
+        What level of access do you have while running guest shell on NXOS
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Nexus 9000
+        - id: 2
+          text: Nexus 5000
+        - id: 3
+          text: Nexus 9000 and 3000
+        - id: 4
+          text: Nexus 9000 and Nexus 5000
+      correct_choice: 1
+      prompt: Guest Shell is supported on (choose one)
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: Ubuntu
+        - id: 2
+          text: RHEL
+        - id: 3
+          text: CentOS
+        - id: 4
+          text: Fedora
+      correct_choice: 3
+      prompt: Guest Shell is populated with which distrobution of linux?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: run host
+        - id: 2
+          text: donxos
+        - id: 3
+          text: dohost
+        - id: 4
+          text: run nxos
+      correct_choice: 3
+      prompt: >-
+        what command would you use to run NXOS commands while in guest shell?
+      type: multiple choice
+    - choices:
+        - id: 1
+          text: "400"
+        - id: 2
+          text: "404"
+        - id: 3
+          text: "201"
+        - id: 4
+          text: "401"
+      correct_choice: 4
+      prompt: "which http status code means not authorized "
+      type: multiple choice
