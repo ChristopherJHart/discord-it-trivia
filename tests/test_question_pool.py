@@ -1,6 +1,7 @@
 """Test exam question pool."""
 
 from typing import List
+import re
 
 
 def test_question_pool_types(question_pool: List[dict]) -> None:
@@ -88,3 +89,11 @@ def test_exam_questions_choices(question_pool: List[dict]) -> None:
                 assert isinstance(c.get("id"), int)
                 assert c.get("text") is not None
                 assert isinstance(c.get("text"), str)
+
+
+def test_exam_question_prompts_end_with_punctuation(question_pool: List[dict]) -> None:
+    """Ensure that each exam's question prompts end with punctuation."""
+    punctuation_pattern = re.compile(r"(?:\b|\)|\")[.!?]$")
+    for exam in question_pool:
+        for q in exam.get("questions", []):
+            assert punctuation_pattern.search(q.get("prompt"))

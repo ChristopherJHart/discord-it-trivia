@@ -1777,7 +1777,7 @@
         - id: 4
           text: 30 seconds
       correct_choice: 1
-      prompt: "What's the default time for OSPF hello_interval "
+      prompt: "What's the default time for OSPF hello_interval?"
       type: multiple choice
     - choices:
         - id: 1
@@ -1791,8 +1791,8 @@
       correct_choice: 3
       explanation:
         "if a router does not receive a hello packet within 40 seconds the
-        neighbor is removed from the routing table "
-      prompt: "What is the default time for OSPF dead_interval "
+        neighbor is removed from the routing table."
+      prompt: "What is the default time for OSPF dead_interval?"
       type: multiple choice
     - choices:
         - id: 1
@@ -1800,14 +1800,14 @@
         - id: 2
           text: Highest bandwidth
         - id: 3
-          text: "Lowest Latency "
+          text: "Lowest Latency"
         - id: 4
           text: Shortest Path First
       correct_choice: 4
       explanation:
         After the ospf routers are converged, each router will use Dijkstra's
         shortest path first (SPF) algorithm to build its route table
-      prompt: "What algorithm is used to build an OSPF routing table "
+      prompt: "What algorithm is used to build an OSPF routing table?"
       type: multiple choice
     - choices:
         - id: 1
@@ -1822,11 +1822,11 @@
       explanation:
         OSPFv3 expands on OSPFv2 to provide support. for IPv6 routing table
         prefixes and the larger size IPv6 addresses, OSPF Hello address FF02::5
-      prompt: "What is the OSPFv3 hello address "
+      prompt: "What is the OSPFv3 hello address?"
       type: multiple choice
     - choices:
         - id: 1
-          text: "It forwards the LSA out of every OSPF-enabled interface "
+          text: "It forwards the LSA out of every OSPF-enabled interface."
         - id: 2
           text: It keeps the LSA information and updates its routing table
         - id: 3
@@ -1853,7 +1853,7 @@
         Opaque LSAs consist of a standard LSA header followed by application
         specific information. OSPFv2 uses opaque LSAs to support the OSPFv2
         graceful restart capabilities.
-      prompt: What are the opaque LSAs?        _
+      prompt: What are the opaque LSAs?
       type: multiple choice
     - choices:
         - id: 1
@@ -1874,7 +1874,7 @@
       explanation:
         This LSA includes the link cost from the area border router to the
         local destination
-      prompt: Describe OPSFv2 type 3 LSA
+      prompt: Describe the OPSFv2 type 3 LSA.
       type: multiple choice
     - choices:
         - id: 1
@@ -1884,14 +1884,14 @@
         - id: 3
           text: LSA Grouping
         - id: 4
-          text: "Group Pacing "
+          text: "Group Pacing"
       correct_choice: 4
       explanation:
         used to control the flood rate of LSA updates on your network. Can
         reduce high CPU of buffer usage
       prompt: >-
         What OSPF feature groups LSAs with similar refresh times to allow OSPF
-        to pack multiple LSAs into an OSPF update message
+        to pack multiple LSAs into an OSPF update message?
       type: multiple choice
     - choices:
         - id: 1
@@ -1903,13 +1903,13 @@
         - id: 4
           text: Type 8
       correct_choice: 2
-      explanation: "Network Summary (Type 3) LSAs "
+      explanation: "Network Summary (Type 3) LSAs"
       prompt: >-
-        The ABR sends ____ type LSAs from one connected area to the backbone
+        The ABR sends ____ type LSAs from one connected area to the backbone.
       type: multiple choice
     - choices:
         - id: 1
-          text: "All routers in the stub area are stub routers "
+          text: "All routers in the stub area are stub routers"
         - id: 2
           text: NO ASBR routers exist in a stub area
         - id: 3
@@ -1917,7 +1917,7 @@
         - id: 4
           text: Stub areas must connect to another AS
       correct_choice: 4
-      prompt: Which one of these is NOT a requirement for a stub area
+      prompt: Which one of these is NOT a requirement for a stub area?
       type: multiple choice
     - choices:
         - id: 1
@@ -1934,7 +1934,7 @@
         partitioned area, which occurs when a link within an area fails,
         isolating part of the area from reaching the designated ABR to the
         backbone area
-      prompt: What is used if one OSPF area cannot connect directly to area 0
+      prompt: What is used if one OSPF area cannot connect directly to area 0?
       type: multiple choice
     - choices:
         - id: 1
@@ -1946,8 +1946,8 @@
         - id: 4
           text: 224.0.0.1
       correct_choice: 3
-      explanation: "OSPF uses 224.0.0.5 to communicate with neighbors "
-      prompt: "Which address is used for OSPFv2 Multicast "
+      explanation: "OSPF uses 224.0.0.5 to communicate with neighbors"
+      prompt: "Which address is used for OSPFv2 Multicast?"
       type: multiple choice
     - choices:
         - id: 1
@@ -1959,7 +1959,7 @@
         - id: 4
           text: MD5, DES
       correct_choice: 2
-      prompt: What are the two authentication methods of OSPFv2
+      prompt: What are the two authentication methods of OSPFv2?
       type: multiple choice
     - choices:
         - id: 1
@@ -1971,11 +1971,11 @@
         - id: 4
           text: start OSPF
       correct_choice: 2
-      prompt: Which command is used to enable OSPFv2
+      prompt: Which command is used to enable OSPFv2?
       type: multiple choice
     - choices:
         - id: 1
-          text: "ip ospf hello-interval "
+          text: "ip ospf hello-interval"
         - id: 2
           text: ospf hello-interval
         - id: 3
@@ -1983,7 +1983,7 @@
         - id: 4
           text: ip ospf hello interval
       correct_choice: 1
-      prompt: What command is used to change OSPF default hello interval
+      prompt: What command is used to change OSPF default hello interval?
       type: multiple choice
     - choices:
         - id: 1
@@ -1997,13 +1997,13 @@
       correct_choice: 4
       prompt: >-
         What algorithm is used by BGP to exchange routing information between
-        BGP speakers
+        BGP speakers?
       type: multiple choice
     - choices:
         - id: 1
           text: Neighbor
         - id: 2
-          text: "Director "
+          text: "Director"
         - id: 3
           text: Default Router
         - id: 4
@@ -2011,7 +2011,7 @@
       correct_choice: 4
       prompt:
         A BGP ___ is a BGP speaker that has an active TCP connection to another
-        BGP speaker
+        BGP speaker.
       type: multiple choice
     - choices:
         - id: 1
@@ -2023,19 +2023,19 @@
         - id: 4
           text: "443"
       correct_choice: 2
-      prompt: What port is used to create a TCP session with a BGP peer
+      prompt: What port is used to create a TCP session with a BGP peer?
       type: multiple choice
     - choices:
         - id: 1
           text: full
         - id: 2
-          text: "incremental "
+          text: "incremental"
         - id: 3
           text: graduated
         - id: 4
           text: complete
       correct_choice: 2
-      prompt: "BGP sends out ___ updates when a topology change occurs "
+      prompt: "BGP sends out ___ updates when a topology change occurs."
       type: multiple choice
     - choices:
         - id: 1
@@ -2047,7 +2047,7 @@
         - id: 4
           text: Router ID
       correct_choice: 4
-      prompt: BGP must have _____ to establish sessions with BGP peers
+      prompt: BGP must have _____ to establish sessions with BGP peers.
       type: multiple choice
     - choices:
         - id: 1
@@ -2059,7 +2059,7 @@
         - id: 4
           text: Smallest Path
       correct_choice: 1
-      prompt: What algorithm does BGP use for path selection
+      prompt: What algorithm does BGP use for path selection?
       type: multiple choice
     - choices:
         - id: 1
@@ -2072,7 +2072,7 @@
           text: IPv6 Multicast
       correct_choice: 2
       explanation: "IPv4 Multicast is supported, not IPv4 Broadcast "
-      prompt: Which addresses are NOT supported by MP-BGP
+      prompt: Which addresses are NOT supported by MP-BGP?
       type: multiple choice
     - choices:
         - id: 1
@@ -2080,11 +2080,11 @@
         - id: 2
           text: show bgp ipv6 route
         - id: 3
-          text: "show ipv6 bgp routing-table "
+          text: "show ipv6 bgp routing-table"
         - id: 4
           text: show route ipv6 BGP
       correct_choice: 1
-      prompt: "What command is used to view the IPv6 BGP routing table "
+      prompt: "What command is used to view the IPv6 BGP routing table?"
       type: multiple choice
     - choices:
         - id: 1
@@ -2092,11 +2092,11 @@
         - id: 2
           text: 15 seconds
         - id: 3
-          text: "90 seconds "
+          text: "90 seconds"
         - id: 4
           text: 60 seconds
       correct_choice: 4
-      prompt: What is the default keep alive interval for BGP
+      prompt: What is the default keep alive interval for BGP?
       type: multiple choice
     - choices:
         - id: 1
@@ -2110,7 +2110,7 @@
       correct_choice: 3
       prompt: >-
         What protocol is used to distribute data to multiple recipients in a
-        single session
+        single session?
       type: multiple choice
     - choices:
         - id: 1
@@ -2127,7 +2127,7 @@
         a host uses to request multicast data for a particular group. "
       prompt: >-
         ___ is used by hosts that want to receive multicast data to request
-        membership in a multicast group
+        membership in a multicast group.
       type: multiple choice
     - choices:
         - id: 1
@@ -2139,7 +2139,7 @@
         - id: 4
           text: NX OS does not support IGMP
       correct_choice: 1
-      prompt: NX OS supports what version(s) of IGMP
+      prompt: NX OS supports what version(s) of IGMP?
       type: multiple choice
     - choices:
         - id: 1
@@ -2158,7 +2158,7 @@
         a per-interface basis
       prompt:
         ____ is an IPv6 protocol that a host uses to request multicast data for
-        a particular group
+        a particular group.
       type: multiple choice
     - choices:
         - id: 1
@@ -2166,7 +2166,7 @@
         - id: 2
           text: Bi-Directional
         - id: 3
-          text: "Sparse "
+          text: "Sparse"
         - id: 4
           text: Light
       correct_choice: 3
@@ -2175,7 +2175,7 @@
       # yamllint enable rule:line-length
       prompt: >-
         What PIM mode must routers explicitly tell their upstream neighbors
-        about their interest in particular groups and sources
+        about their interest in particular groups and sources?
       type: multiple choice
     - choices:
         - id: 1
@@ -2197,7 +2197,7 @@
         - id: 2
           text: RSTP
         - id: 3
-          text: "Root Guard "
+          text: "Root Guard"
         - id: 4
           text: STP
       correct_choice: 1
@@ -2218,11 +2218,11 @@
       explanation:
         "Spanning Tree Protocol prevents layer 2 loops by allowing only one
         active path to exist between any layer 2 devices "
-      prompt: Which protocol prevents layer 2 loops
+      prompt: Which protocol prevents layer 2 loops?
       type: multiple choice
     - choices:
         - id: 1
-          text: "Spanning Tree prevents broadcast storms "
+          text: "Spanning Tree prevents broadcast storms"
         - id: 2
           text: Spanning Tree frames are called BPDUs
         - id: 3
@@ -2234,7 +2234,7 @@
             Spanning Tree port priority and path cost determine which port on
             the switch is put in a forwarding and blocking state
       correct_choice: 3
-      prompt: "What statement is NOT true regarding Spanning Tree "
+      prompt: "What statement is NOT true regarding Spanning Tree?"
       type: multiple choice
     - choices:
         - id: 1
@@ -2246,7 +2246,7 @@
         - id: 4
           text: Bi-Directional Port
       correct_choice: 4
-      prompt: Which is NOT a valid STP port type
+      prompt: Which is NOT a valid STP port type?
       type: multiple choice
     - choices:
         - id: 1
@@ -2263,7 +2263,7 @@
         either an access port or a trunk port. The edge port immediately
         transitions to a forwarding state without moving through blocking or
         learning.
-      prompt: What happens if a STP edge port is connected to another switch
+      prompt: What happens if a STP edge port is connected to another switch?
       type: multiple choice
     - choices:
         - id: 1
@@ -2273,17 +2273,17 @@
         - id: 3
           text: Edge Ports
         - id: 4
-          text: "Multi- Ports "
+          text: "Multi- Ports"
       correct_choice: 1
       explanation: "The default spanning tree interface is a normal port "
       prompt: >-
-        Spanning tree ___ ports can connect to hosts, switches, or bridges
+        Spanning tree ___ ports can connect to hosts, switches, or bridges.
       type: multiple choice
     - choices:
         - id: 1
-          text: "STP bridge assurance "
+          text: "STP bridge assurance"
         - id: 2
-          text: "BPDU Guard "
+          text: "BPDU Guard"
         - id: 3
           text: Loop Guard
         - id: 4
@@ -2292,7 +2292,7 @@
       explanation:
         "BPDU guard is useful for edge ports that should never be connected
         to another switch "
-      prompt: What STP extension disables ports that receives a BPDU frame
+      prompt: What STP extension disables ports that receives a BPDU frame?
       type: multiple choice
     - choices:
         - id: 1
@@ -2300,7 +2300,7 @@
         - id: 2
           text: Loop Guard
         - id: 3
-          text: "Root Guard "
+          text: "Root Guard"
         - id: 4
           text: STP Bridge Assurance
       correct_choice: 3
@@ -2310,15 +2310,15 @@
       type: multiple choice
     - choices:
         - id: 1
-          text: "Must be configured on a per interface basis "
+          text: "Must be configured on a per interface basis"
         - id: 2
           text: Must be enabled on a port that should ever receive a BPDU
         - id: 3
           text: Can be configured Globally
         - id: 4
-          text: "Generates an err-disabled alert is BPDU is received "
+          text: "Generates an err-disabled alert is BPDU is received"
       correct_choice: 1
-      prompt: "What is NOT true about BPDU Guard "
+      prompt: "What is NOT true about BPDU Guard?"
       type: multiple choice
     - choices:
         - id: 1
@@ -2330,7 +2330,7 @@
         - id: 4
           text: RSTP
       correct_choice: 3
-      prompt: What is the default STP mode for Nexus switches
+      prompt: What is the default STP mode for Nexus switches?
       type: multiple choice
     - choices:
         - id: 1
@@ -2352,7 +2352,7 @@
       correct_choice: 2
       prompt: >-
         Which option describes how a switch in Rapid PVST+ mode responds to a
-        topology change
+        topology change?
       type: multiple choice
     - choices:
         - id: 1
@@ -2367,7 +2367,7 @@
           text: >-
             Edge ports do not generate topology changes when the link changes
       correct_choice: 1
-      prompt: What is NOT true about Rapid PVST+ Edge ports
+      prompt: What is NOT true about Rapid PVST+ Edge ports?
       type: multiple choice
     - choices:
         - id: 1
@@ -2379,7 +2379,7 @@
         - id: 4
           text: Latency
       correct_choice: 4
-      prompt: "What is NOT a benefit of port channels "
+      prompt: "What is NOT a benefit of port channels?"
       type: multiple choice
     - choices:
         - id: 1
@@ -2389,10 +2389,10 @@
         - id: 3
           text: Static, LACP
         - id: 4
-          text: "Static, Combined "
+          text: "Static, Combined"
       correct_choice: 3
       explanation: PAgp is not supported by NX OS
-      prompt: Which two port channel modes are supported by NX OS
+      prompt: Which two port channel modes are supported by NX OS?
       type: multiple choice
     - choices:
         - id: 1
@@ -2413,16 +2413,16 @@
           text: >-
             allows the creation of layer 2 port channels that spans 2 switches
         - id: 2
-          text: "vPC are managed and configured independently "
+          text: "vPC are managed and configured independently"
         - id: 3
-          text: "vPC eliminate STP blocks "
+          text: "vPC eliminate STP blocks"
         - id: 4
           text: vPC creates a single logical switch
       correct_choice: 4
       explanation:
         "Cisco Catalyst Virtual switching system (VSS) creates a single logical
         switch while vPC is managed and configured independently "
-      prompt: What is NOT not a benefit of vPC
+      prompt: What is NOT not a benefit of vPC?
       type: multiple choice
     - choices:
         - id: 1
@@ -2455,7 +2455,7 @@
         - id: 1
           text: IS-IS
         - id: 2
-          text: "FabricPath "
+          text: "FabricPath"
         - id: 3
           text: VLAN
         - id: 4
@@ -2463,13 +2463,13 @@
       correct_choice: 4
       prompt: >-
         Which network protocol is used for Cisco ACI fabric data plane
-        forwarding
+        forwarding?
       type: multiple choice
     - choices:
         - id: 1
           text: Two controllers, N+1 redundancy
         - id: 2
-          text: "Three Controllers, N+2 redundancy "
+          text: "Three Controllers, N+2 redundancy"
         - id: 3
           text: One Controller
         - id: 4
@@ -2477,7 +2477,7 @@
       correct_choice: 2
       prompt: >-
         What is the minimum number of Cisco APIC controllers required to form a
-        cisco APIC cluster
+        cisco APIC cluster?
       type: multiple choice
     - choices:
         - id: 1
@@ -2491,7 +2491,7 @@
       correct_choice: 1
       prompt: >-
         ___ is a logical container for application policies that enable an
-        administrator to exercise domain-based access control
+        administrator to exercise domain-based access control.
       type: multiple choice
     - choices:
         - id: 1
@@ -2505,7 +2505,7 @@
       correct_choice: 3
       prompt:
         ____ defines the policies, services, and relationships between endpoint
-        groups (EPGs)
+        groups (EPGs).
       type: multiple choice
     - choices:
         - id: 1
@@ -2522,7 +2522,7 @@
         on leaf switches
       prompt:
         ___ represents a group of external entities with similar infrastructure
-        policy requirements
+        policy requirements.
       type: multiple choice
     - choices:
         - id: 1
@@ -2547,9 +2547,9 @@
             unilaterally provision computing capabilities such as server time
             and network storage
         - id: 4
-          text: "automatically installs software patches "
+          text: "automatically installs software patches"
       correct_choice: 1
-      prompt: Define Rapid Elasticity
+      prompt: Define Rapid Elasticity.
       type: multiple choice
     - choices:
         - id: 1
@@ -2563,7 +2563,7 @@
       correct_choice: 2
       prompt: >-
         what type of cloud model is composed of two or more clouds that retain
-        unique entities but are bound together
+        unique entities but are bound together?
       type: multiple choice
     - choices:
         - id: 1
@@ -2591,31 +2591,31 @@
       prompt: >-
         ___ automates the process of upgrading software images and installing
         configuration files on the cisco nexus switches that are being deployed
-        in the network for the first time
+        in the network for the first time.
       type: multiple choice
     - choices:
         - id: 1
-          text: "Its software stamped "
+          text: "Its software stamped"
         - id: 2
-          text: "Its Centralized "
+          text: "Its Centralized"
         - id: 3
           text: It's more accurate than NTP
         - id: 4
-          text: "PTP operates in a physical scope called a PTP domain "
+          text: "PTP operates in a physical scope called a PTP domain"
       correct_choice: 3
-      prompt: "What statement is true about Precision Time Protocol "
+      prompt: "What statement is true about Precision Time Protocol?"
       type: multiple choice
     - choices:
         - id: 1
           text: show snmp status
         - id: 2
-          text: "show snmp host "
+          text: "show snmp host"
         - id: 3
           text: show host snmp
         - id: 4
           text: show snmp
       correct_choice: 2
-      prompt: "what command is used to view SNMP status "
+      prompt: "what command is used to view SNMP status?"
       type: multiple choice
     - choices:
         - id: 1
@@ -2627,7 +2627,7 @@
         - id: 4
           text: TF ports and TNP ports
       correct_choice: 3
-      prompt: Which one of the following will NOT form a SAN port channel
+      prompt: Which one of the following will NOT form a SAN port channel?
       type: multiple choice
     - choices:
         - id: 1
@@ -2640,7 +2640,7 @@
           text: "1024"
       correct_choice: 2
       prompt: >-
-        What is the maximum number of VSANs that can be configured on a switch
+        What is the maximum number of VSANs that can be configured on a switch?
       type: multiple choice
     - choices:
         - id: 1
@@ -2653,19 +2653,19 @@
           text: WWN
       correct_choice: 4
       explanation: World Wide Name - which is assigned by the manufacturer
-      prompt: "Every Fibre Channel port has a hard-encoded address called the "
+      prompt: "Every Fibre Channel port has a hard-encoded address called the?"
       type: multiple choice
     - choices:
         - id: 1
-          text: "based on link state protocol "
+          text: "based on link state protocol"
         - id: 2
-          text: "dynamically compute routes "
+          text: "dynamically compute routes"
         - id: 3
-          text: "supports only one path "
+          text: "supports only one path"
         - id: 4
-          text: "Selects alternate path in the event of a failure "
+          text: "Selects alternate path in the event of a failure"
       correct_choice: 3
-      prompt: "Which option for FSPF is false "
+      prompt: "Which option for FSPF is false?"
       type: multiple choice
     - choices:
         - id: 1
@@ -2677,7 +2677,7 @@
         - id: 4
           text: FCNS
       correct_choice: 1
-      prompt: "___ happens between an N port and an F port "
+      prompt: "___ happens between an N port and an F port."
       type: multiple choice
     - choices:
         - id: 1
@@ -2709,7 +2709,7 @@
       type: multiple choice
     - choices:
         - id: 1
-          text: "Unified management "
+          text: "Unified management"
         - id: 2
           text: Resource Optimizations
         - id: 3
@@ -2730,11 +2730,11 @@
           text: They provide a nonstandard model for storing VM files
       correct_choice: 4
       explanation: They provide a uniform model for storing VM files
-      prompt: " Which statement is NOT true about datastores"
+      prompt: "Which statement is NOT true about datastores?"
       type: multiple choice
     - choices:
         - id: 1
-          text: "A quorum "
+          text: "A quorum"
         - id: 2
           text: A plenum
         - id: 3
@@ -2742,7 +2742,7 @@
         - id: 4
           text: A Minimum
       correct_choice: 1
-      prompt: What is used by hyperflex to make decisions
+      prompt: What is used by hyperflex to make decisions?
       type: multiple choice
     - choices:
         - id: 1
@@ -2757,7 +2757,7 @@
       # yamllint disable rule:line-length
       explanation: >-
         A "split brain" might occur if both nodes continue to process data
-        without obtaining a quorum https://www.cisco.com/c/en/us/products/collateral/hyperconverged-infrastructure/hyperflex-hx-series/whitepaper-c11-741999.html
+        without obtaining a quorum. Reference: https://www.cisco.com/c/en/us/products/collateral/hyperconverged-infrastructure/hyperflex-hx-series/whitepaper-c11-741999.html
       # yamllint enable rule:line-length
       prompt: What happens when two hyperflex nodes lose connection?
       type: multiple choice
@@ -2794,15 +2794,16 @@
       type: multiple choice
     - choices:
         - id: 1
-          text: "node that adds compute resources "
+          text: "node that adds compute resources"
         - id: 2
           text: node that adds storage resources
         - id: 3
           text: a node that the represents the physical hardware the VM runs on
         - id: 4
-          text: "a node that ads graphics "
+          text: "a node that ads graphics"
       correct_choice: 3
-      prompt: Which answer best describes 'converged node'
+      prompt: >-
+        Which answer best describes "converged node"?
       type: multiple choice
     - choices:
         - id: 1
@@ -2817,7 +2818,7 @@
       prompt: >-
         The HX data platform high availability feature ensures that the storage
         cluster maintains at least ___ copies of all your data during normal
-        operations with 3 or more fully functioning nodes
+        operations with 3 or more fully functioning nodes.
       type: multiple choice
     - choices:
         - id: 1
@@ -2829,11 +2830,11 @@
         - id: 4
           text: Unknown
       correct_choice: 1
-      prompt: Which is NOT a hyperflex operational status
+      prompt: Which is NOT a hyperflex operational status?
       type: multiple choice
     - choices:
         - id: 1
-          text: "You can configure security keys locally or remotely "
+          text: "You can configure security keys locally or remotely"
         - id: 2
           text: The key is stored in memory
         - id: 3
@@ -2842,7 +2843,7 @@
           text: Encryption for SEDs is done by the software
       correct_choice: 4
       explanation: Encryption/decryption is done through the hardware
-      prompt: "Which statement about HX self encrypting drives is false "
+      prompt: "Which statement about HX self encrypting drives is false?"
       type: multiple choice
     - choices:
         - id: 1
@@ -2854,7 +2855,7 @@
         - id: 4
           text: EEM cannot take automatic actions based on events
       correct_choice: 4
-      prompt: "Which statment about EEM is NOT true "
+      prompt: "Which statment about EEM is NOT true?"
       type: multiple choice
     - choices:
         - id: 1
@@ -2862,12 +2863,13 @@
         - id: 2
           text: show running-config eem
         - id: 3
-          text: "show running-config applet "
+          text: "show running-config applet"
         - id: 4
           text: show event manager policy active detailed
       correct_choice: 2
       prompt: >-
-        which command will display information about the running config for EEM
+        which command will display information about the running config for
+        EEM?
       type: multiple choice
     - choices:
         - id: 1
@@ -2880,7 +2882,7 @@
           text: admin
       correct_choice: 3
       prompt: >-
-        What level of access do you have while running guest shell on NXOS
+        What level of access do you have while running guest shell on NXOS?
       type: multiple choice
     - choices:
         - id: 1
@@ -2892,7 +2894,9 @@
         - id: 4
           text: Nexus 9000 and Nexus 5000
       correct_choice: 1
-      prompt: Guest Shell is supported on (choose one)
+      prompt: >-
+        Which of the following Nexus platforms is the Guest Shell feature
+        supported on?
       type: multiple choice
     - choices:
         - id: 1
@@ -2929,5 +2933,5 @@
         - id: 4
           text: "401"
       correct_choice: 4
-      prompt: "which http status code means not authorized "
+      prompt: "which http status code means not authorized?"
       type: multiple choice
