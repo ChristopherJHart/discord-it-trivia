@@ -21,7 +21,7 @@ run:
 	docker run --rm --name $(CONTAINER_NAME) chrisjhart/$(CONTAINER_NAME):latest
 
 run-dev: build
-	docker run --rm --name $(CONTAINER_NAME)-dev -v $(PWD)/.env:/app/.env chrisjhart/$(CONTAINER_NAME):latest
+	docker run --rm --name $(CONTAINER_NAME)-dev -v $(PWD)/.env:/app/.env -e DEBUG=true chrisjhart/$(CONTAINER_NAME):latest
 	docker logs -f $(CONTAINER_NAME)-dev
 
 run-debug:
