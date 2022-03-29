@@ -106,7 +106,4 @@ async def trivia(inter: ApplicationCommandInteraction) -> None:
                                 ephemeral=True,
                             )
 
-    for reaction in response.reactions:
-        await response.clear_reaction(reaction)
-
     logger.info("Question is no longer active")
