@@ -505,7 +505,14 @@
           text: 10.10.0.0/16 subnetted with mask 255.255.255.252
         - id: 4
           text: 10.10.0.0/23 subnetted with mask 255.255.255.252
-    - choices:
+    - prompt: >-
+        The network administrator is asked to configure 113 point-to-point
+        links. Which IP addressing scheme best defines the address range and
+        subnet mask that meet the requirement and waste the fewest subnet and
+        host addresses?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
         - id: 1
           text: 10.10.0.0/23 subnetted with mask 255.255.255.252
         - id: 2
@@ -514,14 +521,11 @@
           text: 10.10.1.0/25 subnetted with mask 255.255.255.252
         - id: 4
           text: 10.10.0.0/18 subnetted with mask 255.255.255.252
-      correct_choice: 1
-      prompt: >-
-        The network administrator is asked to configure 113 point-to-point
-        links. Which IP addressing scheme best defines the address range and
-        subnet mask that meet the requirement and waste the fewest subnet and
-        host addresses?
+    - prompt: >-
+        Which command reveals the last method used to powercycle a router?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: show boot
         - id: 2
@@ -530,11 +534,12 @@
           text: show running-config
         - id: 4
           text: show version
-      correct_choice: 4
-      prompt: >-
-        Which command reveals the last method used to powercycle a router?
+    - prompt: >-
+        Which IPsec security protocol should be used when confidentiality is
+        required?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: ESP
         - id: 2
@@ -543,12 +548,12 @@
           text: AH
         - id: 4
           text: PSK
-      correct_choice: 1
-      prompt: >-
-        Which IPsec security protocol should be used when confidentiality is
-        required?
+    - prompt: >-
+        What is the result of issuing the frame-relay map ip 192.168.1.2 202
+        broadcast command?
       type: "multiple choice"
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: >-
             Defines the destination IP address that is used in all broadcast
@@ -565,12 +570,11 @@
           text: >-
             Defines the DLCI on which packets from the 192.168.1.2 IP address
             are received
-      correct_choice: 2
-      prompt: >-
-        What is the result of issuing the frame-relay map ip 192.168.1.2 202
-        broadcast command?
+    - prompt: >-
+        Which command is used to display the collection of OSPF link states?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: show ip ospf link-state
         - id: 2
@@ -579,11 +583,11 @@
           text: show ip ospf neighbors
         - id: 4
           text: show ip ospf database
-      correct_choice: 4
-      prompt: >-
-        Which command is used to display the collection of OSPF link states?
+    - prompt: >-
+        Which parameter(s) are used to calculate OSPF cost in Cisco routers?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: Bandwidth
         - id: 2
@@ -592,11 +596,12 @@
           text: Bandwidth, Delay, and MTU
         - id: 4
           text: Bandwidth and Delay
-      correct_choice: 1
-      prompt: >-
-        Which parameter(s) are used to calculate OSPF cost in Cisco routers?
+    - prompt:
+        Which command can be used from a router to verify the Layer 3 path to a
+        host?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: traceroute address
         - id: 2
@@ -605,12 +610,12 @@
           text: ssh address
         - id: 4
           text: telnet address
-      correct_choice: 1
-      prompt:
-        Which command can be used from a router to verify the Layer 3 path to a
-        host?
+    - prompt: >-
+        Which parameter can be tuned to affect the selection of a static route
+        as a backup, when a dynamic protocol is also being used?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: hop count
         - id: 2
@@ -619,12 +624,12 @@
           text: link delay
         - id: 4
           text: administrative distance
-      correct_choice: 4
-      prompt: >-
-        Which parameter can be tuned to affect the selection of a static route
-        as a backup, when a dynamic protocol is also being used?
+    - prompt: >-
+        In which integration method is an IPv6 packet encapsulated within an
+        IPv4 protocol?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: dot1q
         - id: 2
@@ -633,12 +638,12 @@
           text: proxy
         - id: 4
           text: tunneling
-      correct_choice: 4
-      prompt: >-
-        In which integration method is an IPv6 packet encapsulated within an
-        IPv4 protocol?
+    - prompt:
+        Using VLSM, how many /30 subnets can be derived from a single /27 Class
+        C subnet?
       type: "multiple choice"
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: "16"
         - id: 2
@@ -647,12 +652,11 @@
           text: "1"
         - id: 4
           text: "4"
-      correct_choice: 2
-      prompt:
-        Using VLSM, how many /30 subnets can be derived from a single /27 Class
-        C subnet?
+    - prompt: >-
+        Which statement describes the function of the OSI transport layer?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: >-
             It establishes, manages, and terminates sessions between two
@@ -670,11 +674,10 @@
           text: >-
             It provides the connectivity and path selection between two host
             systems that may be located on geographically separated networks.
-      correct_choice: 3
-      prompt: >-
-        Which statement describes the function of the OSI transport layer?
+    - prompt: In which solution is a router ACL used?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: Filtering packets that are passing through a router
         - id: 2
@@ -685,10 +688,12 @@
           text: >-
             To change the default administrative distance of a route in the
             route table
-      correct_choice: 1
-      prompt: In which solution is a router ACL used?
+    - prompt: >-
+        Which option is the term for a weakness in a system or its design that
+        can be exploited by a threat?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: An exploit
         - id: 2
@@ -697,12 +702,13 @@
           text: A risk
         - id: 4
           text: A vulnerability
-      correct_choice: 4
-      prompt: >-
-        Which option is the term for a weakness in a system or its design that
-        can be exploited by a threat?
+    - prompt: >-
+        When you reset an IP phone via the Cisco Unified Communications Manager
+        Administration page, which method briefly shuts down a registered phone
+        and brings it back up?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: drop
         - id: 2
@@ -711,13 +717,10 @@
           text: reset
         - id: 4
           text: restart
-      correct_choice: 3
-      prompt: >-
-        When you reset an IP phone via the Cisco Unified Communications Manager
-        Administration page, which method briefly shuts down a registered phone
-        and brings it back up?
+    - prompt: Which device would you select to partition a network into VLANs?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: repeater
         - id: 2
@@ -726,10 +729,12 @@
           text: bridge
         - id: 4
           text: Switch
-      correct_choice: 4
-      prompt: Which device would you select to partition a network into VLANs?
+    - prompt: >-
+        In an IEEE 802.3 Ethernet frame, what is the significance of the DSAP
+        field?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: The DSAP field is only used in Ethernet II frames.
         - id: 2
@@ -742,12 +747,12 @@
           text: >-
             The DSAP field is only used on United States Department of Defense
             networks to indicate the information classification level.
-      correct_choice: 3
-      prompt: >-
-        In an IEEE 802.3 Ethernet frame, what is the significance of the DSAP
-        field?
+    - prompt: >-
+        Which option is a key principle of the Cisco Self-Defending Network
+        strategy?
       type: "multiple choice"
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: >-
             Security is static and should prevent most known attacks on the
@@ -763,12 +768,10 @@
           text: >-
             Upper management is ultimately responsible for policy
             implementation.
-      correct_choice: 2
-      prompt: >-
-        Which option is a key principle of the Cisco Self-Defending Network
-        strategy?
+    - prompt: Which VTP mode disallows the creation of local VLANs?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: tunneling
         - id: 2
@@ -777,10 +780,13 @@
           text: native
         - id: 4
           text: Client
-      correct_choice: 4
-      prompt: Which VTP mode disallows the creation of local VLANs?
+    - prompt: >-
+        Which value should you assign to option 150 for DHCP to operate
+        correctly in a Cisco Unified Communications Manager Express
+        environment?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: MAC address of the TFTP server
         - id: 2
@@ -789,13 +795,15 @@
           text: IP address of the TFTP server
         - id: 4
           text: FTP server of the DNS server
-      correct_choice: 3
-      prompt: >-
-        Which value should you assign to option 150 for DHCP to operate
-        correctly in a Cisco Unified Communications Manager Express
-        environment?
+    - prompt: >-
+        An engineer is configuring a new Cisco Unified Communications Manager
+        server. However, when the engineer tries to register the IP phones, the
+        registrations are unsuccessful. When the engineer checks one of the
+        phones, there is no status that is shown along with the Cisco Unified
+        Communications Manager server IP address. What is the probable cause?
       type: "multiple choice"
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: >-
             The Cisco Unified Communications Manager server is currently
@@ -812,15 +820,12 @@
           text: >-
             The currently receiving call-processing services are running on
             the phone.
-      correct_choice: 2
-      prompt: >-
-        An engineer is configuring a new Cisco Unified Communications Manager
-        server. However, when the engineer tries to register the IP phones, the
-        registrations are unsuccessful. When the engineer checks one of the
-        phones, there is no status that is shown along with the Cisco Unified
-        Communications Manager server IP address. What is the probable cause?
+    - prompt: >-
+        Which address is the IPv6 all-RIP-routers multicast group address that
+        is used by RIPng as the destination address for RIP updates?
       type: "multiple choice"
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: FF02::A
         - id: 2
@@ -829,12 +834,12 @@
           text: FF02::6
         - id: 4
           text: FF05::101
-      correct_choice: 2
-      prompt: >-
-        Which address is the IPv6 all-RIP-routers multicast group address that
-        is used by RIPng as the destination address for RIP updates?
+    - prompt: >-
+        Which governing body analyzes the applications and environments in
+        which wireless networks are used?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: WiFi Alliance
         - id: 2
@@ -843,12 +848,12 @@
           text: FTC
         - id: 4
           text: IEEE
-      correct_choice: 1
-      prompt: >-
-        Which governing body analyzes the applications and environments in
-        which wireless networks are used?
+    - prompt: >-
+        Using VLSM, how many /30 subnets can be derived from a single /27 Class
+        C subnet?
       type: "multiple choice"
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: "1"
         - id: 2
@@ -857,12 +862,12 @@
           text: "2"
         - id: 4
           text: "4"
-      correct_choice: 2
-      prompt: >-
-        Using VLSM, how many /30 subnets can be derived from a single /27 Class
-        C subnet?
+    - prompt: >-
+        Which Extensible Authentication Protocol types are supported by the
+        Cisco Unified Wireless Network?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: Any EAP supported by the RADIUS authentication server
         - id: 2
@@ -871,12 +876,13 @@
           text: EAP-TLS, PEAP-MSCHAPv2, PEAP-GTC, LEAP, and EAP-FAST only
         - id: 4
           text: EAP-TLS, PEAP-MSCHAPv2, and PEAP-GTC only
-      correct_choice: 1
-      prompt: >-
-        Which Extensible Authentication Protocol types are supported by the
-        Cisco Unified Wireless Network?
+    - prompt: >-
+        Given these four Class B networks: 172.104.0.0, 172.105.0.0,
+        172.106.0.0, 172.107.0.0, what is the supernet (CIDR) address that
+        summarizes these four Class B networks?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: 172.104.0.0/14
         - id: 2
@@ -885,13 +891,12 @@
           text: 172.104.0.0/12
         - id: 4
           text: 172.104.0.0/13
-      correct_choice: 1
-      prompt: >-
-        Given these four Class B networks: 172.104.0.0, 172.105.0.0,
-        172.106.0.0, 172.107.0.0, what is the supernet (CIDR) address that
-        summarizes these four Class B networks?
+    - prompt: >-
+        Which field in an Ethernet II frame performs the same function as the
+        DSAP field in an 802.3 Ethernet frame?
       type: "multiple choice"
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: Frame Check Sequence
         - id: 2
@@ -900,12 +905,12 @@
           text: Logical Link Control
         - id: 4
           text: Start of Frame
-      correct_choice: 2
-      prompt: >-
-        Which field in an Ethernet II frame performs the same function as the
-        DSAP field in an 802.3 Ethernet frame?
+    - prompt: >-
+        What is the same for both copper and fiber interfaces when using SFP
+        modules?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: >-
             They support an inline optical attenuator to enhance signal
@@ -920,12 +925,12 @@
         - id: 4
           text: >-
             They offer reliable bandwidth up to 100 Mbps in half duplex mode
-      correct_choice: 3
-      prompt: >-
-        What is the same for both copper and fiber interfaces when using SFP
-        modules?
+    - prompt: >-
+        Which function is performed by the collapsed core layer in a two-tier
+        architecture?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: enforcing routing policies
         - id: 2
@@ -934,12 +939,10 @@
           text: applying security policies
         - id: 4
           text: attaching users to the edge of the network
-      correct_choice: 1
-      prompt: >-
-        Which function is performed by the collapsed core layer in a two-tier
-        architecture?
+    - prompt: What is the primary function of a Layer 3 device?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: to transmit wireless traffic between hosts
         - id: 2
@@ -949,10 +952,12 @@
           text: to forward traffic within the same broadcast domain
         - id: 4
           text: to pass traffic between different networks
-      correct_choice: 4
-      prompt: What is the primary function of a Layer 3 device?
+    - prompt: >-
+        What is a recommended approach to avoid co-channel congestion while
+        installing access points that use the 2.4 GHz frequency?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: different nonoverlapping channels
         - id: 2
@@ -961,12 +966,14 @@
           text: one nonoverlapping channel
         - id: 4
           text: different overlapping channels
-      correct_choice: 1
-      prompt: >-
-        What is a recommended approach to avoid co-channel congestion while
-        installing access points that use the 2.4 GHz frequency?
+    - prompt: >-
+        A manager asks a network engineer to advise which cloud service models
+        are used so employees do not have to waste their time installing,
+        managing, and updating software that is only used occasionally. Which
+        cloud service model does the engineer recommend?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: infrastructure-as-a-service
         - id: 2
@@ -976,14 +983,13 @@
             business process as service to support different types of service
         - id: 4
           text: software-as-a-service
-      correct_choice: 4
-      prompt: >-
-        A manager asks a network engineer to advise which cloud service models
-        are used so employees do not have to waste their time installing,
-        managing, and updating software that is only used occasionally. Which
-        cloud service model does the engineer recommend?
+    - prompt: >-
+        An engineer observes high usage on the 2.4GHz channels and lower usage
+        on the 5GHz channels. What must be configured to allow clients to
+        preferentially use 5GHz access points?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: Client Band Select
         - id: 2
@@ -992,13 +998,10 @@
           text: OEAP Spilt Tunnel
         - id: 4
           text: 11ac MU-MIMO
-      correct_choice: 1
-      prompt: >-
-        An engineer observes high usage on the 2.4GHz channels and lower usage
-        on the 5GHz channels. What must be configured to allow clients to
-        preferentially use 5GHz access points?
+    - prompt: Which networking function occurs on the data plane?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: processing inbound SSH management traffic
         - id: 2
@@ -1007,10 +1010,10 @@
           text: facilitates spanning-tree elections
         - id: 4
           text: forwarding remote client/server traffic
-      correct_choice: 4
-      prompt: Which networking function occurs on the data plane?
+    - prompt: Under which condition is TCP preferred over UDP?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: >-
             UDP is used when low latency is optimal, and TCP is used when
@@ -1027,10 +1030,12 @@
           text: >-
             UDP is used when data is highly interactive, and TCP is used when
             data is time-sensitive.
-      correct_choice: 3
-      prompt: Under which condition is TCP preferred over UDP?
+    - prompt: >-
+        How do TCP and UDP differ in the way that they establish a connection
+        between two endpoints?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: >-
             TCP uses the three-way handshake, and UDP does not guarantee
@@ -1047,12 +1052,10 @@
           text: >-
             UDP uses SYN, SYN ACK, and FIN bits in the frame header while TCP
             uses SYN, SYN ACK, and ACK bits.
-      correct_choice: 1
-      prompt: >-
-        How do TCP and UDP differ in the way that they establish a connection
-        between two endpoints?
+    - prompt: Which 802.11 frame type is Association Response?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: management
         - id: 2
@@ -1061,15 +1064,17 @@
           text: action
         - id: 4
           text: control
-      correct_choice: 1
       explanation: >-
         There are three main types of 802.11 frames: the Data Frame, the
         Management Frame and the Control Frame. Association Response belongs to
         Management Frame. Association response is sent in response to an
         association request.
-      prompt: Which 802.11 frame type is Association Response?
+    - prompt: >-
+        In which way does a spine-and-leaf architecture allow for scalability
+        in a network when additional access ports are required?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: >-
             A spine switch and a leaf switch can be added with redundant
@@ -1083,7 +1088,6 @@
           text: >-
             A leaf switch can be added with a single connection to a core spine
             switch.
-      correct_choice: 3
       explanation: >-
         Spine-leaf architecture is typically deployed as two layers: spines
         (such as an aggregation layer), and leaves (such as an access layer).
@@ -1098,11 +1102,10 @@
         in a full mesh. Spine (aggregation) switches are used to connect to all
         leaf switches and are typically deployed at the end or middle of the
         row. Spine switches do not connect to other spine switches.
-      prompt: >-
-        In which way does a spine-and-leaf architecture allow for scalability
-        in a network when additional access ports are required?
+    - prompt: What identifies the functionality of virtual machines?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: >-
             The hypervisor communicates on Layer 3 without the need for
@@ -1119,10 +1122,12 @@
           text: >-
             Virtualized servers run efficiently when physically connected to a
             switch that is separate from the hypervisor.
-      correct_choice: 3
-      prompt: What identifies the functionality of virtual machines?
+    - prompt: >-
+        Which command automatically generates an IPv6 address from a specified
+        IPv6 prefix and MAC address of an interface?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: ipv6 address dhcp
         - id: 2
@@ -1131,12 +1136,12 @@
           text: ipv6 address autoconfig
         - id: 4
           text: ipv6 address 2001:DB8:5:112::2/64 link-local
-      correct_choice: 3
-      prompt: >-
-        Which command automatically generates an IPv6 address from a specified
-        IPv6 prefix and MAC address of an interface?
+    - prompt: >-
+        What is the default behavior of a Layer 2 switch when a frame with an
+        unknown destination MAC address is received?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: >-
             The Layer 2 switch forwards the packet and adds the destination MAC
@@ -1151,18 +1156,18 @@
             port in the given VLAN.
         - id: 4
           text: The Layer 2 switch drops the received frame.
-      correct_choice: 3
       explanation: >-
         If the destination MAC address is not in the CAM table (unknown
         destination MAC address), the switch sends the frame out all other
         ports that are in the same VLAN as the received frame. This is called
         flooding. It does not flood the frame out the same port on which the
         frame was received.
-      prompt: >-
-        What is the default behavior of a Layer 2 switch when a frame with an
-        unknown destination MAC address is received?
+    - prompt: >-
+        An engineer must configure a /30 subnet between two routes. Which
+        usable IP address and subnet mask combination meets this criteria?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: >-
             interface e0/0 description to XX-AXXX:XXXXX ip address 10.2.1.3
@@ -1179,12 +1184,12 @@
           text: >-
             interface e0/0 description to XX-AXXX:XXXXX ip address
             209.165.201.2 225.255.255.252
-      correct_choice: 4
-      prompt: >-
-        An engineer must configure a /30 subnet between two routes. Which
-        usable IP address and subnet mask combination meets this criteria?
+    - prompt: >-
+        Which network allows devices to communicate without the need to access
+        the Internet?
       type: "multiple choice"
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: 172.9.0.0/16
         - id: 2
@@ -1193,7 +1198,6 @@
           text: 192.0.0.0/8
         - id: 4
           text: 209.165.201.0/24
-      correct_choice: 2
       explanation: >-
         This question asks about the private ranges of IPv4 addresses. The
         private ranges of each class of IPv4 are listed below\nClass A private
@@ -1201,11 +1205,12 @@
         address ranges from 172.16.0.0 to 172.31.255.255\nClass C private IP
         address ranges from 192.168.0.0 to 192.168.255.255\nOnly the network
         172.28.0.0/16 belongs to the private IP address (of class B).
-      prompt: >-
-        Which network allows devices to communicate without the need to access
-        the Internet?
+    - prompt: >-
+        Which IPv6 address type provides communication between subnets and
+        cannot route on the Internet?
       type: "multiple choice"
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: link-local
         - id: 2
@@ -1214,7 +1219,6 @@
           text: multicast
         - id: 4
           text: global unicast
-      correct_choice: 2
       explanation: >-
         A IPv6 Unique Local Address is an IPv6 address in the block FC00::/7.
         It is the approximate IPv6 counterpart of the IPv4 private address. It
@@ -1224,11 +1228,12 @@
         communications within the local subnet. It is usually created
         dynamically using a link-local prefix of FE80::/10 and a 64-bit
         interface identifier (based on 48-bit MAC address).
-      prompt: >-
-        Which IPv6 address type provides communication between subnets and
-        cannot route on the Internet?
+    - prompt: >-
+        Which IPv6 address block sends packets to a group address rather than a
+        single address?
       type: "multiple choice"
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: 2000::/3
         - id: 2
@@ -1237,7 +1242,6 @@
           text: FE80::/10
         - id: 4
           text: FF00::/8
-      correct_choice: 4
       explanation: >-
         FF00::/8 is used for IPv6 multicast and this is the IPv6 type of
         address the question wants to ask. FE80::/10 range is used for
@@ -1247,11 +1251,10 @@
         valid on the current subnet. It is usually created dynamically using a
         link-local prefix of FE80::/10 and a 64-bit interface identifier (based
         on 48-bit MAC address).
-      prompt: >-
-        Which IPv6 address block sends packets to a group address rather than a
-        single address?
+    - prompt: What is a benefit of using a Cisco Wireless LAN Controller?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: >-
             It eliminates the need to configure each access point individually.
@@ -1261,10 +1264,12 @@
           text: Unique SSIDs cannot use the same authentication method.
         - id: 4
           text: It supports autonomous and lightweight APs.
-      correct_choice: 1
-      prompt: What is a benefit of using a Cisco Wireless LAN Controller?
+    - prompt: >-
+        Which action is taken by switch port enabled for PoE power
+        classification override?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: >-
             If a monitored port exceeds the maximum administrative value for
@@ -1282,12 +1287,10 @@
             If a switch determines that a device is using less than the minimum
             configured power, it assumes the device has failed and disconnects
             it.
-      correct_choice: 1
-      prompt: >-
-        Which action is taken by switch port enabled for PoE power
-        classification override?
+    - prompt: What occurs to frames during the process of frame flooding?
       type: "multiple choice"
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: >-
             Frames are sent to all ports, including those that are assigned to
@@ -1302,10 +1305,10 @@
             from the originating port.
         - id: 4
           text: Frames are sent to every port on the switch in the same VLAN.
-      correct_choice: 3
-      prompt: What occurs to frames during the process of frame flooding?
+    - prompt: Which function does the range of private IPv4 addresses perform?
       type: "multiple choice"
-    - choices:
+      correct_choice: 1
+      choices:
         - id: 1
           text: >-
             allows multiple companies to each use the same addresses without
@@ -1322,9 +1325,6 @@
           text: >-
             enables secure communications to the Internet for all external
             hosts
-      correct_choice: 1
-      prompt: Which function does the range of private IPv4 addresses perform?
-      type: "multiple choice"
 - meta_name: "Cisco Certified Network Professional"
   meta_description: >-
     Question pool for the Cisco Certified Network Professional exam.
