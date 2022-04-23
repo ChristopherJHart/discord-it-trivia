@@ -1333,7 +1333,15 @@
     Get a question from the Cisco Certified Network Professional exam question
     pool.
   questions:
-    - choices:
+    - prompt: >-
+        An engineer plans to configure summary routes with the ip
+        summary-address eigrp asn prefix mask command. Which of the following,
+        when added to such a command, would create a summary that includes all
+        four of the following subnets: 10.1.100.0/25, 10.1.101.96/27,
+        10.1.101.224/28, and 10.1.100.128 /25?
+      type: multiple choice
+      correct_choice: 2
+      choices:
         - id: 1
           text: 10.1.0.0 255.255.192.0
         - id: 2
@@ -1342,7 +1350,6 @@
           text: 10.1.100.0 255.255.255.0
         - id: 4
           text: 10.1.98.0 255.255.252.0
-      correct_choice: 2
       explanation: >-
         10.1.0.0/18 implies a range of 10.1.0.0 - 10.1.63.255, which includes
         none of the four subnets. 10.1.64.0/18 implies a range of 10.1.64.0 -
@@ -1354,14 +1361,16 @@
         such, Cisco IOS would actually accept the command, would change the
         parameter from 10.1.98.0 to 10.1.96.0, and would not include the four
         listed subnets.
-      prompt: >-
-        An engineer plans to configure summary routes with the ip
-        summary-address eigrp asn prefix mask command. Which of the following,
-        when added to such a command, would create a summary that includes all
-        four of the following subnets: 10.1.100.0/25, 10.1.101.96/27,
-        10.1.101.224/28, and 10.1.100.128 /25?
+    - prompt: >-
+        R1 has five working interfaces, with EIGRP neighbors existing off each
+        interface. R1 has routes for subnets 10.1.1.0/24, 10.1.2.0/24, and
+        10.1.3.0/24, with EIGRP integer metrics of roughly 1 million, 2
+        million, and 3 million, respectively. An engineer then adds the ip
+        summary-address eigrp 1 10.1.0.0 255.255.0.0 command to interface
+        Fa0/0. Which of the following is true?
       type: multiple choice
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: >-
             R1 loses and then reestablishes neighborships with all neighbors
@@ -1377,7 +1386,6 @@
           text: >-
             R1 advertises a 10.1.0.0/16 route out Fa0/0, with metric of around
             2 million (median metric of component subnets).
-      correct_choice: 2
       explanation: >-
         The ip summary-address command does reset neighborships, but only on
         the interface under which it is configured. After those neighborships
@@ -1385,15 +1393,16 @@
         subordinate routes inside that summary. The summary route will use a
         metric equal to the metric of the lowest metric subordinate route,
         approximately 1,000,000 in this case.
-      prompt: >-
-        R1 has five working interfaces, with EIGRP neighbors existing off each
-        interface. R1 has routes for subnets 10.1.1.0/24, 10.1.2.0/24, and
-        10.1.3.0/24, with EIGRP integer metrics of roughly 1 million, 2
-        million, and 3 million, respectively. An engineer then adds the ip
-        summary-address eigrp 1 10.1.0.0 255.255.0.0 command to interface
-        Fa0/0. Which of the following is true?
+    - prompt: >-
+        Router R1 connects to Router R2 over an Ethernet LAN with both routers
+        using their Fa0/0 interfaces. R1 learns a route from R2 using EIGRP for
+        IPv6. That route lists Fa0/0 as the outgoing interface with R2 as the
+        next hop. The configuration excerpt shows all relevant configuration
+        on R2's Fa0/0 interface. Which of the following is true about R1's
+        route?
       type: multiple choice
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: The next hop is 2000::1311:11FF:FE11:1111
         - id: 2
@@ -1402,22 +1411,18 @@
           text: The next hop is FE80::5111:11FF:FE11:1111
         - id: 4
           text: The next hop is 2001::1
-      correct_choice: 2
       explanation: >-
         EIGRP uses the link-local address as the next hop for routing
         protocols. Based on R2's MAC address, R2's link-local address on Fa0/0
         will be FE80::1311:11FF:FE11:1111. This value is derived by splitting
         the MAC, inserting FFFE, and flipping bit 7, making the initial hex 11
         become hex 13.
-      prompt: >-
-        Router R1 connects to Router R2 over an Ethernet LAN with both routers
-        using their Fa0/0 interfaces. R1 learns a route from R2 using EIGRP for
-        IPv6. That route lists Fa0/0 as the outgoing interface with R2 as the
-        next hop. The configuration excerpt shows all relevant configuration
-        on R2's Fa0/0 interface. Which of the following is true about R1's
-        route?
+    - prompt: >-
+        Under what configuration mode for Named EIGRP would you configure a
+        passive interface?
       type: multiple choice
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: Address-Family configuration mode
         - id: 2
@@ -1426,7 +1431,6 @@
           text: Address-Family-Global configuration mode
         - id: 4
           text: Address-Family-Topology configuration mode
-      correct_choice: 2
       explanation: >-
         General EIGRP commands (for example, metric, eigrp stub, and eigrp
         router-id) are configured under address-family configuration mode.
@@ -1438,11 +1442,15 @@
         (for example, autosummary, maximum-paths, redistribute, and
         variance) are given under addressfamily- topology configuration mode.
         There is no address-family-global configuration mode.
-      prompt: >-
-        Under what configuration mode for Named EIGRP would you configure a
-        passive interface?
+    - prompt: >-
+        A network design shows area 1 with three internal routers, area 0 with
+        four internal routers, and area 2 with five internal routers.
+        Additionally, one ABR (ABR1) connects areas 0 and 1, plus a different
+        ABR (ABR2) connects areas 0 and 2. How many Type 1 LSAs would be listed
+        in ABR2's LSDB?
       type: multiple choice
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: "6"
         - id: 2
@@ -1451,7 +1459,6 @@
           text: "15"
         - id: 4
           text: "12"
-      correct_choice: 4
       explanation: >-
         As an ABR connected to areas 0 and 2, ABR2 will have LSDB entries for
         both area 0 and area 2. In area 0, ABR2 learns Type 1 LSAs from the
@@ -1459,14 +1466,15 @@
         Type 1 LSA that ABR2 creates for itself. In area 2, ABR2 learns 1 each
         for the five routers internal to area 2, plus the 1 Type 1 LSA ABR2
         created for itself inside area 2. The total is 12.
-      prompt: >-
-        A network design shows area 1 with three internal routers, area 0 with
-        four internal routers, and area 2 with five internal routers.
-        Additionally, one ABR (ABR1) connects areas 0 and 1, plus a different
-        ABR (ABR2) connects areas 0 and 2. How many Type 1 LSAs would be listed
-        in ABR2's LSDB?
+    - prompt: >-
+        A network planning diagram shows a large internetwork with many
+        routers. The configurations show that OSPF has been enabled on all
+        interfaces, IP addresses correctly configured, and OSPF working. For
+        which of the following cases would you expect a router to create and
+        flood a Type 2 LSA?
       type: multiple choice
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: >-
             When OSPF is enabled on a LAN interface, and the router is the only
@@ -1483,7 +1491,6 @@
             uses default OSPF configuration on the interface
         - id: 4
           text: None of the other answers are correct.
-      correct_choice: 4
       explanation: >-
         OSPF creates a Type 2 LSA for a subnet when the router interface
         connected to the subnet calls for the election of a designated router
@@ -1495,14 +1502,17 @@
         In the other case, a DR and BDR have been elected, but the router
         described in the answer is the BDR, not the DR. So, none of the other
         answers is correct.
-      prompt: >-
-        A network planning diagram shows a large internetwork with many
-        routers. The configurations show that OSPF has been enabled on all
-        interfaces, IP addresses correctly configured, and OSPF working. For
-        which of the following cases would you expect a router to create and
-        flood a Type 2 LSA?
+    - prompt: >-
+        A verification plan shows a network diagram with branch office Routers
+        B1 through B100, plus two ABRs, ABR1 and ABR2, all in area 100. The
+        branches connect to the ABRs using Frame Relay point-to-point
+        subinterfaces. The verification plan lists the output of the show ip
+        ospf database summary 10.100.0.0 command on a Router B1, one of the
+        branches. Which of the following is true regarding the output that
+        could be listed for this command?
       type: multiple choice
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: >-
             The output lists nothing unless 10.100.0.0 has been configured as a
@@ -1519,23 +1529,18 @@
         - id: 4
           text: >-
             None, because the Type 3 LSAs would exist only in the ABR's LSDBs.
-      correct_choice: 3
       explanation: >-
         Each ABR, by definition, creates a single Type 3 LSA to represent a
         subnet known in one area to be advertised into another area. Assuming
         that 10.100.0.0 is a subnet in area 0, both ABR1 and ABR2 would
         advertise a Type 3 LSA into area 100. The show ip ospf database summary
         command specifically lists Type 3 network summary LSAs.
-      prompt: >-
-        A verification plan shows a network diagram with branch office Routers
-        B1 through B100, plus two ABRs, ABR1 and ABR2, all in area 100. The
-        branches connect to the ABRs using Frame Relay point-to-point
-        subinterfaces. The verification plan lists the output of the show ip
-        ospf database summary 10.100.0.0 command on a Router B1, one of the
-        branches. Which of the following is true regarding the output that
-        could be listed for this command?
+    - prompt:
+        Which of the following OSPF messages contains complete LSAs used during
+        the database exchange process?
       type: multiple choice
-    - choices:
+      correct_choice: 3
+      choices:
         - id: 1
           text: LSR
         - id: 2
@@ -1544,18 +1549,22 @@
           text: LSU
         - id: 4
           text: DD
-      correct_choice: 3
+
       explanation: >-
         The Database Description (DD) packet lists a short LSA header but not
         the entire LSA. The Link State Request (LSR) packet asks the neighbors
         for a copy of an LSA. The Link State Update (LSU) holds the LSAs. LSAck
         simply acknowledges received LSAs, and Hello is used for neighbor
         discovery and neighbor state maintenance.
-      prompt:
-        Which of the following OSPF messages contains complete LSAs used during
-        the database exchange process?
+    - prompt: >-
+        R1 is internal to area 1, and R2 is internal to area 2. Subnet
+        10.1.1.0/24 exists in area 2 as a connected subnet off R2. ABR1
+        connects area 1 to backbone area 0, and ABR2 connects area 0 to area 2.
+        Which of the following LSAs must R1 use when calculating R1's best
+        route for 10.1.1.0/24?
       type: multiple choice
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: R2 's Type 1 LSA
         - id: 2
@@ -1564,7 +1573,6 @@
           text: "ABR1's Type 1 LSA in area 0"
         - id: 4
           text: Subnet 10.1.1.0/24's Type 3 LSA in Area 1
-      correct_choice: 4
       explanation: >-
         R1, internal to area 1, can use LSAs only in the area 1 LSDB. R2's
         Type 1 LSA exists only in area 2's LSDB. The Type 2 LSA for subnet
@@ -1573,14 +1581,14 @@
         intra-area routes inside area 1, but R1 will use ABR1's Type 1 LSA
         in area 1. Finally, the Type 3 LSA, created for 10.1.1.0/24 and flooded
         into area 1, is also needed to calculate the metric.
-      prompt: >-
-        R1 is internal to area 1, and R2 is internal to area 2. Subnet
-        10.1.1.0/24 exists in area 2 as a connected subnet off R2. ABR1
-        connects area 1 to backbone area 0, and ABR2 connects area 0 to area 2.
-        Which of the following LSAs must R1 use when calculating R1's best
-        route for 10.1.1.0/24?
+    - prompt: >-
+        Router R1, an ASBR connected to the Internet and to backbone area 0,
+        has been configured with a default-information originate command. Which
+        of the following is true about the effects of this configuration
+        command?
       type: multiple choice
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: >-
             R1 will always create and flood a default route into the OSPF
@@ -1599,19 +1607,17 @@
             R1 will set a flag on the LSA for the subnet between itself and one
             of the ISPs, noting this subnet as a default network, but only if
             R1 has a route to 0.0.0.0/0.
-      correct_choice: 2
       explanation: >-
         Without the always parameter, the default-information originate command
         generates an LSA for a default route, with prefix 0.0.0.0/0, but only
         if its own IP routing table has a route for 0.0.0.0/0. It does not flag
         another LSA as being used as a candidate default route.
-      prompt: >-
-        Router R1, an ASBR connected to the Internet and to backbone area 0,
-        has been configured with a default-information originate command. Which
-        of the following is true about the effects of this configuration
-        command?
+    - prompt: >-
+        ABR R1 has been configured with an area 1 stub no-summary command.
+        Which stubby area type is area 1?
       type: multiple choice
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: Stub/li>
         - id: 2
@@ -1620,15 +1626,16 @@
           text: NSSA
         - id: 4
           text: Totally NSSA
-      correct_choice: 2
       explanation:
         The stub keyword means either a stub area or a totally stubby area.
         The nosummary command means that the area is totally stubby.
-      prompt: >-
-        ABR R1 has been configured with an area 1 stub no-summary command.
-        Which stubby area type is area 1?
+    - prompt: >-
+        With an OSPFv3 Address Family configuration supporting both IPv4 and
+        IPv6 routing, which of the following is true regarding OSPFv3's
+        link-state database?
       type: multiple choice
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: >-
             IPv4 LSAs populate one database, while IPv6 LSAs populate a second
@@ -1646,18 +1653,17 @@
           text: >-
             A virtual Address Family is created, and it contains information
             from both IPv4 and IPv6 LSAs.
-      correct_choice: 2
       explanation: >-
         When using OSPFv3's Address Family configuration to support both IPv4
         and IPv6, LSAs for both IPv4 and IPv6 networks populate a single
         link-state database. The database can be viewed with the show ospfv3
         database command.
-      prompt: >-
-        With an OSPFv3 Address Family configuration supporting both IPv4 and
-        IPv6 routing, which of the following is true regarding OSPFv3's
-        link-state database?
+    - prompt:
+        In an OSPFv3 Address Family configuration, how do you tell an interface
+        to participate in the OSPFv3 process for IPv6 routes?
       type: multiple choice
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: >-
             Router(config-router)# ospfv3 process_id ipv6 area area_number
@@ -1671,7 +1677,6 @@
         - id: 4
           text: >-
             Router(config-if)# ospfv3 process_id ipv6 area area_number
-      correct_choice: 4
       explanation: >-
         With Named EIGRP, all EIGRP configuration can be done under a single
         EIGRP virtual instance. However, with an OSPFv3 Address Family
@@ -1679,11 +1684,15 @@
         instruct an interface to participate in the routing process. The
         command (issued in interface configuration mode) is ospfv3 process_id
         ipv6 area area_number.
-      prompt:
-        In an OSPFv3 Address Family configuration, how do you tell an interface
-        to participate in the OSPFv3 process for IPv6 routes?
+    - prompt: >-
+        Router R1 has a connected route for 10.1.1.0/24 off interface Fa0/0.
+        Interface Fa0/0 has been enabled for OSPF because of a router ospf 1
+        and network 10.1.1.0 0.0.0.255 area 0 command. R1 also has EIGRP
+        configured, with the redistribute ospf 1 metric 1000 100 10 1 1500
+        command configured under EIGRP. Which of the following is true?
       type: multiple choice
-    - choices:
+      correct_choice: 2
+      choices:
         - id: 1
           text: >-
             R1 will not redistribute 10.1.1.0/24 into EIGRP, because R1 knows
@@ -1700,7 +1709,6 @@
           text: >-
             No subnets of network 10.1.1.0 will be redistributed because of the
             omission of the subnets parameter
-      correct_choice: 2
       explanation: >-
         The redistribute ospf command will attempt to redistribute OSPF routes
         and connected routes from interfaces on which OSPF is enabled. The
@@ -1708,14 +1716,15 @@
         tens-of-microseconds (or 1000 microseconds), 10 for the loading, 1 for
         the reliability, and 1500 for MTU. The EIGRP version of the
         redistribute command does not include a subnets option.
-      prompt: >-
-        Router R1 has a connected route for 10.1.1.0/24 off interface Fa0/0.
-        Interface Fa0/0 has been enabled for OSPF because of a router ospf 1
-        and network 10.1.1.0 0.0.0.255 area 0 command. R1 also has EIGRP
-        configured, with the redistribute ospf 1 metric 1000 100 10 1 1500
-        command configured under EIGRP. Which of the following is true?
+    - prompt: >-
+        Router R1 sits inside OSPF area 1. Router R2 redistributes an E1 route
+        into OSPF for prefix 2.2.2.0/24, with external metric 20. Router R22
+        redistributes an E2 route for the same prefix/length, external metric
+        10. Under what conditions will R1 choose as its best route the route
+        through R22?
       type: multiple choice
-    - choices:
+      correct_choice: 4
+      choices:
         - id: 1
           text: R1 will always choose the route through R22.
         - id: 2
@@ -1730,20 +1739,12 @@
           text: >-
             R1 will never choose the route through R22 if the E1 route through
             R2 is available.
-      correct_choice: 4
       explanation: >-
         Routers add internal and external costs for E1 routes and use only
         external costs for E2 routes, so the cost for the route through R22
         will always be lower. However, for a given prefix/length, OSPF always
         prefers intra-area routes first, then interarea, then E1, and finally,
         E2, all regardless of metric.
-      prompt: >-
-        Router R1 sits inside OSPF area 1. Router R2 redistributes an E1 route
-        into OSPF for prefix 2.2.2.0/24, with external metric 20. Router R22
-        redistributes an E2 route for the same prefix/length, external metric
-        10. Under what conditions will R1 choose as its best route the route
-        through R22?
-      type: multiple choice
 - meta_name: >-
     350-601 DCCOR - Implementing and Operating Cisco Data Center Core
     Technologies
