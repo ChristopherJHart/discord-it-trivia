@@ -183,6 +183,9 @@
       explanation: >-
         A Class C network defines a maximum of 2,097,152 (2^21) /24 networks.
         Each network supports up to 254 (2^8-2) hosts.
+      tags:
+        - Subnetting
+        - Network Fundamentals
     - prompt: Which Cisco IOS command shows active OSPF neighbor adjacencies?
       type: "multiple choice"
       correct_choice: 1
@@ -195,6 +198,9 @@
           text: show ip ospf database
         - id: 4
           text: show protocols
+      tags:
+        - OSPF
+        - Routing Protocols
     - prompt: >-
         Which of the following describes an attack type where attackers
         manipulate a routing table?
@@ -280,6 +286,9 @@
           text: 192.168.0.0
         - id: 4
           text: 192.168.145.0
+      tags:
+        - Subnetting
+        - Network Fundamentals
     - prompt: >-
         Which of the below types of packets does a host broadcast to
         learn the MAC address associated with a specific IPv4 address in the
@@ -511,6 +520,9 @@
           text: 10.10.0.0/16 subnetted with mask 255.255.255.252
         - id: 4
           text: 10.10.0.0/23 subnetted with mask 255.255.255.252
+      tags:
+        - Subnetting
+        - Network Fundamentals
     - prompt: >-
         The network administrator is asked to configure 113 point-to-point
         links. Which IP addressing scheme best defines the address range and
@@ -527,6 +539,9 @@
           text: 10.10.1.0/25 subnetted with mask 255.255.255.252
         - id: 4
           text: 10.10.0.0/18 subnetted with mask 255.255.255.252
+      tags:
+        - Subnetting
+        - Network Fundamentals
     - prompt: >-
         Which command reveals the last method used to powercycle a router?
       type: "multiple choice"
@@ -658,6 +673,9 @@
           text: "1"
         - id: 4
           text: "4"
+      tags:
+        - Subnetting
+        - Network Fundamentals
     - prompt: >-
         Which statement describes the function of the OSI transport layer?
       type: "multiple choice"
@@ -897,6 +915,9 @@
           text: 172.104.0.0/12
         - id: 4
           text: 172.104.0.0/13
+      tags:
+        - Subnetting
+        - Network Fundamentals
     - prompt: >-
         Which field in an Ethernet II frame performs the same function as the
         DSAP field in an 802.3 Ethernet frame?
@@ -1190,6 +1211,9 @@
           text: >-
             interface e0/0 description to XX-AXXX:XXXXX ip address
             209.165.201.2 225.255.255.252
+      tags:
+        - Subnetting
+        - Network Fundamentals
     - prompt: >-
         Which network allows devices to communicate without the need to access
         the Internet?
