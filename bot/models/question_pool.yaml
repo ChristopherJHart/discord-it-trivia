@@ -12,10 +12,6 @@
         frame from a host. What will the switch do with the frame with an empty
         CAM table?
       type: "multiple choice"
-      tags:
-        - Switching
-        - Ethernet
-        - Network Fundamentals
       correct_choice: 1
       choices:
         - id: 1
@@ -35,14 +31,15 @@
         present in the switch's MAC address table, the switch will flood that
         frame out of all up/up interfaces that are in a Spanning Tree Protocol
         Forwarding state in the relevant VLAN.
+      tags:
+        - Switching
+        - Ethernet
+        - Network Fundamentals
     - prompt: >-
         A network operator configured an SVI (Switch Virtual Interface) for
         management purposes on a switch. However, they cannot ICMP ping the IP
         address of the SVI. What command did they forget to use on the SVI?
       type: "multiple choice"
-      tags:
-        - Switching
-        - Network Fundamentals
       correct_choice: 1
       choices:
         - id: 1
@@ -59,14 +56,14 @@
         up/up status. Once the interface is in an up/up status, it can respond
         to ICMP Echo Request packets destined to the IP address assigned to the
         interface.
+      tags:
+        - Switching
+        - Network Fundamentals
     - prompt: >-
         A network administrator asks you to take a Class A network (10.0.0.0)
         and divide it into two usable networks. What is the subnet mask for
         each of the two networks?
       type: "multiple choice"
-      tags:
-        - Network Fundamentals
-        - Subnetting
       correct_choice: 1
       choices:
         - id: 1
@@ -77,13 +74,13 @@
           text: "256.128.0.0"
         - id: 4
           text: "256.256.0.0"
+      tags:
+        - Network Fundamentals
+        - Subnetting
     - prompt: >-
         Collisions are a symptom of what configuration mistake on an Ethernet
         interface?
       type: "multiple choice"
-      tags:
-        - Ethernet
-        - Network Fundamentals
       correct_choice: 1
       choices:
         - id: 1
@@ -94,13 +91,13 @@
           text: "Damaged or faulty cabling"
         - id: 4
           text: "Network congestion"
+      tags:
+        - Ethernet
+        - Network Fundamentals
     - prompt: >-
         What protocol do IPv6 hosts using SLAAC use to discover the first part
         of the address and prefix length?
       type: "multiple choice"
-      tags:
-        - IPv6
-        - Network Fundamentals
       correct_choice: 1
       choices:
         - id: 1
@@ -111,13 +108,13 @@
           text: "NA (Neighbor Announcement)"
         - id: 4
           text: "RA (Router Advertisement)"
+      tags:
+        - IPv6
+        - Network Fundamentals
     - prompt: >-
         How many hosts are available to use on a network with a subnet mask of
         255.255.252.0?
       type: "multiple choice"
-      tags:
-        - Subnetting
-        - Network Fundamentals
       correct_choice: 1
       choices:
         - id: 1
@@ -128,13 +125,13 @@
           text: "1023"
         - id: 4
           text: "1021"
+      tags:
+        - Subnetting
+        - Network Fundamentals
     - prompt: >-
         What packet is used for neighbor discovery in the OSPF routing
         protocol?
       type: "multiple choice"
-      tags:
-        - OSPF
-        - Routing Protocols
       correct_choice: 1
       choices:
         - id: 1
@@ -145,13 +142,19 @@
           text: "Neighbor Packets"
         - id: 4
           text: "LSA (Link State Advertisement) Packets"
-      explanation:
-    - prompt: >-
-        What's the default timer for the OSPF routing protocol's Hello Interval?
-      type: "multiple choice"
+      # yamllint disable rule:line-length
+      explanation: >-
+        Two OSPF routers that share a link in the same broadcast domain/subnet
+        will send Hello packets to "discover" each other's presence. The
+        purpose and contents of this packet are described by the IETF in
+        [Section 7 of RFC2328 (OSPF Version 2)](https://datatracker.ietf.org/doc/html/rfc2328#section-7).
+      # yamllint enable rule:line-length
       tags:
         - OSPF
         - Routing Protocols
+    - prompt: >-
+        What's the default timer for the OSPF routing protocol's Hello Interval?
+      type: "multiple choice"
       correct_choice: 1
       choices:
         - id: 1
@@ -162,6 +165,9 @@
           text: "3 seconds"
         - id: 4
           text: "30 seconds"
+      tags:
+        - OSPF
+        - Routing Protocols
     - prompt: "How many usable hosts are present in a Class C network?"
       correct_choice: 3
       type: "multiple choice"
