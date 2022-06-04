@@ -10,6 +10,8 @@ from disnake import (
     HTTPException,
     InteractionResponded,
 )
+from disnake.ui import View
+from disnake.utils import MISSING
 import structlog
 from structlog.contextvars import (
     bind_contextvars,
@@ -116,7 +118,10 @@ def sanitize_embed(embed: Embed) -> List[Embed]:
 
 
 async def send_embed(
-    inter: ApplicationCommandInteraction, embed: Embed, ephemeral: bool = False
+    inter: ApplicationCommandInteraction,
+    embed: Embed,
+    ephemeral: bool = False,
+    view: View = MISSING,
 ) -> None:
     """Send one or more embeds in response to a slash command."""
     embeds = sanitize_embed(embed)
@@ -128,10 +133,10 @@ async def send_embed(
             channel_name=inter.channel.name,
         )
         try:
-            await inter.response.send_message(embed=e, ephemeral=ephemeral)
+            await inter.response.send_message(embed=e, ephemeral=ephemeral, view=view)
             logger.info("Sent embed", embed=e.to_dict())
         except InteractionResponded:
-            await inter.followup.send(embed=e, ephemeral=ephemeral)
+            await inter.followup.send(embed=e, ephemeral=ephemeral, view=view)
             logger.info("Sent embed", embed=e.to_dict())
         except Forbidden:
             logger.warning("Failed to send message due to permissions error")
