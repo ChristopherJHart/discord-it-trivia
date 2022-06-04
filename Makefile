@@ -4,11 +4,13 @@ PIP = $(VENV)/bin/pip
 CONTAINER_NAME = discord-it-trivia
 CONTAINER_PROD_TAG = latest
 
-venv:
-	python3 -m venv $(VENV)
+$(VENV)/bin/activate: requirements.txt
+	$(PYTHON) -m venv $(VENV)
+	$(PIP) install -r requirements.txt
+
+venv: $(VENV)/bin/activate
 
 install: venv
-	$(PIP) install -r requirements.txt
 
 install-dev: venv
 	$(PIP) install -r requirements-dev.txt
