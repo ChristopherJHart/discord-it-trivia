@@ -9,6 +9,7 @@ from disnake import ApplicationCommandInteraction
 from disnake.ext import commands
 from bot.client import discord_bot
 from bot.core.util import send_embed
+from bot.core.config import settings
 from bot.embeds import command_failed
 
 
@@ -53,6 +54,12 @@ async def on_slash_command_error(
         checksum=traceback_checksum,
         error_id=unique_error_id,
     )
+    if settings.TEST_GUILD is not None:
+        print(
+            "".join(
+                traceback.format_exception(type(error), error, error.__traceback__, 4)
+            )
+        )
     await send_embed(
         inter,
         command_failed(
