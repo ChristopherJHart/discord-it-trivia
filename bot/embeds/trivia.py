@@ -28,11 +28,12 @@ def trivia_ok_multiple_choice_question(
     """
     embed.title = f"__{exam_name}__"
     embed.add_field(name="Question", value=prompt, inline=False)
-    value = ["```"]
     for index, choice in enumerate(choices, start=1):
-        value.append(f"{index}. {choice}")
-    value.append("```")
-    embed.add_field(name="Answer Choices", value="\n".join(value), inline=False)
+        embed.add_field(
+            name=f"Choice #{index}",
+            value="\n".join(["```", choice, "```"]),
+            inline=False,
+        )
     return embed
 
 
