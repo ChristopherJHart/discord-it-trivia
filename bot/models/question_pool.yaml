@@ -2144,8 +2144,8 @@
         "Internet Group Management Protocol (IGMP) is a IPv4 protocol that
         a host uses to request multicast data for a particular group. "
       prompt: >-
-        ___ is used by hosts that want to receive multicast data to request
-        membership in a multicast group.
+        What protocol is used by hosts that want to receive multicast data to
+        request membership to a multicast group?
       type: multiple choice
     - choices:
         - id: 1
@@ -2174,9 +2174,8 @@
         a particular group. Using the information obtained through MLD, the
         software maintains a list of multicast group or channel memberships on
         a per-interface basis
-      prompt:
-        ____ is an IPv6 protocol that a host uses to request multicast data for
-        a particular group.
+      prompt: Which IPv6 protocol does a host use to request multicast data for
+        a particular multicast group?
       type: multiple choice
     - choices:
         - id: 1
@@ -2508,8 +2507,8 @@
           text: Endpoint Groups
       correct_choice: 1
       prompt: >-
-        ___ is a logical container for application policies that enable an
-        administrator to exercise domain-based access control.
+        What are logical containers for application policies that enable an
+        administrator to exercise domain-based access control?
       type: multiple choice
     - choices:
         - id: 1
@@ -2521,9 +2520,8 @@
         - id: 4
           text: Endpoint Groups
       correct_choice: 3
-      prompt:
-        ____ defines the policies, services, and relationships between endpoint
-        groups (EPGs).
+      prompt: Which of the following defines the policies, services, and
+        relationships between endpoint groups (EPGs)?
       type: multiple choice
     - choices:
         - id: 1
@@ -2539,8 +2537,8 @@
         Attachable Entity Profile. An AEP is required to deploy VLAN pools
         on leaf switches
       prompt:
-        ___ represents a group of external entities with similar infrastructure
-        policy requirements.
+        Which of the following terms represents a group of external entities
+        with similar infrastructure policy requirements?
       type: multiple choice
     - choices:
         - id: 1
@@ -2553,7 +2551,7 @@
           text: On-demand manual service
       correct_choice: 4
       prompt: >-
-        which of the following is NOT a characteristic of cloud computing?
+        Which of the following is NOT a characteristic of cloud computing?
       type: multiple choice
     - choices:
         - id: 1
@@ -2580,7 +2578,7 @@
           text: Private Cloud
       correct_choice: 2
       prompt: >-
-        what type of cloud model is composed of two or more clouds that retain
+        What type of cloud model is composed of two or more clouds that retain
         unique entities but are bound together?
       type: multiple choice
     - choices:
@@ -2607,9 +2605,9 @@
       correct_choice: 4
       explanation: "PowerOn Auto Provisioning "
       prompt: >-
-        ___ automates the process of upgrading software images and installing
-        configuration files on the cisco nexus switches that are being deployed
-        in the network for the first time.
+        Which of the following protocols automates the process of upgrading
+        software images and installing configuration files on Cisco Nexus
+        switches that are being deployed in the network for the first time?
       type: multiple choice
     - choices:
         - id: 1
@@ -2633,7 +2631,7 @@
         - id: 4
           text: show snmp
       correct_choice: 2
-      prompt: "what command is used to view SNMP status?"
+      prompt: "What command is used to view SNMP status?"
       type: multiple choice
     - choices:
         - id: 1
@@ -2695,7 +2693,7 @@
         - id: 4
           text: FCNS
       correct_choice: 1
-      prompt: "___ happens between an N port and an F port."
+      prompt: "Which of the following happens between an N port and an F port?"
       type: multiple choice
     - choices:
         - id: 1
@@ -2886,7 +2884,7 @@
           text: show event manager policy active detailed
       correct_choice: 2
       prompt: >-
-        which command will display information about the running config for
+        Which command will display information about the running config for
         EEM?
       type: multiple choice
     - choices:
@@ -2939,7 +2937,8 @@
           text: run nxos
       correct_choice: 3
       prompt: >-
-        what command would you use to run NXOS commands while in guest shell?
+        What command would you use to run NX-OS commands while in the
+        GuestShell?
       type: multiple choice
     - choices:
         - id: 1
@@ -2951,5 +2950,5 @@
         - id: 4
           text: "401"
       correct_choice: 4
-      prompt: "which http status code means not authorized?"
+      prompt: "Which HTTP status code means not authorized?"
       type: multiple choice
