@@ -2,34 +2,56 @@
 
 from typing import List
 import re
+import pytest
+from yaml import SafeLoader, load
 
 
-def test_question_pool_types(question_pool: List[dict]) -> None:
+def get_exams() -> List[dict]:
+    with open("./bot/models/question_pool.yaml") as pool_file:
+        return load(pool_file, SafeLoader)
+
+
+def get_questions() -> List[dict]:
+    questions = []
+    with open("./bot/models/question_pool.yaml") as pool_file:
+        question_pool = load(pool_file, SafeLoader)
+    for exam in question_pool:
+        questions += exam.get("questions", [])
+    return questions
+
+
+def test_exam_is_list(question_pool: List[dict]) -> None:
     """Ensure that the question pool is a list of dictionaries."""
+    assert question_pool is not None
     assert isinstance(question_pool, list)
-    for exam in question_pool:
-        assert isinstance(exam, dict)
 
 
-def test_exam_meta_names(question_pool: List[dict]) -> None:
+@pytest.mark.parametrize("exam", get_exams())
+def test_exam_is_dictionary(exam: dict) -> None:
+    """Ensure that the question pool is a list of dictionaries."""
+    assert exam is not None
+    assert isinstance(exam, dict)
+
+
+@pytest.mark.parametrize("exam", get_exams())
+def test_exam_meta_names(exam: dict) -> None:
     """Ensure that each exam in the question pool has a stringy meta_name key."""
-    for exam in question_pool:
-        assert exam.get("meta_name") is not None
-        assert isinstance(exam.get("meta_name"), str)
+    assert exam.get("meta_name") is not None
+    assert isinstance(exam.get("meta_name"), str)
 
 
-def test_exam_meta_descriptions(question_pool: List[dict]) -> None:
+@pytest.mark.parametrize("exam", get_exams())
+def test_exam_meta_descriptions(exam: dict) -> None:
     """Ensure that each exam in the question pool has a stringy meta_description key."""
-    for exam in question_pool:
-        assert exam.get("meta_description") is not None
-        assert isinstance(exam.get("meta_description"), str)
+    assert exam.get("meta_description") is not None
+    assert isinstance(exam.get("meta_description"), str)
 
 
-def test_exam_command_names(question_pool: List[dict]) -> None:
+@pytest.mark.parametrize("exam", get_exams())
+def test_exam_command_names(exam: dict) -> None:
     """Ensure that each exam in the question pool has a stringy command_name key."""
-    for exam in question_pool:
-        assert exam.get("command_name") is not None
-        assert isinstance(exam.get("command_name"), str)
+    assert exam.get("command_name") is not None
+    assert isinstance(exam.get("command_name"), str)
 
 
 def test_exam_command_names_unique(question_pool: List[dict]) -> None:
@@ -39,61 +61,60 @@ def test_exam_command_names_unique(question_pool: List[dict]) -> None:
     assert len(all_command_names) == len(unique_command_names)
 
 
-def test_exam_command_names_single_world(question_pool: List[dict]) -> None:
+@pytest.mark.parametrize("exam", get_exams())
+def test_exam_command_names_single_world(exam: dict) -> None:
     """Ensure that the command_name key of each exam is a single word."""
-    for exam in question_pool:
-        assert len(exam.get("command_name").split(" ")) == 1
+    assert len(exam.get("command_name").split(" ")) == 1
 
 
-def test_exam_command_descriptions(question_pool: List[dict]) -> None:
+@pytest.mark.parametrize("exam", get_exams())
+def test_exam_command_descriptions(exam: dict) -> None:
     """Ensure that each exam in the question pool has a stringy command_description key."""
-    for exam in question_pool:
-        assert exam.get("command_description") is not None
-        assert isinstance(exam.get("command_description"), str)
+    assert exam.get("command_description") is not None
+    assert isinstance(exam.get("command_description"), str)
 
 
-def test_exam_questions_type(question_pool: List[dict]) -> None:
+@pytest.mark.parametrize("question", get_questions())
+def test_exam_questions_type(question: dict) -> None:
     """Ensure that each exam's set of questions is a list of dictionaries."""
-    for exam in question_pool:
-        assert exam.get("questions") is not None
-        assert isinstance(exam.get("questions"), list)
-        for q in exam.get("questions"):
-            assert isinstance(q, dict)
+    assert isinstance(question, dict)
+    # for exam in question_pool:
+    #     assert exam.get("questions") is not None
+    #     assert isinstance(exam.get("questions"), list)
+    #     for q in exam.get("questions"):
+    #         assert isinstance(q, dict)
 
 
-def test_exam_questions_keys(question_pool: List[dict]) -> None:
+@pytest.mark.parametrize("question", get_questions())
+def test_exam_questions_keys(question: dict) -> None:
     """Ensure that each exam's set of questions are properly-formed."""
-    for exam in question_pool:
-        for q in exam.get("questions", []):
-            assert "prompt" in q.keys()
-            assert q.get("prompt") is not None
-            assert isinstance(q.get("prompt"), str)
-            assert "type" in q.keys()
-            assert q.get("type") is not None
-            assert isinstance(q.get("type"), str)
-            assert q.get("type") == "multiple choice"
-            assert "correct_choice" in q.keys()
-            assert q.get("correct_choice") is not None
-            assert isinstance(q.get("correct_choice"), int)
-            assert "choices" in q.keys()
-            assert q.get("choices") is not None
-            assert isinstance(q.get("choices"), list)
+    assert "prompt" in question.keys()
+    assert question.get("prompt") is not None
+    assert isinstance(question.get("prompt"), str)
+    assert "type" in question.keys()
+    assert question.get("type") is not None
+    assert isinstance(question.get("type"), str)
+    assert question.get("type") == "multiple choice"
+    assert "correct_choice" in question.keys()
+    assert question.get("correct_choice") is not None
+    assert isinstance(question.get("correct_choice"), int)
+    assert "choices" in question.keys()
+    assert question.get("choices") is not None
+    assert isinstance(question.get("choices"), list)
 
 
-def test_exam_questions_choices(question_pool: List[dict]) -> None:
+@pytest.mark.parametrize("question", get_questions())
+def test_exam_questions_choices(question: dict) -> None:
     """Ensure that each exam's set of questions has properly-formed choices."""
-    for exam in question_pool:
-        for q in exam.get("questions", []):
-            for c in q.get("choices", []):
-                assert c.get("id") is not None
-                assert isinstance(c.get("id"), int)
-                assert c.get("text") is not None
-                assert isinstance(c.get("text"), str)
+    for choice in question.get("choices", []):
+        assert choice.get("id") is not None
+        assert isinstance(choice.get("id"), int)
+        assert choice.get("text") is not None
+        assert isinstance(choice.get("text"), str)
 
 
-def test_exam_question_prompts_end_with_punctuation(question_pool: List[dict]) -> None:
+@pytest.mark.parametrize("question", get_questions())
+def test_exam_question_prompts_end_with_punctuation(question: dict) -> None:
     """Ensure that each exam's question prompts end with punctuation."""
     punctuation_pattern = re.compile(r"(?:\b|\)|\")[.!?]$")
-    for exam in question_pool:
-        for q in exam.get("questions", []):
-            assert punctuation_pattern.search(q.get("prompt"))
+    assert punctuation_pattern.search(question.get("prompt"))
