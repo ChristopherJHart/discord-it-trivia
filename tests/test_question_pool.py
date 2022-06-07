@@ -7,11 +7,13 @@ from yaml import SafeLoader, load
 
 
 def get_exams() -> List[dict]:
+    """Return all exam data structures in a list."""
     with open("./bot/models/question_pool.yaml") as pool_file:
         return load(pool_file, SafeLoader)
 
 
 def get_questions() -> List[dict]:
+    """Return all question data structures in all exams as a list."""
     questions = []
     with open("./bot/models/question_pool.yaml") as pool_file:
         question_pool = load(pool_file, SafeLoader)
