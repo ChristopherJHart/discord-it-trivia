@@ -124,3 +124,16 @@ def test_exam_question_prompts_end_with_punctuation(question: dict) -> None:
 def test_exam_question_prompts_start_with_capital_letter(question: dict) -> None:
     """Ensure that each exam's question prompts start with a capital letter."""
     assert question.get("prompt")[0].isupper()
+
+
+@pytest.mark.parametrize("question", get_questions())
+def test_exam_question_prompts_fit_in_embed_fields(question: dict) -> None:
+    """Ensure that each exam's question prompt is less than or equal to 1024 characters."""
+    assert len(question.get("prompt")) <= 1024
+
+
+@pytest.mark.parametrize("question", get_questions())
+def test_exam_question_choices_fit_in_embed_fields(question: dict) -> None:
+    """Ensure that each exam's question answer choices is less than or equal to 1024 characters."""
+    for choice in question.get("choices"):
+        assert len(choice) <= 1024
