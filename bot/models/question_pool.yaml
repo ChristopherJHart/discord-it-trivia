@@ -1196,21 +1196,25 @@
       correct_choice: 4
       choices:
         - id: 1
-          text: >-
-            interface e0/0 description to XX-AXXX:XXXXX ip address 10.2.1.3
-            255.255.255.252
+          text: |
+            interface Ethernet0/0
+             description to XX-AXXX:XXXXX
+             ip address 10.2.1.3 255.255.255.252
         - id: 2
-          text: >-
-            interface e0/0 description to XX-AXXX:XXXXX ip address 192.168.1.1
-            255.255.255.248
+          text: |
+            interface Ethernet0/0
+             description to XX-AXXX:XXXXX
+             ip address 192.168.1.1 255.255.255.248
         - id: 3
-          text: >-
-            interface e0/0 description to XX-AXXX:XXXXX ip address 172.16.1.4
-            255.255.255.248
+          text: |
+            interface Ethernet0/0
+             description to XX-AXXX:XXXXX
+             ip address 172.16.1.4 255.255.255.248
         - id: 4
-          text: >-
-            interface e0/0 description to XX-AXXX:XXXXX ip address
-            209.165.201.2 225.255.255.252
+          text: |
+            interface Ethernet0/0
+             description to XX-AXXX:XXXXX
+             ip address 209.165.201.2 255.255.255.252
       tags:
         - Subnetting
         - Network Fundamentals
