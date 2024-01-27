@@ -1359,6 +1359,4493 @@
           text: >-
             enables secure communications to the Internet for all external
             hosts
+    - prompt: >- 
+            A router's interface was configured using SLAAC but the router did not learn a default route from it. What command should have been used to configure the interface? `ipv6 ...`?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            address autoconfig default
+        - id: 2
+          text: >-
+            address dhcp default
+        - id: 3
+          text: >-
+            ndp address
+        - id: 4
+          text: >-
+            discover autoconfig default
+      explanation: >-
+        The interface command, `ipv6 address autoconfig default` will make an interface configure an address using SLAAC and also generate a default route from the upstream router.
+      tags:
+        - 1.8 IPv6 Addressing
+        - 3.3.a Default Route
+    - prompt: >- 
+            A switch is powered on and receives a frame from a given host for the first time. What will the switch do with the frame with an empty CAM table?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Flood the frame
+        - id: 2
+          text: >-
+            Drop the frame
+        - id: 3
+          text: >-
+            Forward the frame to the configured default-gateway
+        - id: 4
+          text: >-
+            Add the destination MAC address to the CAM table
+      explanation: >-
+        Switches populate the CAM table by receiving a frame from a host. When a switch receives a frame the source MAC address is added to the table if it does not already have an entry for that MAC address. If the destination is unknown, the frame is flooded out all interfaces for that VLAN other than the one it was received on.
+      tags:
+        - 1.14 MAC learning and aging
+        - 1.16 Frame Flooding
+        - 1.17 MAC Address table
+    - prompt: >- 
+            A tech configures the SVI on a switch for VLAN 1 with the correct IP information but cannot reach it from a working PC. What command did they forget to use on the SVI?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            no shutdown
+        - id: 2
+          text: >-
+            ip routing
+        - id: 3
+          text: >-
+            login local
+        - id: 4
+          text: >-
+            ip default-gateway
+      explanation: >-
+        By default, the SVI for VLAN 1 is in a shutdown state. This SVI needs to be administratively enabled before it is reachable.
+      tags:
+        - 2.1 Configure and verify VLANs
+        - 2.2 Configure and verify interswitch connectivity
+    - prompt: >- 
+            An administrator asks you to take the class A network 10.0.0.0 and divide into two usable networks. What is the subnet mask for each network?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            255.128.0.0
+        - id: 2
+          text: >-
+            255.255.0.0
+        - id: 3
+          text: >-
+            127.0.0.0
+        - id: 4
+          text: >-
+            255.255.254.0
+      explanation: >-
+        The request is for two networks. Class A masks are /8. Taking a single host bit and converting it to an additional network bit provided two combinations of networks from the original network mask of 255.0.0.0.
+      tags:
+        - 1.6 Subnetting
+    - prompt: >- 
+            Aside from EUI-64, what is another way a host will generate the interface ID portion of its IPv6 address when using SLAAC?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Randomly
+        - id: 2
+          text: >-
+            Use the interface MAC address for the address
+        - id: 3
+          text: >-
+            Learned from NDP
+        - id: 4
+          text: >-
+            Manually
+      explanation: >-
+        When EUI-64 is not specified, the MAC address is not used to generate the interface ID portion of the address. In this scenario it is randomly generated.
+      tags:
+        - 1.8 Configure and verify IPv6 addressing and prefix
+    - prompt: >- 
+            Collisions are a symptom of what configuration mistake on an Ethernet interface?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Duplex mismatch
+        - id: 2
+          text: >-
+            Speed mismatch
+        - id: 3
+          text: >-
+            VLAN mismatch
+        - id: 4
+          text: >-
+            IP address conflict
+      explanation: >-
+        Of the given options, only a duplex mismatch will both allow the interface to come up and also allow for collisions to happen.
+      tags:
+        - 1.4 Identify interface and cable issues
+    - prompt: >- 
+            Hosts use what when using SLAAC to discover the first part of the address and prefix length?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            NDP
+        - id: 2
+          text: >-
+            ARP
+        - id: 3
+          text: >-
+            LLDP
+        - id: 4
+          text: >-
+            CDP
+      explanation: >-
+        NDP, Neighbor Discovery Protocol, is used during the SLAAC process to discover addressing information from upstream routers.
+      tags:
+        - 1.8 Configure and verify IPv6 addressing and prefix
+    - prompt: >- 
+            How many hosts are available to use on a network with the mask 255.255.252.0?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            1022
+        - id: 2
+          text: >-
+            1024
+        - id: 3
+          text: >-
+            7
+        - id: 4
+          text: >-
+            3
+      explanation: >-
+        Given the subnet mask, 10 host bits are available to use. 2^10  is 1024, minus 2 for network and broadcast address comes out to 1022.
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            How many subnets are available to use with the class B network 172.20.0.0 /18?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            4
+        - id: 2
+          text: >-
+            8
+        - id: 3
+          text: >-
+            2
+        - id: 4
+          text: >-
+            18
+      explanation: >-
+        There are two hints to discover the original subnet set that this was created from. First, it is explicitly said it is a class B, which is of size /16. Second, no explicit original network is provided. The only safe conclusion that can be made is that the original network is a /16. Since you have two bits to work with, the difference between the original and given networks, 4 subnets are available to use.
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            What field in an Ethernet frame is used to detect errors in an Ethernet frame?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            FCS
+        - id: 2
+          text: >-
+            CRC
+        - id: 3
+          text: >-
+            Checksum
+        - id: 4
+          text: >-
+            Sequence number
+      explanation: >-
+        A CRC is name of the type process that uses the FCS field in Ethernet networking to detect and correct errors.
+      tags:
+        - 1.4 Identify interface and cable issues
+    - prompt: >- 
+            What field in an IP packet is used for error detection
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            checksum
+        - id: 2
+          text: >-
+            FCS
+        - id: 3
+          text: >-
+            Type
+        - id: 4
+          text: >-
+            Header Length
+      explanation: >-
+        The checksum field is used in IP packets for error detection.
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            Other than FE80::/10, what is another non-routable IPv6 prefix?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            FF02::/16
+        - id: 2
+          text: >-
+            2002::/16
+        - id: 3
+          text: >-
+            FC00::/7
+        - id: 4
+          text: >-
+            64:ff9b:1::/48
+      explanation: >-
+        FF02::/16 is a link local multicast range, it is not meant to be routable though other multicast ranges can be routed.
+      tags:
+        - 1.9 Describe IPv6 address types 
+    - prompt: >- 
+            Site A is allocated a /24 from corporate. You have already subdivided this network with a /25, two /27s, and a /30. What CIDR mask represents the largest remaining subnet at Site A?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            /27
+        - id: 2
+          text: >-
+            /25
+        - id: 3
+          text: >-
+            /30
+        - id: 4
+          text: >-
+            /28
+      explanation: >-
+        The original /24 is cut in half first with a /25 taken out. From the remaining /25, the next size used are two /27, which is one half of the /25. A /30 is used next, but that is only a small fraction of the remaining space. Since two /27 are half of the /25, one is a quarter which leaves room for the /30 still while nothing larger than a /27 can be used.
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            The darn new guy statically assigned his PC as 172.19.100.255 255.255.248.0. He doesn't understand why it works. One of the things you explain to them is that this works because the broadcast address for that network is actually...
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            172.19.103.255
+        - id: 2
+          text: >-
+            172.19.100.255
+        - id: 3
+          text: >-
+            172.31.255.255
+        - id: 4
+          text: >-
+            172.19.127.255
+      explanation: >-
+        The network mask is 255.255.248.0, which means there are 11 bits used for the host portion, 3 of which are in the third octet. You can safely ignore the fourth octet for this exercise as all bits will be on in that octet for broadcast. The third octet uses three bits, which means we work in multiples of 8 for this as three bits provide 8 permutations. Quick math tells us that 96 is the closest multiple of 8 that is not larger than 100. The next value is 104, or 172.19.104.0. Subtract 1 to get 172.19.103.255.
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            The mask 255.255.255.252 is commonly used for what type of link?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Point to point
+        - id: 2
+          text: >-
+            Broadcast
+        - id: 3
+          text: >-
+            Point to multipoint
+      explanation: >-
+        Even though a /31 is more conservative in terms of IP address conservation, historically there are vendors do a poor job of supporting it. The next best is a /30, which is more commonly used.
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            The network 192.168.4.0 needs to be divided into subnets that support one network of 100 hosts with the remaining subnets supporting 21 hosts. What two CIDR masks can we use to accomplish this while providing the maximum number of subnets?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            /25 and /27
+        - id: 2
+          text: >-
+            /26 and /28
+        - id: 3
+          text: >-
+            /25 and /28
+        - id: 4
+          text: >-
+            /26 and /29
+      explanation: >-
+        The smalled subnet size that supports 100 hosts is /25. This leaves one half of your IP space available. All remaining subnets must be able to support 21 hosts each, a /27 supports 30 hosts.
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            The router you're logged into has a large number of interfaces. What command can you use to quickly identify what each interface is labeled as and the operational mode of the interface?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show interfaces description
+        - id: 2
+          text: >-
+            show ip interfaces brief
+        - id: 3
+          text: >-
+            show running-configuration
+        - id: 4
+          text: >-
+            show ip route connected
+      explanation: >-
+        Since no information other than the interface and a label is required, show interfaces description is the command to use in this situation as it displays exactly that.
+      tags:
+        - 1.0 Network Fundamentals
+    - prompt: >- 
+            This part of the MAC address will inform you which vendor manufactured the NIC.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            OUI
+        - id: 2
+          text: >-
+            Header
+        - id: 3
+          text: >-
+            FCS
+        - id: 4
+          text: >-
+            Source Address
+      explanation: >-
+        The OUI, Organizationally Unique Identifier, is the first half of the MAC address that identifies the manufacturer.
+      tags:
+        - 1.13 Describe switching concepts
+    - prompt: >- 
+            To prevent Cisco IOS from trying to resolve mistyped commands, what configuration can you issue?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            transport preferred none
+        - id: 2
+          text: >-
+            no ip domain-lookup
+        - id: 3
+          text: >-
+            no ip routing
+        - id: 4
+          text: >-
+            terminal monitor
+      explanation: >-
+        While disabling DNS is a common method of preventing this, that breaks DNS and doesn't actually stop the root cause. When typing a word IOS does not recognize, it tries to resolve it to a DNS hostname in order to connect remotely to that host. By configuring the preferred transport to "none" that specific behavior is disabled without breaking DNS.
+      tags:
+        - 4.8 Configure network devices for remote access using SSH
+    - prompt: >- 
+            What command can you type first to program Fa0/1 through Fa0/15 to use identical VLAN and port security settings?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            interface range FastEthernet 0/1 - 15
+        - id: 2
+          text: >-
+            interface FastEthernet 0/1, 0/15
+        - id: 3
+          text: >-
+            interface range FastEthernet 0/[1-15]
+        - id: 4
+          text: >-
+            interface FastEthernet all
+      explanation: >-
+        The interface range command allows for multiple interfaces to be configured simultaneously. The syntax requires no brackets to be used.
+      tags:
+        - 1.0 Network Fundamentals
+    - prompt: >- 
+            What command will print the CAM table?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show mac address-table
+        - id: 2
+          text: >-
+            show ip arp
+        - id: 3
+          text: >-
+            show ip route
+        - id: 4
+          text: >-
+            show ip protocols
+      explanation: >-
+        The CAM table is represented by the MAC address table. 
+      tags:
+        - 1.13 Describe switching concepts
+        - 1.17 MAC address table
+    - prompt: >- 
+            What command will print the table a switch uses to determine whether it will forward or flood a frame?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show mac address-table
+        - id: 2
+          text: >-
+            show ip route
+        - id: 3
+          text: >-
+            show ip cef
+        - id: 4
+          text: >-
+            show cdp neighbors
+      explanation: >-
+        Forward or flood is an decision made by switches after determining whether or not the know how to reach a given destination MAC address. Checking the MAC address table will tell you whether or not the switch knows where to forward a frame for any MAC address.
+      tags:
+        - 1.13 Describe switching concepts
+        - 1.15 Frame switching
+        - 1.16 Frame flooding
+        - 1.17 MAC address table
+    - prompt: >- 
+            What command will tell you the recent CPU utilization of a router and the processes it is running?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show process cpu
+        - id: 2
+          text: >-
+            show processes
+        - id: 3
+          text: >-
+            show memory
+        - id: 4
+          text: >-
+            show ip protocols
+      explanation: >-
+        CPU utilization and processes are shown by the "show process cpu" command.
+      tags:
+        - 1.0 Networking Fundamentals
+    - prompt: >- 
+            What is an alternative to DHCPv6 for hosts to use when dynamically configuring themselves?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            SLAAC
+        - id: 2
+          text: >-
+            DHCPv6-PD
+        - id: 3
+          text: >-
+            IPv4
+        - id: 4
+          text: >-
+            NDP
+      explanation: >-
+        SLAAC is a stateless form of dynamic IP configuration of hosts where DHCPv6 is not available. Devices learn the prefix from a gateway device then configure the host portion themselves.
+      tags:
+        - 1.8 Configure and verify IPv6 addressing and prefix
+    - prompt: >- 
+            What is the broadcast address of the network 192.168.100.24 /30?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            192.168.100.27
+        - id: 2
+          text: >-
+            192.168.100.255
+        - id: 3
+          text: >-
+            192.168.255.255
+        - id: 4
+          text: >-
+            192.168.100.25
+      explanation: >-
+        The CIDR notion indicates a mask using 30 network bits and 2 host bits. The 2 host bits give 4 permutations, so to solve work in multiples of 4 for each network. 24 is an easy number to start with as it is evenly divisible by 4, meaning it is the network ID or first IP in the subnet. Add 3 (.4 is 1, so there are 3 more IPs) to get 27 or 192.168.100.27 for the broadcast address.
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            What is the network ID of a network on which 65.167.225.16 /20 resides?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            65.167.224.0
+        - id: 2
+          text: >-
+            65.167.255.0
+        - id: 3
+          text: >-
+            65.167.0.0
+        - id: 4
+          text: >-
+            65.0.0.0
+      explanation: >-
+        The CIDR notion indicates a mask using 20 network bits and 12 host bits. The 20th bit is part of the third octet, making that the interesting octet to work with and meaning we can take a shortcut by ignoring the other octets. The 20th bit means there are 4 bits for host bits within the third octet, 4 bits provides 16 permutations so we work in multiples of 16 and some quick math shows that 224 is the largest multiple of 16 without going over 225. The question asks for the network ID so all host bits are set to 0, which gives us 224.0 for the last two octets, or 65.167.224.0 for our network ID.
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            What mask will provide 23 hosts per network while wasting the least amount of IP addresses?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            255.255.255.224
+        - id: 2
+          text: >-
+            255.255.255.0
+        - id: 3
+          text: >-
+            255.255.255.23
+        - id: 4
+          text: >-
+            255.255.0.0
+      explanation: >-
+        The question asks for a network of at least size 23 without being wasteful. Translate that to there should be some value of host bits that equal at least 23 with waste of 23 or less. Using 4 bits is only 16 permutations so that is too small. Using 5 host bits provides 32 permutations, wasting 9 IPs. The next size up would be more wasteful, so use the mask that uses 5 bits or 255.255.255.224.
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            What method do IPv6 hosts use to detect duplicate IPv6 addresses?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            DAD
+        - id: 2
+          text: >-
+            MOM
+        - id: 3
+          text: >-
+            NDP
+        - id: 4
+          text: >-
+            ARP
+      explanation: >-
+        DAD, or Duplicate Address Detection, is used for detecting duplicate IPv6 addresses.
+      tags:
+        - 1.8 Configure and verify IPv6 addressing and prefix
+    - prompt: >- 
+            What needs to be configured on a layer 2 switch before you can utilize a syslog server or telnet to it?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            SVI
+        - id: 2
+          text: >-
+            IP address on the console line
+        - id: 3
+          text: >-
+            DNS
+        - id: 4
+          text: >-
+            Management VLAN
+      explanation: >-
+        While a management VLAN is a helpful thing to have in a network to keep management interfaces unreachable from end users, an extra or different VLAN is not required for syslog configuration or operation and a flat switch with only the default VLAN is capable of syslog. What is required is an SVI to source IP packets from.
+      tags:
+        - 4.0 IP services
+    - prompt: >- 
+            What piece of information does a host not learn about when using DHCPv6, compared to DHCPv4?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Default route
+        - id: 2
+          text: >-
+            Subnet Mask
+        - id: 3
+          text: >-
+            MAC Address
+        - id: 4
+          text: >-
+            NTP Server
+      explanation: >-
+        With IPv6, the default gateway is learned via RA messages. Unlike when using DHCP with IPv4, there is no field for a default gateway in IPv6.
+      tags:
+        - 1.8 Configure and verify IPv6 addressing and prefix
+        - 4.3 Explain the role of DHCP and DNS within the network
+    - prompt: >- 
+            What summary address (IP and mask) would encompass the following networks - 172.16.0.0 /16, 172.104.0.0 /15, 172.18.0.0 /16 ?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            172.0.0.0 255.128.0.0
+        - id: 2
+          text: >-
+            127.0.0.0 255.128.0.0
+        - id: 3
+          text: >-
+            172.16.0.0 255.252.0.0
+        - id: 4
+          text: >-
+            172.0.0.0 255.192.0.0
+      explanation: >-
+        With the given three networks, we consume everything from 172.16.0.0 through 172.105.255.255. The only possible way to summarize the entire space is to use the the entire first half of the block, using 172.0.0.0 255.128.0.0, covering from 172.0.0.0 through 172.127.255.255.
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            What supplementary action is performed when handing out an IP address to see if it is already in use?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            ARP Probe
+        - id: 2
+          text: >-
+            ARP
+        - id: 3
+          text: >-
+            CDP
+        - id: 4
+          text: >-
+            Gratuitous ARP
+      explanation: >-
+        Of the available answers, ARP Probe is the best answer. While it is ARP, it is more specifically an extra ARP to determine whether a client is using that IP as relying on ARP only could lead to stale IPs remaining in the consumed pool due to needing to wait for the ARP table to age out. A Gratuitous ARP would be for if the interface changes IP and wants to inform other devices that it has a new IP.
+      tags:
+        - 4.3 Explain the role of DHCP and DNS within the network
+    - prompt: >- 
+            When configuring a banner spanning multiple lines, what must you use to mark the beginning and end of your banner message?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Delimiter
+        - id: 2
+          text: >-
+            Enter key, it automatically works
+        - id: 3
+          text: >-
+            Exclamation mark 
+        - id: 4
+          text: >-
+            Caret mark
+      explanation: >-
+        A delimiter is a generic term is what is used to separate text strings. While an exclamation mark or caret could be examples of a delimiter, they can also be normal characters within the string. Without knowing what the banner message text will be, there is no way to know whether those two characters will be a valid character to use for the delimiter.
+      tags:
+        - 4.0 IP Services
+    - prompt: >- 
+            When running `show sessions` what does an asterisk represent?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            The most recent session
+        - id: 2
+          text: >-
+            Your session
+        - id: 3
+          text: >-
+            The oldest session
+        - id: 4
+          text: >-
+            It is a duplicate session
+      explanation: >-
+        An asterisk indicates the most recent session. If you are not logged in via SSH then it cannot be your session. Additionally, if someone else logs in after you it will put the asterisk on their session.
+      tags:
+        - 4.8 Configure network devices for remote access using SSH 
+    - prompt: >- 
+            Which type of link-local multicast address is generated using the last six hex digits of the unicast address?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Solicited Node
+        - id: 2
+          text: >-
+            Link Local
+        - id: 3
+          text: >-
+            All Nodes
+        - id: 4
+          text: >-
+            All Routers
+      explanation: >-
+        Solicited Node multicast addresses are generated using unicast addresses. They are used to reach a specific IPv6 host, used for NDP (Neighbor Discovery Protocol) to learn the  MAC of a host when it is not known or if an address is already in use, for example.
+      tags:
+        - 1.9 Describe IPv6 address types 
+        - 1.9.c Multicast
+    - prompt: >- 
+            While in global config mode, what command could you type to display the config from NVRAM?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            do show startup-config
+        - id: 2
+          text: >-
+            show startup-config
+        - id: 3
+          text: >-
+            do show running-config
+        - id: 4
+          text: >-
+            show tech-suppprt
+      explanation: >-
+        Since the question states you are in configuration mode, the only viable answers are prefaced by "do" as that is the keyword to use a non-config mode command from config mode. The startup configuration is what is stored in NVRAM, not the running configuration.
+      tags:
+        - 1.0 Network Fundamentals
+    - prompt: >- 
+            Within a single 5 minute interval, S0/0/1 previously showed the amount of traffic and errors the interface saw when running the `sh int s0/0/1`. Now it shows no errors or traffic passed. What command was run?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            clear counters s0/0/1
+        - id: 2
+          text: >-
+            no shutdown
+        - id: 3
+          text: >-
+            ip address 172.23.4.1 255.255.255.252
+        - id: 4
+          text: >-
+            clock rate 64000
+      explanation: >-
+        The question states that it is within a single 5 minute interval, so the counters should have some information in them regardless of the changes made even if that change clears up any errors. Issuing the `clear counters` command will reset the counters on an interface.
+      tags:
+        - 1.0 Network Fundamentals
+    - prompt: >- 
+            You're experiencing intermittent packet loss on Gi0/1. What command would show whether or not you're taking errors on that interface?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show interfaces GigabitEthernet 0/1
+        - id: 2
+          text: >-
+            show ip interfaces GigabitEthernet 0/1
+        - id: 3
+          text: >-
+            show logging
+        - id: 4
+          text: >-
+            show ip protocols
+      explanation: >-
+        Interface errors would be physical interface information, rather than logical information, which `show interfaces GigabitEthernet 0/1` provides.
+      tags:
+        - 1.0 Network Fundamentals
+    - prompt: >- 
+            Your PC is configured with the IP 10.0.2.45. You received a default gateway of 10.0.9.254 from the DHCP server. What is your subnet mask, assuming the smallest possible network?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            255.255.240.0
+        - id: 2
+          text: >-
+            255.255.224.0
+        - id: 3
+          text: >-
+            255.255.255.240
+        - id: 4
+          text: >-
+            225.255.255.128
+      explanation: >-
+        This is a subnetting exercise, with the goal to find the smallest sized network that both 10.0.2.45 and 10.0.9.254 fit within. Since the third octet is the first octet where things change, we can safely ignore any answer that uses the fourth octet as the interesting octet. Of the two remaining answers, 255.255.240.0 is a block size of 16 which when applied to the PC IP we start at 10.0.0.0 and run through 10.0.15.255. This allows the PC and gateway IPs to be within the same subnet without being wasteful since 255.255.224.0 is larger.
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            After STALE, what IPv6 neighbor state comes next, provided the neighbor still hasn't confirmed reachability and the local device will send packets?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            DELAY
+        - id: 2
+          text: >-
+            REACHABLE
+        - id: 3
+          text: >-
+            PROBE
+        - id: 4
+          text: >-
+            INCMP
+      explanation: >-
+        In the STALE state, a neighbor has not communicated within the configured reachable time. After this happens, the DELAY state is reached when the local device is still attempting to send traffic. If no confirmation happens, PROBE is reached and solitications will be issued.
+      tags:
+        - 1.8 Configure and verify IPv6 addressing and prefix
+    - prompt: >- 
+            An IPv6 configured interface has sent an initial solicitation message, what state will the neighbor table show?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            INCMP
+        - id: 2
+          text: >-
+            REACH
+        - id: 3
+          text: >-
+            STALE
+        - id: 4
+          text: >-
+            PROBE
+      explanation: >-
+        Of these, only PROBE and INCMP are applicable since the local device is attempting something. INCMP is used since this is an initial solicitation. If this neighbor were already known and had instead been in the STALE or DELAY state rather than this being the very first communication, PROBE would be more applicable.
+      tags:
+        - 1.8 Configure and verify IPv6 addressing and prefix
+    - prompt: >- 
+            The demarc (or demarcation point) typically refers to the boundary between what two thing?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Service provider and customer
+        - id: 2
+          text: >-
+            End user and network
+        - id: 3
+          text: >-
+            Two end users
+        - id: 4
+          text: >-
+            The phone system and IP phones
+      explanation: >-
+        The most common use of the term demarc within the IT industry is when referring to the handoff from a service provider where you connect your edge device to. 
+      tags:
+        - 1.2 Describe characteristics of network topology architectures 
+        - 1.2.d WAN
+    - prompt: >- 
+            This cloud provider model has the provider manage nearly everything involved. A customer just uses whatever software application that is provided, with no control over the infrastructure.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            SaaS
+        - id: 2
+          text: >-
+            IaaS
+        - id: 3
+          text: >-
+            PaaS
+        - id: 4
+          text: >-
+            CCaaS
+      explanation: >-
+        SaaS (Software as a Service) is the provider model which only exposes end user, and an administrative interface, software for consumption. CCaaS is an example of SaaS, while both IaaS and PaaS offer some level of access to the infrastructure that software runs on.
+      tags:
+        - 1.2 Describe characteristics of network topology architectures 
+        - 1.2.f On-premise and cloud
+    - prompt: >- 
+            This cloud provider model is where the customer really only manages some applications and the data used by them. The service provider does everything else.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            PaaS
+        - id: 2
+          text: >-
+            SaaS
+        - id: 3
+          text: >-
+            IaaS
+        - id: 4
+          text: >-
+            HPBX
+      explanation: >-
+        PaaS (Platform as a Service) is a hosting model where the consumer manages what applications and data exists on the system, but not the system or infrastructure itself.
+      tags:
+        - 1.2 Describe characteristics of network topology architectures 
+        - 1.2.f On-premise and cloud
+    - prompt: >- 
+            This cloud provider model is where the service provider manages the hardware and virtualization, but the operating system and other software is managed by the customer.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            IaaS
+        - id: 2
+          text: >-
+            PaaS
+        - id: 3
+          text: >-
+            SaaS
+        - id: 4
+          text: >-
+            Office 365
+      explanation: >-
+        IaaS (Infrastructure as a Service) is the hosting model where the infrastructure is managed by the provider and the customer can install and manage the operating system of their choice along with applications or other things within the operating system.
+      tags:
+        - 1.2 Describe characteristics of network topology architectures 
+        - 1.2.f On-premise and cloud
+    - prompt: >- 
+            Three common WAN topologies are Full Mesh, Partial Mesh, and what?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Hub and Spoke
+        - id: 2
+          text: >-
+            Star
+        - id: 3
+          text: >-
+            Bus
+        - id: 4
+          text: >-
+            E-Line
+      explanation: >-
+        Hub and spoke is the other common WAN topology in use. A star is an example of a partial mesh, while a bus is not a topology used in WANs. E-line is basically just one leg of the hub to spoke connection and is more describing the type of circuit puchased rather than a topology.
+      tags:
+        - 1.2 Describe characteristics of network topology architectures 
+    - prompt: >- 
+            What IPv6 neighbor state do you expect to see in the neighbor table for a neighbor that hasn't communicated within the reachable time frame?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            STALE
+        - id: 2
+          text: >-
+            DELAY
+        - id: 3
+          text: >-
+            PROBE
+        - id: 4
+          text: >-
+            REACH
+      explanation: >-
+        The STALE state is entered when a host has not communicated in some time and also does not have traffic destined for it.
+      tags:
+        - 1.8 Configure and verify IPv6 addressing and prefix
+    - prompt: >- 
+            What is the IPv4 multicast address for EIGRP?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            224.0.0.10
+        - id: 2
+          text: >-
+            224.0.0.5
+        - id: 3
+          text: >-
+            224.0.0.6
+        - id: 4
+          text: >-
+            239.0.128.10
+      explanation: >-
+        EIGRP uses the 224.0.0.10 address for communication between routers. 224.0.0.5 & 224.0.0.6 are used for OSPF while 239.0.128.10 is unallocated space. 
+      tags:
+        - 1.6 Configure and verify IPv4 addressing and subnetting
+    - prompt: >- 
+            When configuring a layer 3 Etherchannel, which interface(s) will have IP information configured?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Port-channel
+        - id: 2
+          text: >-
+            Physical interface
+        - id: 3
+          text: >-
+            VTY
+        - id: 4
+          text: >-
+            All interfaces
+      explanation: >-
+        With Etherchannel, the physical interfaces are only used for physical connectivity and logical configuration, such as an IP address, are only placed on the logical Port-channel interface.
+      tags:
+        - 2.4 Configure and verify (Layer 2/Layer 3) EtherChannel (LACP)
+    - prompt: >- 
+            When running `show ipv6 neighbors`, what state do you expect working connections to be in?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            REACH
+        - id: 2
+          text: >-
+            DELAY
+        - id: 3
+          text: >-
+            INCMP
+        - id: 4
+          text: >-
+            PROBE
+      explanation: >-
+        REACH is the state used for working or functioning connections. Any other state indicates something is not working or the connection is in progress of coming up and should be very temporary.
+      tags:
+        - 1.8 Configure and verify IPv6 addressing and prefix
+    - prompt: >- 
+            In an environment with potential for electrical interference, such as a factory, what kind of medium would be helpful to connect network devices together with?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Fiber optic
+        - id: 2
+          text: >-
+            UTP
+        - id: 3
+          text: >-
+            Coaxial
+        - id: 4
+          text: >-
+            Wireless
+      explanation: >-
+        Fiber uses light, which is not susceptible to the types of electrical interference that copper or wireless is vulnerable to. Another option that is not listed here is STP, which is the same UTP copper cabling but with additional shielding to protect the signal on the wire.
+      tags:
+        - 1.3 Compare physical interface and cabling types 
+    - prompt: >- 
+            802.1q trunking differs from ISL in that 802.1q adds an extra ____ to the original Ethernet header
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            4 byte header
+        - id: 2
+          text: >-
+            8 byte footer
+        - id: 3
+          text: >-
+            CRC field
+        - id: 4
+          text: >-
+            Destination address
+      explanation: >-
+        802.1q adds an additional 4 bye header to the frame for VLAN tagging. With ISL, the ISL header is always there regardless of VLAN or tagging.
+      tags:
+        - 2.1 Configure and verify VLANs (normal range) spanning multiple switches 
+    - prompt: >- 
+            A Cisco 3560 switch is connected to multiple devices from multiple vendors. What command can display information about each directly connected device?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show lldp neighbors
+        - id: 2
+          text: >-
+            show cdp neighbors
+        - id: 3
+          text: >-
+            show ip arp
+        - id: 4
+          text: >-
+            show mac address-table
+      explanation: >-
+        Of the answers available, `show lldp neighbors` is the best option. Since this asks for multiple vendors, CDP may not be a good choice unless all vendors involved support sending and receiving CDP. The question aslo asks for directly connected devices, and while ARP and the MAC table could show directly connected devices, you can't know from that table which are directly connected if any are at all.
+      tags:
+        - 1.13 Describe switching concepts
+        - 2.3 Configure and verify Layer 2 discovery protocols (Cisco Discovery Protocol and LLDP)
+    - prompt: >- 
+            A new Cisco switch has been powered up for the first time. What needs to be done next to enable CDP globally?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Nothing
+        - id: 2
+          text: >-
+            Disable LLDP
+        - id: 3
+          text: >-
+            Connect another device
+        - id: 4
+          text: >-
+            Run the command `cdp run`
+      explanation: >-
+        On a switch running IOS, CDP is already enabled so there is nothing to do. CDP will be running regardless of whether anything is connected or not.
+      tags:
+        - 2.3 Configure and verify Layer 2 discovery protocols (Cisco Discovery Protocol and LLDP)
+    - prompt: >- 
+            While logged into a Cisco 1841 router you want to learn the capabilities and IOS version of three directly connected Cisco devices. What command do you type?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show cdp neighbors detail
+        - id: 2
+          text: >-
+            show cdp neighbors
+        - id: 3
+          text: >-
+            show LLDP neighbors 
+        - id: 4
+          text: >-
+            show lldp entry *
+      explanation: >-
+        CDP will give more information about other Cisco devices than LLDP will, in particular IOS version. To get CDP to provide all of this information you'll need to include the details part of the command.
+      tags:
+        - 2.3 Configure and verify Layer 2 discovery protocols (Cisco Discovery Protocol and LLDP)
+    - prompt: >- 
+            Broadcast messages has been wreaking havoc on a network segment, making the network unusable. What incident has occurred?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Broadcast storm
+        - id: 2
+          text: >-
+            ARP poisioning
+        - id: 3
+          text: >-
+            Rogue DHCP server
+        - id: 4
+          text: >-
+            Incorrect VLAN on trunk
+      explanation: >-
+        A broadcast storm will make a network segment completely unusable as links and CPUs are overburdened. The two attacks listed will only take down specific services within a network, and while configuring VLANs wrong can cause issues, it is a possible root cause rather than an event.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            CDP is too noisy on the network. What command will limit CDP to once every 3 minutes without disabling it completely?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            cdp timer 180
+        - id: 2
+          text: >-
+            cdp broadcast 180
+        - id: 3
+          text: >-
+            default cdp timer
+        - id: 4
+          text: >-
+            cdp advertise 180
+      explanation: >-
+        By default, CDP transmits every 60 seconds. Setting the timer to 180 will set that transmission to every 180 seconds instead.
+      tags:
+        - 2.3 Configure and verify Layer 2 discovery protocols (Cisco Discovery Protocol and LLDP)
+    - prompt: >- 
+            This command changes the native VLAN of a trunk port to 5 on a switch?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            switchport trunk native vlan 5
+        - id: 2
+          text: >-
+            encapsulation dot1q 5 native
+        - id: 3
+          text: >-
+            switchport trunk vlan 5
+        - id: 4
+          text: >-
+            switchport trunk allowed vlan 5
+      explanation: >-
+        The command to do this is `switchport trunk native vlan 5`. `encapsulation dot1q 5 native` is the equivilent command but it is used for router interfaces, the question is asking for a switch specifically. The other two commands do not affect the native VLAN at all.
+      tags:
+        - 2.2 Configure and verify interswitch connectivity 
+        - 2.2.b 802.1Q
+        - 2.2.c Native VLAN
+    - prompt: >- 
+            Typing `switchport nonegotiate` disables what feature of the switchport?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Dynamic Trunking Protocol
+        - id: 2
+          text: >-
+            Access port
+        - id: 3
+          text: >-
+            ISL
+        - id: 4
+          text: >-
+            Makes the port a routed port
+      explanation: >-
+        This command disabled Dynamic Trunking Protocol (DTP). DTP allows a switchport to negotiate whether it is a trunk or access port with a connected device. 
+      tags:
+        - 2.2 Configure and verify interswitch connectivity 
+    - prompt: >- 
+            Untagged frames on a 802.1q trunk are part of which VLAN?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Native
+        - id: 2
+          text: >-
+            VLAN 1
+        - id: 3
+          text: >-
+            VLAN 666
+        - id: 4
+          text: >-
+            Management VLAN
+      explanation: >-
+        In 802.1q, only frames that are part of the native VLAN will be untagged, though the native VLAN can optionally be tagged as well. While VLAN 1 is the default native VLAN, if the native VLAN has been changed then VLAN 1 frames would be tagged when sent across the link.
+      tags:
+        - 2.2 Configure and verify interswitch connectivity
+        - 2.2.b 802.1Q
+        - 2.2.c Native VLAN
+    - prompt: >- 
+            What dynamic switchport configuration will cause both switches to not negotiate a switchport mode if two switches use the same configuration?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            dynamic auto
+        - id: 2
+          text: >-
+            dynamic desirable
+        - id: 3
+          text: >-
+            dynamic trunk
+        - id: 4
+          text: >-
+            non-negotiate
+      explanation: >-
+        Configuring each switchport as non-negotiate will cause DTP to make no attempt negotiate a switchport mode. They'll fail back to an access port in this configuration.
+      tags:
+        - 2.2 Configure and verify interswitch connectivity
+    - prompt: >- 
+            What encapsulation mode succeeded Cisco's ISL for VLANs on an Ethernet network?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            IEEE 802.1Q
+        - id: 2
+          text: >-
+            IEEE 802.3D
+        - id: 3
+          text: >-
+            ISO 8601
+        - id: 4
+          text: >-
+            802.11r
+      explanation: >-
+        802.1Q is the open standard, rather than Cisco proprietary, for tagging VLANs on a frame. 802.11r is a wireless roaming standard (802.11 is wireless), and 802.3D is a standard for Ethernet over fiber. ISO 8061 is the international standard for date/time.
+      tags:
+        - 2.2 Configure and verify interswitch connectivity
+    - prompt: >- 
+            What two commands will disable CDP and enable LLDP, globally?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            no cdp run, lldp run
+        - id: 2
+          text: >-
+            no cdp port all, lldp enable all
+        - id: 3
+          text: >-
+            These are both disabled by default
+        - id: 4
+          text: >-
+            LLDP is enabled by default, CDP is disabled by default
+      explanation: >-
+        The commands, `no cdp run` and `lldp run` will disabled CDP globally and enable LLDP globally. 
+      tags:
+        - 2.3 Configure and verify Layer 2 discovery protocols (Cisco Discovery Protocol and LLDP)
+    - prompt: >- 
+            After the spanning tree algorithm is run and convergence completes, what type of ports are on a root bridge?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            designated ports
+        - id: 2
+          text: >-
+            root ports
+        - id: 3
+          text: >-
+            blocking ports
+        - id: 4
+          text: >-
+            learning ports
+      explanation: >-
+        The question states that conversion has completed. After this is done, the root switch only consists of designated ports. Other downstream switches will use blocking, designated, and root ports. Learning isn't a port type, rather it is a port state.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+        - 2.5.a Root port, root bridge (primary/secondary), and other port names
+    - prompt: >- 
+            All STP bridge priorities are set to 0. What is used next to determine the root bridge?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            MAC Address
+        - id: 2
+          text: >-
+            Port number
+        - id: 3
+          text: >-
+            Port priority
+        - id: 4
+          text: >-
+            Cost
+      explanation: >-
+        The bridge ID (BID) is made up of the priority and MAC address. If priority is all equal, the MAC address is the next part of the BID that is meaningful to use as a tie breaker.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            When configuring a VLAN, the message `%Failed to create VLANs 1500` appears. What command will allow the creation of this VLAN on the switch?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            vtp mode transparent
+        - id: 2
+          text: >-
+            vlan add extended 1500
+        - id: 3
+          text: >-
+            vtp mode server
+        - id: 4
+          text: >-
+            vtp mode client
+      explanation: >-
+        Of the available commands, `vtp mode transparent` is the only one that will allow creation of additional VLANs. Without using VTP version 3 or disabling VTP you cannot use extended VLANs.
+      tags:
+        - 2.1 Configure and verify VLANs (normal range) spanning multiple switches 
+    - prompt: >- 
+            Which layer 2 feature is the IEEE technology for discovering information about directly connected devices?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            LLDP
+        - id: 2
+          text: >-
+            CDP
+        - id: 3
+          text: >-
+            Ethernet MAC
+        - id: 4
+          text: >-
+            ARP
+      explanation: >-
+        While CDP will discover information about directly connected devices, it is Cisco proprietary rather than an IEEE standard. LLDP accomplishes a similar goal with an open standard. The MAC table will show some information about nearby devices, but LLDP is specifically for directly connected ones.
+      tags:
+        - 2.3 Configure and verify Layer 2 discovery protocols (Cisco Discovery Protocol and LLDP)
+    - prompt: >- 
+            Which switchport type will not strip VLAN tagging information?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            trunk
+        - id: 2
+          text: >-
+            access port
+        - id: 3
+          text: >-
+            routed port
+        - id: 4
+          text: >-
+            Etherchannel
+      explanation: >-
+        Trunk ports are used for extended VLANs across multiple switches, the use of tagging allows for traffic to remain part of a given VLAN. Access ports do not tag traffic except with the voice VLAN. Routed switchports do not typically use VLAN tagging, though a sub interface on a router would. Etherchannel is entirely unrelated to tagging, though often it is used with a trunk link.
+      tags:
+        - 2.1 Configure and verify VLANs (normal range) spanning multiple switches 
+    - prompt: >- 
+            Without additional configuration, which VLAN range can be added, configured, or modified?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            1-1001
+        - id: 2
+          text: >-
+            1-4094
+        - id: 3
+          text: >-
+            1006—3967 
+        - id: 4
+          text: >-
+            1006-1024
+      explanation: >-
+        Without enabling VTP transparent mode or VTP version 3, you cannot use extended VLANs so 1-1001 are all that are available.
+      tags:
+        - 2.1 Configure and verify VLANs (normal range) spanning multiple switches 
+    - prompt: >- 
+            You run the command `show vlans` and notice several switchports are not listed. This is because they are configured as ____.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            trunk ports
+        - id: 2
+          text: >-
+            access ports
+        - id: 3
+          text: >-
+            the native VLAN
+        - id: 4
+          text: >-
+            tagging the native VLAN
+      explanation: >-
+        Trunk ports are not listed when running this command. To view the trunk ports, run `show interfaces trunk` to see information about trunk ports. The reason behind this is that by default, trunk ports are members of all VLANs.
+      tags:
+        - 2.2 Configure and verify interswitch connectivity 
+    - prompt: >- 
+            ____ sets the time CDP retains information from a neighbor.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            holdtime
+        - id: 2
+          text: >-
+            hammertime
+        - id: 3
+          text: >-
+            retaintime
+        - id: 4
+          text: >-
+            delay
+      explanation: >-
+        In CDP, holdtime is how long information about a neighbor is retained before removing them from the CDP neighbors table. 
+      tags:
+        - 2.3 Configure and verify Layer 2 discovery protocols (Cisco Discovery Protocol and LLDP)
+    - prompt: >- 
+            An STP root switch is configured with `spanning-tree vlan 4 priority 28672`. On a second switch, you configure `spanning-tree vlan 4 root secondary`. If all other switches are the default priority, what is the priority of the second switch?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            32768
+        - id: 2
+          text: >-
+            28672
+        - id: 3
+          text: >-
+            36,864
+        - id: 4
+          text: >-
+            24,576
+      explanation: >-
+        The primary and secondary root commands are actually macros that look at the current state of the environment and apply an STP value to the configuration that would cause them to be in the role they are configured for. This isn't a permanent configuration in that the switch will always be root regardless of the environment, so a new switch entering the environment with a lowered value could still become root if the value is low enough.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            A junior admin attempts to configure several interfaces on a router into an Etherchannel but it won't come up. All settings are default, physical interfaces are up up, but speed and duplex are manually set so they are the same. Why is the Etherchannel down?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Different interface types are used
+        - id: 2
+          text: >-
+            Different cable types are used
+        - id: 3
+          text: >-
+            The device is a router and not a switch
+        - id: 4
+          text: >-
+            The device is a switch and not a router
+      explanation: >-
+        The type of interface matters with Etherchannel, you cannot bind two different types of interface even if the speed is manually adjusted to match. The rest of the answers do not affect Etherchannel operation.
+      tags:
+        - 2.4 Configure and verify (Layer 2/Layer 3) EtherChannel (LACP)
+    - prompt: >- 
+            For spanning-tree bridge IDs, what is the next bridge priority after 0?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            4096
+        - id: 2
+          text: >-
+            32678
+        - id: 3
+          text: >-
+            8192
+        - id: 4
+          text: >-
+            1024
+      explanation: >-
+        STP bridge priority is measured in increments of 4069. These are the most significant bits used when creating the bridge ID, lower order bits are used by the MAC address and VLAN ID.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            What is the interval in which switches send or exchange BPDUs?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            2 seconds
+        - id: 2
+          text: >-
+            8 seconds
+        - id: 3
+          text: >-
+            60 second
+        - id: 4
+          text: >-
+            30 seconds
+      explanation: >-
+        Switches exchange BPDUs every two seconds, though this value can be changed.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            If both the cost and upstream BID are tied, which BPDU value is used to break this tie?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Neighbor port ID
+        - id: 2
+          text: >-
+            MAC address
+        - id: 3
+          text: >-
+            Local port ID
+        - id: 4
+          text: >-
+            Switch hostname
+      explanation: >-
+        After STP cost and BID are compared, if those do not break the tie then the neighbor's port ID is used. Remember that STP is all about cost to the root bridge, using a neighbor's values is always preferred over local values since the local device is always further from the root bridge when all other things are equal.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            This is a good combination to use with Portfast to prevent someone from plugging in a switch where there was previously a host.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            BPDU Guard
+        - id: 2
+          text: >-
+            Root Guard
+        - id: 3
+          text: >-
+            PVST+
+        - id: 4
+          text: >-
+            MST
+      explanation: >-
+        The goal of preventing a switch being connected could be prevented with Root Guard, but that will only trigger if it sends a superior BPDU. BPDU Guard will outright block the port should a BPDU be received. PVST+ and MST are flavors of STP and will not prevent a switch from being connected.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            This nonproprietary Etherchannel standard works well with multi-vendor networks. Also known as 802.3ad. (use the acronym)
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            LACP
+        - id: 2
+          text: >-
+            PAgP
+        - id: 3
+          text: >-
+            LAG
+        - id: 4
+          text: >-
+            VRRP
+      explanation: >-
+        LACP is the vendor neutral ling aggregation protocol. PAgP is Cisco proprietary and not used much at all due to that nature. LAG is the acronym for Link Aggregation and VRRP is a FHRP, which is entirely unrelated.
+      tags:
+        - 2.4 Configure and verify (Layer 2/Layer 3) EtherChannel (LACP)
+    - prompt: >- 
+            After convergence completes, this type of 802.1w RSTP port state is opposite a root port on a single link.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Forwarding
+        - id: 2
+          text: >-
+            Designated
+        - id: 3
+          text: >-
+            Blocking
+        - id: 4
+          text: >-
+            Learning
+      explanation: >-
+        Root ports are paired with Designated ports in STP on a single link, so the correct port state is "Forwarding." While it is a Designated port, that is a port role and not a state.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations
+        - 2.5.b Port states (forwarding/blocking)
+    - prompt: >- 
+            Type in the command to enable ports to transition to the forwarding state immediately.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            spanning-tree portfast
+        - id: 2
+          text: >-
+            spanning-tree cost 200
+        - id: 3
+          text: >-
+            spanning-tree port-priority 8
+        - id: 4
+          text: >-
+            spanning-tree loopback-guard
+      explanation: >-
+        Portfast is the STP configuration option that allows a port to immediately enter a forwarding state upon coming up. While this is good for PCs or other devices so they do not need to wait, it introduces risk of allowing a loop from a switch.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+        - 2.5.c PortFast benefits
+    - prompt: >- 
+            What Cisco proprietary protocol negotiates trunking and encapsulation type between two connected devices?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            DTP
+        - id: 2
+          text: >-
+            ISL
+        - id: 3
+          text: >-
+            PAgP
+        - id: 4
+          text: >-
+            HSRP
+      explanation: >-
+        Dynamic Trunking Protocol, or DTP, allows two neighboring devices to negotiate a switchport mode of trunking or access based on the configuration.
+      tags:
+        - 2.2 Configure and verify interswitch connectivity 
+    - prompt: >- 
+            What command enables BPDU Guard on all switch interfaces?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            spanning-tree portfast bpduguard default
+        - id: 2
+          text: >-
+            spanning-tree interface all bpduguard
+        - id: 3
+          text: >-
+            It is the default configuration, nothing is required
+        - id: 4
+          text: >-
+            spanning-tree portfast default
+      explanation: >-
+        Running `spanning-tree portfast bpduguard default` will enable BPDUGuard on all interfaces unless there is some configuration to override an individual interface.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            What is the default 802.1d STP cost of a 100Mb link?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            19
+        - id: 2
+          text: >-
+            1
+        - id: 3
+          text: >-
+            200,000
+        - id: 4
+          text: >-
+            4
+      explanation: >-
+        The default costs of a 100Mb interface in 802.1d STP is 19. With 802.1w the cost is increased to 200,000. 
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            What is the default mode of STP running on a Cisco Catalyst switch?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            PVST+
+        - id: 2
+          text: >-
+            rapid PVST+
+        - id: 3
+          text: >-
+            ieee
+        - id: 4
+          text: >-
+            MST
+      explanation: >-
+        By default, Cisco switches run PVST+. MST and ieee refer to MST and 802.1d STP respectively while rapid PVST+ is the 802.1w equivilent of PVST+ with short timers and faster convergence.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            What is the default priority value used in the Bridge ID?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            32768
+        - id: 2
+          text: >-
+            4096
+        - id: 3
+          text: >-
+            0
+        - id: 4
+          text: >-
+            16384
+      explanation: >-
+        The default priority on Cisco switches is 32768.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            What protocol prevents you from adding more uplinks between switches without using EtherChannel?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Spanning Tree Protocol
+        - id: 2
+          text: >-
+            Link Aggregation Control Protocol
+        - id: 3
+          text: >-
+            Virtual Router Redundancy Protocol
+        - id: 4
+          text: >-
+            Address Resolution Protocol
+      explanation: >-
+        Spanning Tree Protocol, or STP, blocks ports when a loop is detected. This will prevent use of multiple links without using Etherchannel on switches.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            When using the 'show etherchannel summary' command, what does the 'u' flag signify?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Unsuitable
+        - id: 2
+          text: >-
+            Unsustainable
+        - id: 3
+          text: >-
+            Untenable
+        - id: 4
+          text: >-
+            Unbelievable
+      explanation: >-
+        U stands for "unsuitable" which in turn means the selected interfaces for the bundle are not configured appropriately to create a LAG or invalid interfaces have been selected.
+      tags:
+        - 2.4 Configure and verify (Layer 2/Layer 3) EtherChannel (LACP)
+    - prompt: >- 
+            Which EtherChannel protocol is Cisco proprietary?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            PAgP
+        - id: 2
+          text: >-
+            LACP
+        - id: 3
+          text: >-
+            Port-Channel
+        - id: 4
+          text: >-
+            LAG
+      explanation: >-
+        The Etherchannel protocol that is Cisco proprietary is PAgP. Very few vendors will support this and for this reason LACP is typically done even in Cisco environments. Port-Channel is not a protocol, rather it is an interface name and LAG (Link Aggreggation) is a generic term for Etherchannel.
+      tags:
+        - 2.4 Configure and verify (Layer 2/Layer 3) EtherChannel (LACP)
+    - prompt: >- 
+            Which STP function puts a port immediately into an error-disabled state when it receives a BPDU message?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            BPDU Guard
+        - id: 2
+          text: >-
+            Portfast
+        - id: 3
+          text: >-
+            Loop Guard
+        - id: 4
+          text: >-
+            Root Guard
+      explanation: >-
+        Of the listed options, only BPDU Guard immediately places a port into error disabled state upon receiving a BPDU. Loopguard will additionally help prevent loops, but not just because a BPDU was received and Root Guard only blocks a port if a superior BPDU is received.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            Which STP function transitions a port immediate into a forwarding state?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            PortFast
+        - id: 2
+          text: >-
+            Loop Guard
+        - id: 3
+          text: >-
+            Rapid PVST+
+        - id: 4
+          text: >-
+            Learning
+      explanation: >-
+        PortFast causes a port to immediately go into a fowarding state upon becoming operationally up.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+
+    - prompt: >- 
+            While operating in trunk mode, what command is used to shut off DTP?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            switchport nonegotiate
+        - id: 2
+          text: >-
+            switchport mode trunk
+        - id: 3
+          text: >-
+            switchport mode access
+        - id: 4
+          text: >-
+            dtp mode off
+      explanation: >-
+        To disabled Dynamic Trunking Protocol, DTP, run the command `switchport nonegotiate` on the interface.
+      tags:
+        - 2.2 Configure and verify interswitch connectivity 
+    - prompt: >- 
+            With Rapid_PVST, what port state replaces blocking?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            discarding
+        - id: 2
+          text: >-
+            dropping
+        - id: 3
+          text: >-
+            learning
+        - id: 4
+          text: >-
+            listening
+      explanation: >-
+        Rapid PVST or Rapid STP doesn't have the same port states as regular STP, discarding does replace blocking as a port state.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+        - 2.5.b Port states (forwarding/blocking)
+    - prompt: >- 
+            You have configured one side of your EtherChannel as passive. What mode should you use on the other side?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            active
+        - id: 2
+          text: >-
+            passive
+        - id: 3
+          text: >-
+            auto
+        - id: 4
+          text: >-
+            desirable
+      explanation: >-
+        When using the passive configuration option for LACP, the other side must be configured as active or the LAG will not form. The auto and desirable configurations are for PAgP and are not interoperable with LACP.
+      tags:
+        - 2.4 Configure and verify (Layer 2/Layer 3) EtherChannel (LACP)
+    - prompt: >- 
+            You run `show spanning-tree` on a Cisco switch with default configurations and see `spanning tree enabled protocol ieee`. What version of 802.1d is running?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            PVST+
+        - id: 2
+          text: >-
+            STP
+        - id: 3
+          text: >-
+            MST
+        - id: 4
+          text: >-
+            Rapid PVST+
+      explanation: >-
+        While 802.1d does refer to STP, in IOS PVST+ is what runs in Cisco IOS as Cisco devices run their own implementation of STP that can have per VLAN instances of STP. It is interoperable with standard STP implemented by other vendors.
+      tags:
+        - 2.5 Describe the need for and basic operations of Rapid PVST+ Spanning Tree Protocol and identify basic operations 
+    - prompt: >- 
+            A Cisco network is already configured to use dynamic routing. You successfully implement OSPF, but routes do not appear in the routing table. What protocol was already configured?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            EIGRP
+        - id: 2
+          text: >-
+            ODR
+        - id: 3
+          text: >-
+            IS-IS
+        - id: 4
+          text: >-
+            RIPng
+      explanation: >-
+        Of the listed routing protocols, only EIGRP with 90 AD is lower than OSPF's 110. IS-IS has a default AD of 115, RIP has an AD of 120, and ODR's AD is 160.
+      tags:
+        - 3.1 Interpret the components of routing table 
+        - 3.1.e Administrative distance
+    - prompt: >- 
+            A network is configured using IS-IS. What AD would you use to configure a floating static route for 192.168.8.0 /24 using the highest possible AD?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            254
+        - id: 2
+          text: >-
+            106
+        - id: 3
+          text: >-
+            116
+        - id: 4
+          text: >-
+            111
+      explanation: >-
+        The keyword here is "highest possible AD" which means the route should have the highest AD possible, 254. While the maximum AD is 255, that is used to make a route unusable.
+      tags:
+        - 3.1 Interpret the components of routing table 
+        - 3.1.e Administrative distance
+    - prompt: >- 
+            A network is configured using OSPF. What AD would you use to configure a floating static route for 172.18.2.0 /28 using the lowest possible AD?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            111
+        - id: 2
+          text: >-
+            114
+        - id: 3
+          text: >-
+            121
+        - id: 4
+          text: >-
+            86
+      explanation: >-
+        OSPF uses an AD (Administrative Distance) of 110. For the static route to be a floating route, it needs to be at least 111 or higher, the lowest being 111.
+      tags:
+        - 3.1 Interpret the components of routing table 
+        - 3.1.e Administrative distance
+    - prompt: >- 
+            A quick look at the output of `sh ip ro` lists multiple routes with an AD of 90. What routing protocol is configured on the network?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            EIGRP
+        - id: 2
+          text: >-
+            OSPF
+        - id: 3
+          text: >-
+            iBGP
+        - id: 4
+          text: >-
+            IS-IS
+      explanation: >-
+        Of the listed routes, EIGRP is uses an AD of 90. OSPF uses 110, iBGP uses 200, and IS-IS uses 115 in Cisco IOS.
+      tags:
+        - 3.1 Interpret the components of routing table 
+        - 3.1.e Administrative distance
+    - prompt: >- 
+            Armed with only the IP 10.0.1.2, what command will inform you which interface it is on?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show ip route 10.0.1.2
+        - id: 2
+          text: >-
+            show ip route
+        - id: 3
+          text: >-
+            show ip arp 10.0.1.2
+        - id: 4
+          text: >-
+            show ip protocols
+      explanation: >-
+        The best command of these options is `show ip route 10.0.1.2`. While `show ip route` would work, it will be up to you to determine which interface it would use while the former option explicitly tells you. The `show ip arp 10.0.1.2` option would only provide an answer if there is an entry for it on the ARP table, and `show ip protocols` would not provide this answer.
+      tags:
+        - 3.1 Interpret the components of routing table 
+    - prompt: >- 
+            Configure a static route for 10.10.6.0 /24. It lives beyond 10.10.4.1.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            ip route 10.10.6.0 255.255.255.0 10.10.4.1
+        - id: 2
+          text: >-
+            ip route 10.10.6.0
+        - id: 3
+          text: >-
+            ip route add 10.10.6.0 255.255.255.0 10.10.4.1
+        - id: 4
+          text: >-
+            ip routing table add 10.10.6.0 255.255.255.0 gateway 10.10.4.1
+      explanation: >-
+        The syntax for all of these is incorrect except for `ip route 10.10.6.0 255.255.255.0 10.10.4.1`.
+      tags:
+        - 3.3 Configure and verify IPv4 and IPv6 static routing 
+    - prompt: >- 
+            Configure a static default route for a device where the router is 192.168.0.1.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            ip route 0.0.0.0 0.0.0.0 192.168.0.1
+        - id: 2
+          text: >-
+            ip default-gateway 192.168.0.1
+        - id: 3
+          text: >-
+            ip route 192.168.0.1 default
+        - id: 4
+          text: >-
+            ip route 192.168.0.1 0.0.0.0 0.0.0.0
+      explanation: >-
+        The correct syntax for a static route is `ip route [destination network] [destination mask] [next-hop]` so of the options, `ip route 0.0.0.0 0.0.0.0 192.168.0.1` is the only correct one.
+      tags:
+        - 3.3 Configure and verify IPv4 and IPv6 static routing 
+    - prompt: >- 
+            When configuring an IPv6 static route using a link local address as the next hop, what else do you need to specify?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Outbound interface
+        - id: 2
+          text: >-
+            Unique Local address
+        - id: 3
+          text: >-
+            Global address
+        - id: 4
+          text: >-
+            Source interface
+      explanation: >-
+        When using a link local address as the next hop in IPv6, the route must be fully specified. This means the egress or outbound interface must also be specified. This is because a single link local address can be used in multiple places on the same network legally.
+      tags:
+        - 3.3 Configure and verify IPv4 and IPv6 static routing 
+    - prompt: >- 
+            Which routing protocol has an administrative distance of 90?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            EIGRP
+        - id: 2
+          text: >-
+            RIPng
+        - id: 3
+          text: >-
+            IS-IS
+        - id: 4
+          text: >-
+            eBGP
+      explanation: >-
+        In Cisco IOS, EIGRP uses an AD of 90. RIP uses 120, IS-IS is 115, and eBGP is 20.
+      tags:
+        - 3.1 Interpret the components of routing table 
+    - prompt: >- 
+            A layer 3 switch rejects the commands `show ip route` and `ip routing`. You speak with the admin who says the switch ASIC forwarding settings need to be adjusted and to run _______ in global configuration mode.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            sdm prefer
+        - id: 2
+          text: >-
+            switch mode routing
+        - id: 3
+          text: >-
+            memory prefer routing
+        - id: 4
+          text: >-
+            NVRAM enable routing
+      explanation: >-
+        Switches have different resource allocations available to them, when IP routing on a switch is required some models will require the TCAM to be adjusted to allow resources to be allocated for unicast routing.
+      tags:
+        - 3.3 Configure and verify IPv4 and IPv6 static routing 
+    - prompt: >- 
+            A router has interfaces in both Area 0 and Area 5 of an OSPF network. What role in OSPF does this router act in?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Area Border Router
+        - id: 2
+          text: >-
+            Stub Router
+        - id: 3
+          text: >-
+            Designated Router
+        - id: 4
+          text: >-
+            Redistribution Router
+      explanation: >-
+        An OSPF router that exists in multiple areas is called an Area Border Router. 
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+    - prompt: >- 
+            A router learns a route through both EIGRP and OSPF. Which route goes into the routing table?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            EIGRP
+        - id: 2
+          text: >-
+            OSPF
+        - id: 3
+          text: >-
+            Both
+        - id: 4
+          text: >-
+            Neither
+      explanation: >-
+        In Cisco IOS, EIGRP has a lower AD (Administrative Distance)
+      tags:
+        - 3.1 Interpret the components of routing table 
+        - 3.1.e Administrative distance
+    - prompt: >- 
+            Configure the most conservative OSPF network statement to match the following interfaces with a single line. Gi1/1 - 192.168.1.1/24, Gi1/2 - 192.168.3.1/24.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            network 192.168.0.0 0.0.3.255
+        - id: 2
+          text: >-
+            network 192.168.0.0 0.0.0.255
+        - id: 3
+          text: >-
+            network 192.168.0.0 0.0.255.255
+        - id: 4
+          text: >-
+            network 192.168.0.0 0.0.7.255
+      explanation: >-
+        The most conservative statement will include as few other networks as possible. 192.168.0.0 with an wildcard mask of 0.0.3.255 includes 192.168.0.0 > 192.168.3.255, which is the smallest combination that will cover both interfaces. The wildcard mask of 0.0.0.255 is too small and the other two are too large.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+    - prompt: >- 
+            During the _______ OSPF state LSRs are sent to neighbors to request any LSAs missed during EXCHANGE and neighbors respond with LSUs.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            LOADING
+        - id: 2
+          text: >-
+            FULL
+        - id: 3
+          text: >-
+            EXSTART
+        - id: 4
+          text: >-
+            2-WAY
+      explanation: >-
+        During the LOADING state, LSAs are exchanged in LSUs to learn about networks that were previously missed during the EXCHANGE state. 2-WAY is the initial sending of the LSDB. FULL is the state at the very end and databases are already synced. EXSTART is where the DR and BDR election is completd and nodes begin to exchange information.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+        - 3.4.a Neighbor adjacencies
+    - prompt: >- 
+            In a multi-access broadcast network, OSPF routers reach this state with routers other than the DR or BDR.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            2-WAY
+        - id: 2
+          text: >-
+            LOADING
+        - id: 3
+          text: >-
+            FULL
+        - id: 4
+          text: >-
+            DOWN
+      explanation: >-
+        When OSPF is run on a multi-access broadcast network, OSPF routers will come up in the 2-WAY state with all routers other than the DR and BDR.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+        - 3.4.a Neighbor adjacencies
+    - prompt: >- 
+            In the ____ OSPF state, Hello packets have been received but bidirectional communication hasn't been established yet.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            INIT
+        - id: 2
+          text: >-
+            EXSTART
+        - id: 3
+          text: >-
+            LOADING
+        - id: 4
+          text: >-
+            ATTEMPT
+      explanation: >-
+        The INIT state is the only one where this scenario can be true, as the local router would have had to receive an OSPF Hello packet, though while in the INIT state the router may not know the router ID of the neighbor. EXSTART and LOADING are further in the process after the DR and BDR are elected so routers already know about one another and are communicating. ATTEMPT is only applicable for NBMA networks but in this state communication from the neighbor has not been received yet.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+        - 3.4.a Neighbor adjacencies
+    - prompt: >- 
+            In the ________ OSPF state, routing information is exchanged. LSR/LSU may also be sent, though once LSRs begin transmitting neighbors are considered to be in the LOADING state instead.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            EXCHANGE
+        - id: 2
+          text: >-
+            LOADING
+        - id: 3
+          text: >-
+            INIT
+        - id: 4
+          text: >-
+            FULL
+      explanation: >-
+        The EXCHANGE state is where LSAs are initially sent to begin informing neighbors about the networks a router knows about. LSRs are sent to request LSAs, but LSUs being send would indicate a LOADING state as they're asking to update existing information.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+        - 3.4.a Neighbor adjacencies
+    - prompt: >- 
+            Lack of priority when viewing the output of `show ip ospf neighbor` means the network is what type?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Point to Point
+        - id: 2
+          text: >-
+            Multi Access Broadcast
+        - id: 3
+          text: >-
+            Stub
+        - id: 4
+          text: >-
+            Broadcast
+      explanation: >-
+        Point to Point neighbors, such as those statically configured or on serial links, do not have a priority because there are only one other peer on that link. This type of network does not require a DR election so priority isn't meaningful.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+        - 3.4.a Neighbor adjacencies
+    - prompt: >- 
+            OSPF Type 4 LSAs, generated by ABRs, inform members of an area how to reach which kind of member of the OSPF network?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            ASBR
+        - id: 2
+          text: >-
+            ABR
+        - id: 3
+          text: >-
+            DR
+        - id: 4
+          text: >-
+            BDR
+      explanation: >-
+        Type 4 LSAs are generated by ABRs in part to provide ASBR router IDs, among other information that originates for an area from the ASBR.
+      tags:
+        - 3.4.a Neighbor adjacencies
+    - prompt: >- 
+            OSPF states other than FULL and 2-WAY are considered what kind of state?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Transitory
+        - id: 2
+          text: >-
+            Complete
+        - id: 3
+          text: >-
+            Failing
+        - id: 4
+          text: >-
+            Tearing down
+      explanation: >-
+        FULL and 2-WAY are complete states, anything other than them would be transitory state as OSPF routers should not remain in them.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+        - 3.4.a Neighbor adjacencies
+    - prompt: >- 
+            OSPF will prefer an __________ route to reach a remote subnet within an area, even if the path out and back into an area is technically a lower cost
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            intra-area
+        - id: 2
+          text: >-
+            inter-area
+        - id: 3
+          text: >-
+            redistributed
+        - id: 4
+          text: >-
+            default
+      explanation: >-
+        Intra-area routes are preferred for OSPF routes if the route is available from within a single area, even if the path is not optimal.
+      tags:
+        - 3.4.a Neighbor adjacencies
+    - prompt: >- 
+            The MAC address you see in an ARP is 0000.0C9F.F0A0. Based on this you know the neighboring router is running what?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            FHRP
+        - id: 2
+          text: >-
+            OSPF
+        - id: 3
+          text: >-
+            STP
+        - id: 4
+          text: >-
+            RIP
+      explanation: >-
+        The MAC in question is for HSRP, a FHRP. None of the other options would influence what MAC would show up in an ARP request.
+      tags:
+        - 3.5 Describe the purpose, functions, and concepts of first hop redundancy protocols
+    - prompt: >- 
+            Routers establish adjacencies with one another and determine which will take on master or slave part of the relationship in this OSPF state.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            EXSTART
+        - id: 2
+          text: >-
+            FULL
+        - id: 3
+          text: >-
+            LOADING
+        - id: 4
+          text: >-
+            2-WAY
+      explanation: >-
+        After the DR and BDR are elected, information can begin being exchanged. During EXSTART the DR and BDR establish master/slave relationship, and choose a sequence number for adjacency formation.
+      tags:
+        - 3.4.a Neighbor adjacencies
+    - prompt: >- 
+            Other than `show ip ospf interface`, what `show` command easily lists passive interfaces for OSPF?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show ip protocols
+        - id: 2
+          text: >-
+            show ip route
+        - id: 3
+          text: >-
+            show running-configuration
+        - id: 4
+          text: >-
+            show ip route ospf
+      explanation: >-
+        Of the listed commands, `show ip protocols` is the easiest way to find this infomation. This command shows you information about every running routing protocol in an easily digestible format to get an overview of what is being done. While the running configuration will show you information, it can be scattered around or very long depending on what is there.
+      tags:
+        - 3.2 Determine how a router makes a forwarding decision by default 
+    - prompt: >- 
+            The FULL OSPF state applies to relationships between which routers in a multi-access broadcast network?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            DR and BDR routers
+        - id: 2
+          text: >-
+            All routers
+        - id: 3
+          text: >-
+            Between each individual router and the DR and BDR
+        - id: 4
+          text: >-
+            Between each individual router and the DR
+      explanation: >-
+        Only the DR and BDR become FULL state neighbors, all other routers will become 2-WAY with the DR and BDR. 
+      tags:
+        - 3.4.a Neighbor adjacencies
+    - prompt: >- 
+            The OSPF process is relevant to which router(s) in an OSPF network?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Local router
+        - id: 2
+          text: >-
+            DR router
+        - id: 3
+          text: >-
+            BDR router
+        - id: 4
+          text: >-
+            ABR router
+      explanation: >-
+        In OSPF, process ID is only locally significant. It has no bearing or effect on other devices.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+    - prompt: >- 
+            This OSPF state doesn't imply an interface is operationally down, but does mean no Hello packets are receied.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            DOWN
+        - id: 2
+          text: >-
+            ATTEMPT
+        - id: 3
+          text: >-
+            EXSTART
+        - id: 4
+          text: >-
+            LOADING
+      explanation: >-
+        The DOWN state is the initial OSPF neighbor state, no Hello messages have been received but Hello messages are capable of being sent.
+      tags:
+        - 3.4.a Neighbor adjacencies
+    - prompt: >- 
+            Type 5 LSAs are ________ routes injected into OSPF by an ASBR using redistribution from a non OSPF source.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            external
+        - id: 2
+          text: >-
+            inter-area
+        - id: 3
+          text: >-
+            internal
+        - id: 4
+          text: >-
+            BGP
+      explanation: >-
+        Type 5 LSAs are external routes, which while they could be BGP they do not have to be and could be another routing protocol instead.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+    - prompt: >- 
+            Very large LSDB and segmentation are two reasons to use which type of OSPF design?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Multi-Area
+        - id: 2
+          text: >-
+            Single-Area
+        - id: 3
+          text: >-
+            Use multiple OSPF processes
+        - id: 4
+          text: >-
+            Mixed-Area
+      explanation: >-
+        Using multiple OSPF areas reduces LSDB as well as churn when changes occur within OSPF, such as a router going down. Each area will contain some amount of changes and can summarize reducing the size of the LSDB in an area.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+    - prompt: >- 
+            What OSPF LSA type identifies an advertising routers active interaces and IP information
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Type 1
+        - id: 2
+          text: >-
+            Type 2
+        - id: 3
+          text: >-
+            Type 3
+        - id: 4
+          text: >-
+            Type 4
+      explanation: >-
+        Type 1 LSAs contain the RID, interfaces, interface state, and IP information for OSPF routers. Type 2 contain DR and BDR information. Type 3 contain information about networks and routers in other areas from an ABR. Type 4 contain information about ASBR OSFP routers from the ABR.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+    - prompt: >- 
+            What command would you use to see the amount of times SPF has been calculated for the OSPF process running under process number 5?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show ip ospf 5
+        - id: 2
+          text: >-
+            show ip protocols
+        - id: 3
+          text: >-
+            show ip ospf timers
+        - id: 4
+          text: >-
+            show ip route ospf
+      explanation: >-
+        The command, `show ip ospf 5` will show information about the SPF for OSPF process number 5. The other commands do not show this information, though `show ip protocols` is very helpful for identifying some quick information about OSPF.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+    - prompt: >- 
+            What is the max age of an OSPF LSA?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            60 minutes
+        - id: 2
+          text: >-
+            30 minutes
+        - id: 3
+          text: >-
+            2 minutes
+        - id: 4
+          text: >-
+            5 minutes
+      explanation: >-
+        OSPF LSAs will age out after 60 minutes as the maximum age. 
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+    - prompt: >- 
+            What is the metric used in OSPF?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Cost
+        - id: 2
+          text: >-
+            Distance
+        - id: 3
+          text: >-
+            Hops
+        - id: 4
+          text: >-
+            Speed
+      explanation: >-
+        Cost is the metric for OSPF. Distance isn't a metric used, hops are the RIP metric, and speed is used to help calculate metrics but isn't one itself.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+    - prompt: >- 
+            What letter represents internal EIGRP routes when viewing the output of 'show ip route' ?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            D
+        - id: 2
+          text: >-
+            E
+        - id: 3
+          text: >-
+            I
+        - id: 4
+          text: >-
+            i
+      explanation: >-
+        On the IOS routing table, D is for EIGRP, E is for eBGP, I is for IGRP, and i is for IS-IS
+      tags:
+        - 3.1 Interpret the components of routing table 
+    - prompt: >- 
+            What needs to be unique between OSPF routers?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Router-ID
+        - id: 2
+          text: >-
+            OSPF Process ID
+        - id: 3
+          text: >-
+            Interface number
+        - id: 4
+          text: >-
+            Interface subnet
+      explanation: >-
+        The Router-ID must be unique between OSPF routers for an adjacency to form. Process ID is local to the router and interface numbers or subnets won't affect OSPF.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+        - 3.4.a Neighbor adjacencies
+        - 3.4.d Router ID
+    - prompt: >- 
+            Which OSPF LSA type is used to send summaries between ABRs? Also referred to as Summary Link Advertisements.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Type 3
+        - id: 2
+          text: >-
+            Type 5
+        - id: 3
+          text: >-
+            Type 7
+        - id: 4
+          text: >-
+            Type 4
+      explanation: >-
+        OSPF type 3 is used by an ABR to send summaries between ABRs, these LSAs are generated by an ABR to describe a router to neighbors in other areas. Type 4 are generated by ABRs, but they're for describing routes to an ASBR, type 5 and 7 are are used by ASBRs
+      tags:
+        - 3.4 Configure and verify single area OSPFv2 
+    - prompt: >- 
+            Which OSPF state only applies to non-broadcast multi-access networks?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            ATTEMPT
+        - id: 2
+          text: >-
+            TRYING
+        - id: 3
+          text: >-
+            LOADING
+        - id: 4
+          text: >-
+            2-WAY
+      explanation: >-
+        Only the ATTEMPT state applies to non-broadcast multi-access networks. It is used for manually configured neighbors within this type of environment.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2
+    - prompt: >- 
+            Which command would you use to see the OSPF LSDB?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show ip ospf database
+        - id: 2
+          text: >-
+            show ip ospf lsdb
+        - id: 3
+          text: >-
+            show ip ospf link-states
+        - id: 4
+          text: >-
+            show ip ospf neighbors
+      explanation: >-
+        To view the OSPF link state database (LSDB) you would issue the `show ip ospf database` command.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2
+    - prompt: >- 
+            Which state must 2 OSPF neighbors become before exchanging the LSDB?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            2-WAY
+        - id: 2
+          text: >-
+            FULL
+        - id: 3
+          text: >-
+            ATTEMPT
+        - id: 4
+          text: >-
+            LOADING
+      explanation: >-
+        Once routers reach the 2-WAY state they wil begin to exchange LSDB. FULL is the final state after everything is exchanged, LOADING is when devices are exchanging LSAs as LSUs, 
+      tags:
+        - 3.4 Configure and verify single area OSPFv2
+    - prompt: >- 
+            Write the configuration statement that will make Gi1/2 no longer send Hello packets but still include the IPv4 network in the LSDB. Assume you are already in interface configuration mode
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            ip ospf passive-interface
+        - id: 2
+          text: >-
+            ip ospf include-lsdb
+        - id: 3
+          text: >-
+            passive-interface ospf
+        - id: 4
+          text: >-
+            ip passive ospf
+      explanation: >-
+        The question is asking to place the interface into passive mode for OSPF, so the interface command would be `ip ospf passive-interface`.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2
+    - prompt: >- 
+            Write the most conservative OSPF network statement to add only a specific interface into area 0, Gi0/0, which is configured with the IP 172.16.5.254 255.255.255.0.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            network 172.16.5.254 0.0.0.0 area 0
+        - id: 2
+          text: >-
+            network 172.16.5.254 area 0
+        - id: 3
+          text: >-
+            network 172.16.5.0 0.0.0.255 area 0
+        - id: 4
+          text: >-
+            network 172.16.5.254 0.0.0.255 area 0
+      explanation: >-
+        OSPF network statements add interfaces with an IP address matching the wildcard statement. Since a wildcard of 0.0.0.0 is all bits set to off, every bit must match to qualify, allowing you to add a single interface at a time.
+      tags:
+        - 3.4 Configure and verify single area OSPFv2
+    - prompt: >- 
+            You're troubleshooting an issue where PCs sometimes do not receive DHCP leases in a recently expanded branch office. In particular, you're concerned you may have too few leases available for PCs. What command could confirm this for all of your pools at once?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show ip dhcp pool
+        - id: 2
+          text: >-
+            show ip dhcp bindings
+        - id: 3
+          text: >-
+            show ip dhcp
+        - id: 4
+          text: >-
+            show ip dhcp pool all
+      explanation: >-
+        To view all the DHCP pools that are configured, `show ip dhcp pool` will display all of them. You can additionally specify a pool to view by name if desired.
+      tags:
+        - 4.6 Configure and verify DHCP client and relay
+    - prompt: >- 
+            A Cisco router at 10.10.4.1 is configured as the DHCP server in a network and a DNS server is correctly installed, configured, and reachable at 10.10.4.3. Clients succesfully receive a lease, but are unable to resolve addresses. What config is missing from the DHCP server?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            dns-server 10.10.4.3
+        - id: 2
+          text: >-
+            domain-name morecisco.com
+        - id: 3
+          text: >-
+            default-router 10.10.4.1
+        - id: 4
+          text: >-
+            ip dhcp excluded-address 10.10.4.3
+      explanation: >-
+        The question states that the DNS server is reachable and configured correctly. Of the available options, the only one that would fit is `dns-server 10.10.4.3` which provides a DNS server option in the DHCP offer message provided to clients when asking for lease information.
+      tags:
+        - 4.6 Configure and verify DHCP client and relay
+    - prompt: >- 
+            A Cisco router is set up as the DHCP server for a network, but client devices are unable to browse the web, check email, or talk to the IPs of servers on other subnets on the network. What part of the DHCP pool configuration was missed?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            default route
+        - id: 2
+          text: >-
+            subnet mask
+        - id: 3
+          text: >-
+            DNS server
+        - id: 4
+          text: >-
+            NTP server
+      explanation: >-
+        The question specifically calls out that communicaitng with IP addresses fails, browsing the web fails, and that they cannot communicate with remote networks. The default route is required as a DHCP configuration in this scenario since the alternative is configuring more specific routes on host devices which is not scalable. It does not mention whether DNS works or not and that cannot be proven based on the information provided. If NTP were an issue, IP would still work but you may get certificate or other errors when browsing.
+      tags:
+        - 4.3 Explain the role of DHCP and DNS within the network
+    - prompt: >- 
+            An NTP server with a lower NTP stratum tells you the what about the NTP server?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            It is a higher priority.
+        - id: 2
+          text: >-
+            It is behind in time compared to the local NTP client.
+        - id: 3
+          text: >-
+            It is a lower priority.
+        - id: 4
+          text: >-
+            There is low latency to the server.
+      explanation: >-
+        A lower NTP stratum indicates the NTP server is a higher priority than the local client viewing it.
+      tags:
+        - 4.2 Configure and verify NTP operating in a client and server mode
+    - prompt: >- 
+            What command will start the NTP server but not the client?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            ntp master
+        - id: 2
+          text: >-
+            ntp mode master
+        - id: 3
+          text: >-
+            ntp server
+        - id: 4
+          text: >-
+            no ntp client
+      explanation: >-
+        To start an NTP server on IOS, issue the `ntp master` command.
+      tags:
+        - 4.2 Configure and verify NTP operating in a client and server mode
+    - prompt: >- 
+            A router at a branch office is physically configured as follows - Fa0/1 facing the ISP & Fa0/2 faces the internal network. For clients to receive DHCP leases from the main office, which interface will need the IP helper configured on it?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Fa0/2
+        - id: 2
+          text: >-
+            Fa0/1
+        - id: 3
+          text: >-
+            IP helper will not work here
+        - id: 4
+          text: >-
+            Fa0/3
+      explanation: >-
+        Fa0/2 will need the IP helper configured. DHCP and DHCP relay work similarly, in that the interface listening for DHCP Discover messages must be able to receive those messages from client devices. Since DHCP Discover messages are broadcast, the interface the IP helper is configured on must be on the same broadcast domain as client devices. Knowing nothing about the network beyond that clients should be on the same side of the router as Fa0/2, we can pick Fa0/2 as the only reasonable answer.
+      tags:
+        - 4.6 Configure and verify DHCP client and relay
+    - prompt: >- 
+            Describe the DHCPv4 process in a which a client requests a lease.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Discover, Offer, Request, Acknowledge
+        - id: 2
+          text: >-
+            Discover, Request, Accept
+        - id: 3
+          text: >-
+            Solicit, Advertise, Request, Reply
+        - id: 4
+          text: >-
+            Search, Advertise, Receive, Request
+      explanation: >-
+        The DHCPv4 process is described with DORA. A client sends a Discover, the server responds with an Offer of some configuration, the client replies with a Request for the offered configuration, and the DHCP server Acknowledges it. SARR, or Solicit, Advertise, Request, Reply is the DHCPv6 process.
+      tags:
+        - 1.8 Configure and verify IPv6 addressing and prefix
+    - prompt: >- 
+            Name a location that syslog sends messages to by default.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            console
+        - id: 2
+          text: >-
+            buffer
+        - id: 3
+          text: >-
+            syslog server
+        - id: 4
+          text: >-
+            nowhere
+      explanation: >-
+        The console is the default logging location. Configuring either the logging buffer or a syslog server for more extended storage offer options to better troubleshoot.
+      tags:
+        - 4.5 Describe the use of syslog features including facilities and levels
+    - prompt: >- 
+            The logging buffer on a switch is storing emergency, alert, and warning messages. What named logging level will store error messages in addition to the aforementioned?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            warning
+        - id: 2
+          text: >-
+            emergency
+        - id: 3
+          text: >-
+            debug
+        - id: 4
+          text: >-
+            alert
+      explanation: >-
+        Warning is the most verbose logging option required to accomplish this, however debug would also work but it would cause a lot of noise to be generated which can cause problems when troubleshooting or use of the device.
+      tags:
+        - 4.5 Describe the use of syslog features including facilities and levels
+    - prompt: >- 
+            Assuming you have no access list preconfigured, what command will allow SSH sessions only, from the prompt `R7(config-line)#`?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            transport input ssh
+        - id: 2
+          text: >-
+            no transport input telnet
+        - id: 3
+          text: >-
+            transport input all
+        - id: 4
+          text: >-
+            This is the default
+      explanation: >-
+        Configuring `transport input ssh` on the VTY configuration disables the ability to telnet in. On some newer IOS, telnet and SSH are disabled by default, however.
+      tags:
+        - 4.8 Configure network devices for remote access using SSH
+    - prompt: >- 
+            To log router messages to a vty you are connected to via telnet, what command should you run?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            terminal monitor
+        - id: 2
+          text: >-
+            logging console
+        - id: 3
+          text: >-
+            logging synchronous
+        - id: 4
+          text: >-
+            terminal logging
+      explanation: >-
+        When remotely connected to a device, logging messages are not printed to your terminal session. Enabling this is done by executing `terminal monitor` after logging in.
+      tags:
+        - 4.5 Describe the use of syslog features including facilities and levels
+    - prompt: >- 
+            To set 172.18.7.254 as your DNS server, what command do you type?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            ip name-server 172.18.7.254
+        - id: 2
+          text: >-
+            ip domain name 172.18.7.254
+        - id: 3
+          text: >-
+            ip dns-server 172.18.7.254 primary
+        - id: 4
+          text: >-
+            dns server 172.18.7.254
+      explanation: >-
+        To configure a DNS server for the IOS device to use, configure `ip name-server 172.18.7.254` under global configuration to set the DNS server to 172.18.7.254.
+      tags:
+        - 4.3 Explain the role of DHCP and DNS within the network
+    - prompt: >- 
+            To set syslog to only send warnings or more severe to a syslog server, what numbered command would you use?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            logging trap 4
+        - id: 2
+          text: >-
+            logging trap warnings
+        - id: 3
+          text: >-
+            logging trap error
+        - id: 4
+          text: >-
+            logging trap 5
+      explanation: >-
+        Configuring `logging trap 4` would set only warning or more severe messages to the syslog server. The numeric version is required for this command, so the English word equivilent would not work. A logging level 5 of would include notifications, which is more than we want.
+      tags:
+        - 4.5 Describe the use of syslog features including facilities and levels
+    - prompt: >- 
+            What command lists information about the current active DHCP leases?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show ip dhcp binding
+        - id: 2
+          text: >-
+            show dhcp ip bindings
+        - id: 3
+          text: >-
+            show dhcp
+        - id: 4
+          text: >-
+            show ip dhcp leases
+      explanation: >-
+        The command to show the current DHCP leases is `show ip dhcp bindings` when run from a Cisco router or switch.
+      tags:
+        - 4.3 Explain the role of DHCP and DNS within the network
+    - prompt: >- 
+            What command will store only logging level 4 and more severe errors in the RAM buffer? Use the name instead of the number.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            logging buffer warning
+        - id: 2
+          text: >-
+            logging buffer error
+        - id: 3
+          text: >-
+            logging buffer informational
+        - id: 4
+          text: >-
+            logging buffer critical
+      explanation: >-
+        The named logging level equivilent to 4 is "warning." You can use a mnemonic to help memorize these more easily such as "(E)very (A)wesome (C)isco (E)ngineer (W)ill (N)eed (I)cecream (D)aily." In the mnemonic you can see W for warnings is fourth from the end of the list. 
+      tags:
+        - 4.5 Describe the use of syslog features including facilities and levels
+    - prompt: >- 
+            What commands will tell syslog to use sequential numbers on messages?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            service sequence-numbers
+        - id: 2
+          text: >-
+            service set num
+        - id: 3
+          text: >-
+            service numbers enable
+        - id: 4
+          text: >-
+            service sequence-numbers enable
+      explanation: >-
+        To enable sequential sequence numbers on messages for syslog, use the global configuration command `serivce sequence-numbers`.
+      tags:
+        - 4.5 Describe the use of syslog features including facilities and levels
+    - prompt: >- 
+            What do you add to an interface to retransmit broadcasts to another network, such as DHCP request or for a TFTP server?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            ip helper-address
+        - id: 2
+          text: >-
+            dhcp relay
+        - id: 3
+          text: >-
+            broadcast relay
+        - id: 4
+          text: >-
+            Retransmitting broadcasts is not possible.
+      explanation: >-
+        While DHCP relay is the general term for this feature, the configuration we add for Cisco IOS is `ip helper address`. IP Helpers work for multiple types of traffic, not just DHCP.
+      tags:
+        - 4.6 Configure and verify DHCP client and relay
+    - prompt: >- 
+            Which numerical logging level command will log Informational level messages to the console?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            logging console 6
+        - id: 2
+          text: >-
+            logging console 3
+        - id: 3
+          text: >-
+            logging console 7
+        - id: 4
+          text: >-
+            logging console 1
+      explanation: >-
+        Informational messages are the most verbose before debugging. To enable this with a numerical configuration you'd configure `logging console 6` under the global configuration.
+      tags:
+        - 4.5 Describe the use of syslog features including facilities and levels
+    - prompt: >- 
+            While working for kittygifs.com, you're attempting to configure SSH you receive the message `% Please define a domain-name first.` What was missed prior to configuring SSH?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Domain name
+        - id: 2
+          text: >-
+            IP address on an interface
+        - id: 3
+          text: >-
+            VTY configuration
+        - id: 4
+          text: >-
+            SSH version
+      explanation: >-
+        For SSH configuration, a domain name needs to be specified as part of how the private and public keys are generated.
+      tags:
+        - 4.8 Configure network devices for remote access using SSH
+    - prompt: >- 
+            Without performing a `sh run` how would you see information about the DHCP pool `meowcat`?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show ip dhcp pool meowcat
+        - id: 2
+          text: >-
+            show dhcp pools
+        - id: 3
+          text: >-
+            show ip dhcp
+        - id: 4
+          text: >-
+            show ip dhcp meowcat pool
+      explanation: >-
+        To view information about a specific DHCP pool "meowcat", you run the command `show ip dhcp pool meowcat`. This will display information about the usage and configuration of the pool, such as how many leases are in use. 
+      tags:
+        - 4.6 Configure and verify DHCP client and relay
+    - prompt: >- 
+            Your boss visited /r/sysadmin and believes DNS is always the problem. He wants to configure static hostname to IP mappings on the router. What command maps the host ad-serv-1 to 10.10.4.5?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            ip host ad-serv-1 10.10.4.5
+        - id: 2
+          text: >-
+            ip dns server ad-serv-1 10.10.4.5
+        - id: 3
+          text: >-
+            ip domain name ad-serv-1 10.10.4.5
+        - id: 4
+          text: >-
+            ip host 10.10.4.5 ad-serv-1
+      explanation: >-
+        To set the hostname to IP mapping on a Cisco IOS device, run the command `ip host` and then the mapping with the hostname followed by the IP address. While this is useful to do in niche circumstances, a proper DNS server is the correct way to solve your boss's problem.
+      tags:
+        - 4.6 Configure and verify DHCP client and relay
+    - prompt: >- 
+            Also known as buffering, what happens to packets as they are held up in an egress interface during congestion?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Queuing
+        - id: 2
+          text: >-
+            Discarding
+        - id: 3
+          text: >-
+            Shaping
+        - id: 4
+          text: >-
+            Compression
+      explanation: >-
+        Packets are queued in an interface while waiting to be transmitted. Discarding would only happen if the queue or buffer was full, assuming no other QoS mechanism is deliberately dropping them.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            Cisco WRED drops traffic based on ______ to drop traffic during congestion so that sensitive traffic, such as video, does not suffer.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            weights
+        - id: 2
+          text: >-
+            priorities
+        - id: 3
+          text: >-
+            costs
+        - id: 4
+          text: >-
+            administrative distance
+      explanation: >-
+        The metric used to determine whether traffic should be dropped on WRED (Weighted Random Early Detection) is referred to as weight. These random drops help reduce congestion early before the queues become exhausted.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            Ethernet uses this type of marking on frames to perform QoS
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Class of Service
+        - id: 2
+          text: >-
+            IP Precedence 
+        - id: 3
+          text: >-
+            Differentiated Services Code Point
+        - id: 4
+          text: >-
+            Traffic Selector
+      explanation: >-
+        Class of Service (CoS) is the field used in Ethernet frames to mark the Quality of Service that the frame should be checked against, while IP Precedence (IPP) is the predecessor to Differentiated Services Code Point (DSCP) for IP packets. Traffic Selectors aren't related to QoS at all, they're part of IPSec VPNs.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            One of the major benefits of SNMPv3 is its use of this security enhancement on communication between agents and managers.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Encryption
+        - id: 2
+          text: >-
+            Community String
+        - id: 3
+          text: >-
+            Hashing
+        - id: 4
+          text: >-
+            Obfuscation
+      explanation: >-
+        SNMPv3 adds encryption and username authentication that previous versions of SNMP do not have. SNMPv2c introduces community strings to help secure access but until v3 SNMP was cleartext.
+      tags:
+        - 4.4 Explain the function of SNMP in network operations
+    - prompt: >- 
+            One way voice traffic should have latency of less than ___ms and jitter of less than __ms.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            150ms latency, 30ms jitter
+        - id: 2
+          text: >-
+            30ms latency, 150ms jitter
+        - id: 3
+          text: >-
+            500ms latency, 10ms jitter
+        - id: 4
+          text: >-
+            150ms latency, 100ms jitter
+      explanation: >-
+        Ideally, latency and jitter should be low. Across the Internet or other very large networks a latency of 150ms and 30ms jitter should not be exceeded. Latency measures the time it takes for a packet to get from point A to B, while jitter measures the difference in latency between packets. A low jitter means that packets are arriving at regular latencies, which means conversation will sound more smooth and less choppy. Low latency allows a conversation to occur with little delay, which can be noticed when people on the phone talk over one another by mistake. 
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            This describes how packets are chosen when sending out of a congested link? Strict, Round Robin, and Weighted Fair are three such mechanisms of this.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Scheduling
+        - id: 2
+          text: >-
+            Queueing
+        - id: 3
+          text: >-
+            QoS
+        - id: 4
+          text: >-
+            Dropping
+      explanation: >-
+        Scheduling determines how packets are chosen to transmit on a congested link, with different criteria affecting how they're chosen for forwarding. Things like DSCP marking can affect this. Queuing is the act of placing a packet in the buffer to be scheduled, or transmitted. QoS is too general of a term, though it isn't necessarily wrong there are parts of QoS that are about ingress into the queue or dropping packets.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            This highly CPU intensive method for identifying traffic compares packet payload to a signature database.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            NBAR
+        - id: 2
+          text: >-
+            WRED
+        - id: 3
+          text: >-
+            QoS
+        - id: 4
+          text: >-
+            802.1x
+      explanation: >-
+        NBAR, or Network Based Application Recognition, matches traffic payloads to a signature database in an attempt to identify what application traffic belongs to. This can be intensive as packets are processed and some policy is applied to them such as blocking gaming traffic.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            This is used to indicate a three bit subset of a Diffserv value using the same field as IP Precendence.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Class Selector
+        - id: 2
+          text: >-
+            Traffic Identifier
+        - id: 3
+          text: >-
+            Quality of Service
+        - id: 4
+          text: >-
+            Traffic Selector
+      explanation: >-
+        In Diffserv there are eight values which map to its predecessor's, IP Precendence, values. Each of these values matches one of the three bit IP Precedence values. These eight values are referred to as Class Selectors.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            What queuing method is similar to CBWFQ (Class-based WFQ), providing priority queuing in addition to bandwidth and latency guarantees?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            LLQ
+        - id: 2
+          text: >-
+            RED
+        - id: 3
+          text: >-
+            WRED
+        - id: 4
+          text: >-
+            WFQ
+      explanation: >-
+        Of the available options, LLQ (Low Latency Queuing) provides bandwidth starvation prevention and bandwidth guarantees for traffic, while also providing strict priority queuing. This is advantageous for applications such as voice that need to be treated with higher priority. RED and WRED address tail drops specifically, and WFQ addresses bandwidth starvation primarily.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            This part of a network is where DSCP/COS values begin or stop having meaning on a network and also defines the section of the network that the administrator maintains
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Trust boundary
+        - id: 2
+          text: >-
+            Access port
+        - id: 3
+          text: >-
+            Demarcation point
+        - id: 4
+          text: >-
+            VoIP Phone
+      explanation: >-
+        The trust boundary describes where QoS values are administered and relevant to a given network. There is no specific place in a network that this is, rather it is a term to describe a logical area. Any devices or network(s) outside the trust boundary will likely not respect any QoS markings added within the boundary, and any markings made within the boundary are typically not respected either. A common example of one is an VoIP phone but sometimes the switchport is used instead.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            Which queuing method acts on packets in the order they arrive?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            FIFO
+        - id: 2
+          text: >-
+            WFQ
+        - id: 3
+          text: >-
+            CQ
+        - id: 4
+          text: >-
+            WRR
+      explanation: >-
+        FIFO (First In First Out) acts on packets in the order they are received. True to its name, the first packet to arrive will be the first packet to egress the interface queue. WFQ (Weighted Fair Queuing) acts more intelligently, using values and multiple queues to help move packets along so the first packet received may not always egress first. CQ (Custom Queuing) uses multiple queues with variable queue limits and traffic classification to determine which packets are sent out. WRR (Weighted Round Robin) uses weights where the weight is proportional to the number of packets being sent, these are configurable by the administrator.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            What backwards compatible type of marking is used on IP packets as a replacement for IPP?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            DSCP
+        - id: 2
+          text: >-
+            IPP+
+        - id: 3
+          text: >-
+            CoS
+        - id: 4
+          text: >-
+            FIFO
+      explanation: >-
+        DSCP (Differentiated Services Code Point) is the replacement for IPP (IP Precedence). Markings are backwards compatible, but limited to the number of combinations that are translated backwards due the the few bit options available in IPP. 
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            What type of traffic has a smooth data rate, is sensitive to latency and drops, and should be prioritized on a network?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            RTP
+        - id: 2
+          text: >-
+            SMB
+        - id: 3
+          text: >-
+            TFTP
+        - id: 4
+          text: >-
+            EIGRP
+      explanation: >-
+        RTP is the protocol used for transferring audio and video media data on real time calls and is important to prioritize and transfer efficiently on a network. SMB and TFTP are sensitive to latency, but they would not be prioritized, and EIGRP is not really sensitive to latency but it can be configured to account for latecny.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            Of the following options, which type of traffic is bursty, can be very large at times, but isn't terribly sensitive to delays or drops?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Data
+        - id: 2
+          text: >-
+            VoIP
+        - id: 3
+          text: >-
+            Real-time video
+        - id: 4
+          text: >-
+            Management
+      explanation: >-
+        Data traffic is typically not sensitive to delays. While the contents of data traffic changes between different networks or organizations, it is frequently bursty as it is only generated on an as needed basis and delivered using TCP. TCP accounts for loss, requiring retransmits if they are detected, and so long as they aren't excessive TCP will reliably get the data delivered. 
+      tags:
+        - 1.5 Compare TCP to UDP
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            What SNMP operation attempts to retrieve successive MIB objects from a device when it polls?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Walk
+        - id: 2
+          text: >-
+            Get
+        - id: 3
+          text: >-
+            Set
+        - id: 4
+          text: >-
+            Trap
+      explanation: >-
+        An SNMP Walk action is a series of successive GetNext requests to a host in order to query the full MIB tree of that host. GET would only return a single specified MIB value, SET would change a specific value, and TRAP is used for sending the status of a MIB value that can be alerted on to the NMS station.
+      tags:
+        - 4.4 Explain the function of SNMP in network operations
+    - prompt: >- 
+            What SNMP operation attempts to write to the device?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Set
+        - id: 2
+          text: >-
+            Get
+        - id: 3
+          text: >-
+            Inform
+        - id: 4
+          text: >-
+            Response
+      explanation: >-
+        While SNMP is usually used to poll information from devices for monitoring purposes, you can also use an SNMP Set action to write values to a device for configuration as opposed to manually configuration. Get would return the value of a MIB, Inform messages are sent in response to Trap messages, and Response would be a message used to reply to a request from a manager such as a Get request.
+      tags:
+        - 4.4 Explain the function of SNMP in network operations
+    - prompt: >- 
+            What is the well known DSCP value used for voice traffic?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            46
+        - id: 2
+          text: >-
+            24
+        - id: 3
+          text: >-
+            56
+        - id: 4
+          text: >-
+            32
+      explanation: >-
+        The DSCP value used for the actual voice stream in calls is 46. This traffic is usually RTP, which is different from SIP. SIP is usually DSCP 24, since it is not as essential to receive every SIP packet in a timely fashion as they only control signalling information such as call setup.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            What type of SNMP message is sent when a node immediately tells an NMS station that something happened but does not provide any acknowledgement? Eg, interface down
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Trap
+        - id: 2
+          text: >-
+            Get
+        - id: 3
+          text: >-
+            Inform
+        - id: 4
+          text: >-
+            Set
+      explanation: >-
+        When a device is configured to send SNMP Trap messages, it will proactively inform an NMS of certain behaviors that happen rather than waiting for a poll from the NMS. Get and Set messages are sourced from an NMS, so they would not be the end device immediately informing the NMS of an issue or change. An Inform is the response to a Trap. 
+      tags:
+        - 4.4 Explain the function of SNMP in network operations
+    - prompt: >- 
+            Which SNMP version doesn't use communities and allows for secure communication?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            3
+        - id: 2
+          text: >-
+            2c
+        - id: 3
+          text: >-
+            2
+        - id: 4
+          text: >-
+            1
+      explanation: >-
+        SNMP version 3 gets rid of the communities added in version 2c, adding encryption and users to the security available to SNMP. Versions 1 and 2 are not secure, sending all data in cleartext.
+      tags:
+        - 4.4 Explain the function of SNMP in network operations
+    - prompt: >- 
+            Without NBAR, what other information on a packet can be used to identify how traffic should be handled other than layer 2 or 3 information?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Port number
+        - id: 2
+          text: >-
+            Application type
+        - id: 3
+          text: >-
+            Payload
+        - id: 4
+          text: >-
+            Computer name
+      explanation: >-
+        NBAR relies on hueristic information to identify traffic. Without that, of the available options, port number is one way to identify traffic as well known ports are freqently used for things like web traffic or email. This is becoming less reliable as time goes on as more services shift to using TLS on port 443, so a combination of things are needed such as related DNS traffic or the SNI (server name information) on a TLS setup, or other details are needed to identify traffic.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            What broader concept instructs devices on how to handle traffic so that more sensitive services are prioritized, using special markings on frames and packets?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            QoS
+        - id: 2
+          text: >-
+            LLDP
+        - id: 3
+          text: >-
+            DCSP
+        - id: 4
+          text: >-
+            IPP
+      explanation: >-
+        Quality of Service (QoS) is a set of technologies and mechanisms that ensure traffic is handled appropriately, per the administrator or network needs. It includes DSCP, IPP, CoS, and other technologies.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            What are used on the ingress side of a connection to immediately drop traffic without queuing it. They generate significant TCP resends when being hit.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Policers
+        - id: 2
+          text: >-
+            Shapers
+        - id: 3
+          text: >-
+            Buffers
+        - id: 4
+          text: >-
+            Droppers
+      explanation: >-
+        Policers are the QoS mechanism that immediately drops traffic after a certain threshold. They are used on ingress to prevent a circuit from being overloaded or to enforce a certain threshold such as the amount of bandwidth an ISP provides to a customer.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            What is done on the egress side of a connection to smooth traffic out so that resends and drops are less frequent.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Shaping
+        - id: 2
+          text: >-
+            Policing
+        - id: 3
+          text: >-
+            Buffering
+        - id: 4
+          text: >-
+            Loading
+      explanation: >-
+        Shaping is the QoS mechanism used on egress, allowing queuing and smoother transit of traffic around a given threshold. These are used opposite a policer (usually) to prevent the policer from dropping excess traffic and requiring retransmits or preventing a poor end user experience.
+      tags:
+        - 4.7 Explain the forwarding per-hop behavior (PHB) for QoS such as classification, marking, queuing, congestion, policing, shaping
+    - prompt: >- 
+            A new port, Fa0/2, is configured with port security mode of protect. When running `sh port-sec fa0/2` the port security field lists it as Disabled. What command was not typed?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            switchport port-security
+        - id: 2
+          text: >-
+            switchport port-security enable
+        - id: 3
+          text: >-
+            port-security
+        - id: 4
+          text: >-
+            switchport port-security violation restrict
+      explanation: >-
+        When configuring an interface to use port security, the features or behavior of port security is configured independently from actually enabling it. Enabling port security is performed by entering `switchport port-security` on the interface. This can be helpful by allowing you to configure exactly what you want to do with port security prior to enabling it, preventing a client device from accidentally being kicked off the network.
+      tags:
+        - 5.7 Configure Layer 2 security features (DHCP snooping, dynamic ARP inspection, and port security)
+    - prompt: >- 
+            A port is configured with port security and nothing is currenlty connected. What is the expected port status when running `show port-security` on that specific port?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            secure-down
+        - id: 2
+          text: >-
+            down
+        - id: 3
+          text: >-
+            admin down
+        - id: 4
+          text: >-
+            not-connect
+      explanation: >-
+        The port status for port security while nothing is connected is secure-down. These are similar to the administrative state for a port, as an example secure-shutdown would indicate an administratively disabled port.
+      tags:
+        - 5.7 Configure Layer 2 security features (DHCP snooping, dynamic ARP inspection, and port security)
+    - prompt: >- 
+            A switchport is shown in an `err-disabled` state. What command(s) need to be run to re-enable the port?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            shutdown, then no shutdown
+        - id: 2
+          text: >-
+            port-security enable
+        - id: 3
+          text: >-
+            port-status error enable
+        - id: 4
+          text: >-
+            undisable
+      explanation: >-
+        When a port is disabled due to port security, it goes err-disable. To rectify this manually, administratively disable then enable the port once more. There is addtionally the option to configure err-disable recovery so the switch will perform recovery automatically.
+      tags:
+        - 5.7 Configure Layer 2 security features (DHCP snooping, dynamic ARP inspection, and port security)
+    - prompt: >- 
+            What command sets the privileged mode password to 'mountain4k' and encrypts it?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            enable secret mountain4k
+        - id: 2
+          text: >-
+            enable secret 5 mountain4k
+        - id: 3
+          text: >-
+            enable password mountain 4k
+        - id: 4
+          text: >-
+            enable password 7 mountain 4k
+      explanation: >-
+        Configuring a secret and using a plaintext phrase encrypts the phrase used for the password. Specifying a specific encryption used such as 5 or 7 assumes the password has already been hashed, so the password will not be "mountain4k" in these cases. Configuing a password rather than a secret does not encrypt the password used.
+      tags:
+        - 5.3 Configure and verify device access control using local passwords
+    - prompt: >- 
+            Fa0/8 is in a err-disabled state after port security triggered. What command will list the source MAC of the offending frame?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            show port-security interface Fa0/8
+        - id: 2
+          text: >-
+            show mac-address table
+        - id: 3
+          text: >-
+            show port-security table
+        - id: 4
+          text: >-
+            show mac-address table Fa0/8
+      explanation: >-
+        The specific MAC used to trigger the disabled state is listed when viewing the output of `show port-security interface Fa0/8`. The MAC address table does not differentiate on MACs that violate port security.
+      tags:
+        - 5.7 Configure Layer 2 security features (DHCP snooping, dynamic ARP inspection, and port security)
+    - prompt: >- 
+            Port security disabled a port and you re-enabled the port. What state was it in?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            err-disable
+        - id: 2
+          text: >-
+            shutdown
+        - id: 3
+          text: >-
+            not-connect
+        - id: 4
+          text: >-
+            up
+      explanation: >-
+        When port security disables a port, it uses a unique state of err-disable. The port is not administratively disabled or up at this point, nor is it in an unconnected state.
+      tags:
+        - 5.7 Configure Layer 2 security features (DHCP snooping, dynamic ARP inspection, and port security)
+    - prompt: >- 
+            The `access-list 1` command begins the creation of which type of access list?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            numbered
+        - id: 2
+          text: >-
+            NAT
+        - id: 3
+          text: >-
+            extended
+        - id: 4
+          text: >-
+            VLAN
+      explanation: >-
+        Numbered ACLs can either be extended or standard, the syntax for extended including ip at the front. Named lists are configured with a name instead of a number but are otherwise similar.
+      tags:
+        - 5.6 Configure and verify access control lists
+    - prompt: >- 
+            What is the default violation mode for a port using port security?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            shutdown
+        - id: 2
+          text: >-
+            restrict
+        - id: 3
+          text: >-
+            protect
+        - id: 4
+          text: >-
+            disable
+      explanation: >-
+        The default violation mode for port security is shutdown. When triggered, a port security enabled port will become err-disabled and require administrator intervention to enable it. Restrict mode does not shut down the port, but it does inform an administrator of violations via SNMP or Syslog. Protect mode do not shut down the port or inform the administrator, it simply does not forward traffic.
+      tags:
+        - 5.7 Configure Layer 2 security features (DHCP snooping, dynamic ARP inspection, and port security)
+    - prompt: >- 
+            Which port security violation mode will drop the frame, log a message, incrememnt a violation counter, and send an SNMP trap, then take no further actions?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            restrict
+        - id: 2
+          text: >-
+            protect
+        - id: 3
+          text: >-
+            shutdown
+        - id: 4
+          text: >-
+            shutdown vlan
+      explanation: >-
+        Restrict mode does not shut down the port, but it does inform an administrator of violations via SNMP or Syslog. Protect and shutdown do not inform the administrator, while shutdown vlan uses syslog instead of SNMP to inform the administrator.
+      tags:
+        - 5.7 Configure Layer 2 security features (DHCP snooping, dynamic ARP inspection, and port security)
+    - prompt: >- 
+            Which port security violation mode will send an SNMP trap?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            restrict
+        - id: 2
+          text: >-
+            protect
+        - id: 3
+          text: >-
+            shutdown
+        - id: 4
+          text: >-
+            disable
+      explanation: >-
+        Restrict mode uses an SNMP trap to inform the administrator of a violation. Protect and shutdown do not do so. While not listed, shutdown vlan will send an SNMP trap.
+      tags:
+        - 5.7 Configure Layer 2 security features (DHCP snooping, dynamic ARP inspection, and port security)
+    - prompt: >- 
+            You configure a new router, configuring a list of local usernames and passwords. When you attempt to telnet to it, you receive the message `Password required but none set` before being disconnected. What configuration would resolve this on the vty lines?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            login local
+        - id: 2
+          text: >-
+            login
+        - id: 3
+          text: >-
+            password moreCisco301
+        - id: 4
+          text: >-
+            secret moreCisco301
+      explanation: >-
+        While configuring authentication on the VTY would allow access, a list of local usernames and passwords was already configured. To use them for remote access, you can configure `login local` on the VTY.
+      tags:
+        - 5.3 Configure and verify device access control using local passwords
+    - prompt: >- 
+            You wish to configure port security so that only a specific device will be able to use the port, but do not know the MAC address of that device. What port security feature would allow the switch to learn the MAC and save it in the running config?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Sticky MAC
+        - id: 2
+          text: >-
+            Static port-security
+        - id: 3
+          text: >-
+            Dynamic port-security
+        - id: 4
+          text: >-
+            Static MAC address table entries
+      explanation: >-
+        Sticky MACs allow port security to learn and remember a specific MAC address, such that only that MAC can use the port. The configuration remains in the running configuration until removed or rebooted, however the entry can be saved to the startup configuration.
+      tags:
+        - 5.7 Configure Layer 2 security features (DHCP snooping, dynamic ARP inspection, and port security)
+    - prompt: >- 
+            Your predecessor did not encrypt any of the passwords on devies the network. What command will encrypt all of the passwords without changing them?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            service password-encryption
+        - id: 2
+          text: >-
+            enable secret morecisco!
+        - id: 3
+          text: >-
+            password encryption powers activate
+        - id: 4
+          text: >-
+            password-encryption
+      explanation: >-
+        If there are unencrypted passwords on the configuration, running `service password-encryption` will encrypt them all within the configuration. This isn't strong encryption, but it is faster than rekeying all of them as secrets or other encryption since it is a one-off command.
+      tags:
+        - 5.3 Configure and verify device access control using local passwords
+    - prompt: >- 
+            IPv6 access lists are different from IPv4 access lists in that ____ is also implicitly permitted at the end, before `deny ipv6 any any`.?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            NDP
+        - id: 2
+          text: >-
+            ICMP
+        - id: 3
+          text: >-
+            RA
+        - id: 4
+          text: >-
+            NS
+      explanation: >-
+        IPv6 ACLs implicitly permit NDP traffic. NDP is required for neighbor and other discovery functions to work, blocking them by default would break a lot of IPv6 functionality.
+      tags:
+        - 5.6 Configure and verify access control lists
+    - prompt: >- 
+            Self pings on an Ethernet interface send the packet up and down the router's own TCP stack and the ICMP packet does not leave the router. If the interface is configured with correct IPs and is up/up, what security feature in IOS would prevent a self ping ICMP packet from completing?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Inbound ACL
+        - id: 2
+          text: >-
+            Outbound ACL
+        - id: 3
+          text: >-
+            Auto-MDIX
+        - id: 4
+          text: >-
+            duplex half configuration
+      explanation: >-
+        Outbound ACLs do not prevent the router from sending traffic generated by the router. Inbound ACLs would act on the "return" traffic as the ping returns on the same interface it to walk the ICMP packet down and back up the TCP stack. Auto-MDIX and configuring an interface for half duplex are not security configurations.
+      tags:
+        - 5.6 Configure and verify access control lists
+    - prompt: >- 
+            What AAA protocol was developed by Cisco and is proprietary?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            TACACS+
+        - id: 2
+          text: >-
+            RADIUS
+        - id: 3
+          text: >-
+            Clearpass
+        - id: 4
+          text: >-
+            Cisco ISE
+      explanation: >-
+        TACACS+ and RADIUS are the only prototols used for AAA in this list. RADIUS is an open standard while TACACS+ is Cisco proprietary and offers more fine tuned control. Clearpass is an HPE/Aruba product for network access control, Cisco ISE is Cisco's alternative for network access control, both of which support RADIUS and TACACS+.
+      tags:
+        - 5.8 Differentiate authentication, authorization, and accounting concepts
+    - prompt: >- 
+            What LAN switch feature listens to untrusted ports for DHCP messages from potential attackers?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            DHCP snooping
+        - id: 2
+          text: >-
+            IGMP snooping
+        - id: 3
+          text: >-
+            IP Helper
+        - id: 4
+          text: >-
+            DHCP Relay
+      explanation: >-
+        DHCP Snooping allows a switch to inspect DHCP messages and, should the origin of the message be not desired, drop the message so that clients don't recieve a DHCP lease from an untrusted source. 
+      tags:
+        - 5.7 Configure Layer 2 security features (DHCP snooping, dynamic ARP inspection, and port security)
+    - prompt: >- 
+            What command applies the IPv6 access list 'meowcat' to Fa0/1 to match inbound traffic?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            ipv6 traffic-filter meowcat in
+        - id: 2
+          text: >-
+            ipv6 access-group meowcat in
+        - id: 3
+          text: >-
+            ipv6 access-class meowcat in
+        - id: 4
+          text: >-
+            ipv6 traffic-control meowcat in
+      explanation: >-
+        To apply an IPv6 ACL to an interface, the command `ipv6 traffic-filter` is used. The `access-group` and `access-class` commands are IPv4 and apply the ACL to an interface or vty, respectively, though access-class is also used for IPv6 on VTY interfaces. 
+      tags:
+        - 5.6 Configure and verify access control lists
+    - prompt: >- 
+            What is another name for the client who wishes to authenticate during 802.1x?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Supplicant
+        - id: 2
+          text: >-
+            Authenticator
+        - id: 3
+          text: >-
+            Initiator
+        - id: 4
+          text: >-
+            Authorizer
+      explanation: >-
+        In the 802.1x process, the client that begins the authentication process is referred to as the "supplicant." It begins by communicating with the switch or an AP via EAP messaging.  The switch or AP is referred to as the Authenticator, functionally acting as a proxy between the client and the server that will accept or reject authentication. Initiator and authorizer are not conceptual terms for the hosts involved in 802.1x.
+      tags:
+        - 5.1 Define key security concepts (threats, vulnerabilities, exploits, and mitigation techniques)
+    - prompt: >- 
+            What part of the 802.1x process acts as a proxy between the supplicant and authentication server?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Authenticator
+        - id: 2
+          text: >-
+            Supplicant
+        - id: 3
+          text: >-
+            Authentication server
+        - id: 4
+          text: >-
+            AnyConnect
+      explanation: >-
+        The device acting as the proxy, usually a switch or AP, is referred to as the Authenticator in 802.1x. The supplicant is the client device that is trying to connect to the network. The authentication server determines whether the device succeeds or fails to acquire network access. AnyConnect is a client VPN software, developed by Cisco.
+      tags:
+        - 5.1 Define key security concepts (threats, vulnerabilities, exploits, and mitigation techniques)
+    - prompt: >- 
+            Which IEEE standard secures access to the LAN by authenticating connected devices?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            802.1x
+        - id: 2
+          text: >-
+            802.11r
+        - id: 3
+          text: >-
+            802.3d
+        - id: 4
+          text: >-
+            802.11ax
+      explanation: >-
+        802.1x is used by network operators to ensure devices are authenticated on the network. This can be done for both wired and wireless devices, preventing unauthorized devices and not just unauthorized users from accessing a network by way of credentials or certificates.
+      tags:
+        - 5.1 Define key security concepts (threats, vulnerabilities, exploits, and mitigation techniques)
+    - prompt: >- 
+            You attempt to configure an extended ACL, `access-list 2020 permit ip 10.0.2.0 0.0.0.255 host 172.16.2.3 eq 514` but IOS generates an error when you hit enter. After reading your notes, you realise your error and retype the ACL as
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            access-list 2020 permit tcp 10.0.2.0 0.0.0.255 host 172.16.2.3 eq 514
+        - id: 2
+          text: >-
+            access-list 2020 permit ip 10.0.2.0 ip 172.16.2.3 eq 514
+        - id: 3
+          text: >-
+            access-list 2020 permit host 10.0.2.0 0.0.0.255 host 172.16.2.3 eq 514
+        - id: 4
+          text: >-
+            access-list 1999 permit tcp 10.0.2.0 0.0.0.255 host 172.16.2.3
+      explanation: >-
+        Of the options listed, only `access-list 2020 permit tcp 10.0.2.0 0.0.0.255 host 172.16.2.3 eq 514` is valid syntax. When using an ACL to identify an IP, a port cannot additionally be included because the IP header of a packet does not contain a port. The TCP or UDP options must be used to build the ACL instead. Using host is only valid to idenitify a single IP, including a network mask is illegal syntax and you still need to inform the ACL to inspect IP, TCP, or UDP traffic. Standard ACL ranges also only identify the source IP of traffic, including either a Layer 4 protocol or destination IP is invalid.
+      tags:
+        - 5.6 Configure and verify access control lists
+    - prompt: >- 
+            In SDN, _______ no longer refer to just physical ports on a device but also refer to things like a REST API.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            interfaces
+        - id: 2
+          text: >-
+            IP addresses
+        - id: 3
+          text: >-
+            ports
+        - id: 4
+          text: >-
+            MAC addresses
+      explanation: >-
+        Interfaces, a commonly used term to refer to a physical port on a network device, in SDN refer to the method a controller or device is available for programatic access. The acronym, API, stands for Application Programming Interface and is used to interact with a system programatically.
+      tags:
+        - 6.2 Compare traditional networks with controller-based networking
+    - prompt: >- 
+            In SDN, devices traditionally use these to communicate between a model layer in a northward or southward direction.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            APIs
+        - id: 2
+          text: >-
+            Ports
+        - id: 3
+          text: >-
+            PDUs
+        - id: 4
+          text: >-
+            Encapsulation
+      explanation: >-
+        APIs are used in SDN to communicate between devices in a programatic fashion. REST APIs are a popular method, but others also exist such as SOAP. These allow devices to use a consistent format to communicate information that can be programatically created, inspected, or edited by software... or an unlucky human.
+      tags:
+        - 6.2 Compare traditional networks with controller-based networking
+    - prompt: >- 
+            In modern SDN, the _____ plane is abstracted away from routers/switches while the device takes action on frame or packet headers without requiring a server or other source to reference.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Control
+        - id: 2
+          text: >-
+            Data
+        - id: 3
+          text: >-
+            Service
+        - id: 4
+          text: >-
+            API
+      explanation: >-
+        Modern SDN solutions move the control plane away from devices so that they are centrally managed and configured. The data plane remains on the device so that routing or switching decisions do not require a lookup. 
+      tags:
+        - 6.3 Describe controller-based and software defined architectures (overlay, underlay, and fabric) 
+    - prompt: >- 
+            OpFlex, OpenFlow, and NETCONF are examples of what type of API?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Southbound
+        - id: 2
+          text: >-
+            Northbound
+        - id: 3
+          text: >-
+            Inbound
+        - id: 4
+          text: >-
+            Outbound
+      explanation: >-
+        OpFlex, OpenFlow, and NETCONF are examples of southbound APIs. Southbound APIs are what the controller uses to communicate with the devices that are being automated, eg the interface on a switch or router. Northbound APIs are used to communicate between the applications and the controller, such as some orchestration software's web interface. 
+      tags:
+        - 6.3.b North-bound and south-bound APIs
+    - prompt: >- 
+            This API describes the communcation between SDN applications and the controllers in a network.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Northbound
+        - id: 2
+          text: >-
+            Southbound
+        - id: 3
+          text: >-
+            Inbound
+        - id: 4
+          text: >-
+            Outbound
+      explanation: >-
+        The applications used to direct or configure the automation use Northbound APIs to communication with the controller. REST APIs are a frequent example of it. Southbound describes the communication between the controller and the devices being automated.
+      tags:
+        - 6.3.b North-bound and south-bound APIs
+    - prompt: >- 
+            Which wireless standard allows for up to 600Mbps and supports both 2.4 and 5Ghz?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            802.11n
+        - id: 2
+          text: >-
+            802.11a
+        - id: 3
+          text: >-
+            802.11ac
+        - id: 4
+          text: >-
+            802.11b
+      explanation: >-
+        802.11n was the first standard to support speeds of up to 600Mbps, and supports both 2.5 and 5Ghz bands. While 802.11a supports 5Ghz, it does not support 2.4Ghz and only support 54Mbps. 802.11b is boths lower and only operates at 2.4Ghz. 802.11ac supports even more bandwidthc, but only at 5Ghz
+      tags:
+        - 2.6 Compare Cisco Wireless Architectures and AP modes
+    - prompt: >- 
+            What term describes the area in which a BSS (Basic Service Set) covers?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            BSA
+        - id: 2
+          text: >-
+            BSSID
+        - id: 3
+          text: >-
+            SSID
+        - id: 4
+          text: >-
+            ESS
+      explanation: >-
+        BSA, or Basic Service Area, defines the area of coverage for a single BSS. A BSSID and SSID are identifiers for the AP itself or wireless network, respectively, whie an ESS (Extended Service Set)
+      tags:
+        - 2.6 Compare Cisco Wireless Architectures and AP modes
+    - prompt: >- 
+            What AP mode allows an AP to continue serving wireless clients, even those connected to an SSID that uses a different VLAN, when the connection to the WLC goes down?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Flexconnect
+        - id: 2
+          text: >-
+            Bridge
+        - id: 3
+          text: >-
+            Local
+        - id: 4
+          text: >-
+            SE-Connect
+      explanation: >-
+        Flexconnect is the AP mode that will act independent from a WLC in the event the AP cannot communicate with the WLC. Local mode is tied to the WLC and cannot do this if the CAPWAP tunnel goes down. Bridge is used for transmitting from AP to AP. SE-Connect is used for spectrum analysis testing.
+      tags:
+        - 2.6 Compare Cisco Wireless Architectures and AP modes
+    - prompt: >- 
+            When configuring an AP in local mode with a Cisco WLC, which mode should the connected switchport be configured as when the SSID needs to support multiple VLANs?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Access
+        - id: 2
+          text: >-
+            Trunk, with a unused native VLAN for security purposes
+        - id: 3
+          text: >-
+            Routed
+        - id: 4
+          text: >-
+            Etherchannel
+      explanation: >-
+        An access port is all that is needed for local mode APs, as all traffic will be sent to the WLC over the CAPWAP tunnel. While a trunk port would work, changing the native VLAN to something unused may actually break this since the AP will need its own traffic to reach the WLC. A routed port or Etherchannel solve different problems, not related to APs.
+      tags:
+        - 2.7 Describe physical infrastructure connections of WLAN components (AP,WLC, access/trunk ports, and LAG)
+    - prompt: >- 
+            This encryption protocol is used by AES and succeeds TKIP, making WPA2 much more secure than WPA.
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            CCMP
+        - id: 2
+          text: >-
+            MIC
+        - id: 3
+          text: >-
+            GCMP
+        - id: 4
+          text: >-
+            GMAC
+      explanation: >-
+        CCMP, or Counter/CBC-MAC Protocol, is the encryption protocol in use by WPA2. AES encryption is the most secure encryption method available for wireless networks today. CCMP cannot be used on legacy devices that do not support WPA2. MIC stands for Message Integrity Check, which is a hash added to each frame to ensure integrity of the message. GCMP is used in WPA3, succeeding CCMP. GMAC is used for MIC in use with WPA3.
+      tags:
+        - 5.9 Describe wireless security protocols (WPA, WPA2, and WPA3)
+    - prompt: >- 
+            Which port on a WLC is used for normal AP or management traffic?
+      type: "multiple choice"
+      correct_choice: 1
+      choices:
+        - id: 1
+          text: >-
+            Distribution System Port
+        - id: 2
+          text: >-
+            Service Port
+        - id: 3
+          text: >-
+            Redundancy Port
+        - id: 4
+          text: >-
+            Console Port
+      explanation: >-
+        Cisco WLC call the port that most management or wireless client traffic the "Distribution System Port." This physical port is usually connected to a trunk port on a switch so that multiple VLANs can be used for wireless client traffic. The service port is used for out of band management, initial configuration, system recovery, or boot functions. The redundancy port is strictly used for high availability (HA) when connected to other WLC. The console port functions the same as on any other Cisco device, client traffic will not traverse this port.
+      tags:
+        - 2.7 Describe physical infrastructure connections of WLAN components (AP,WLC, access/trunk ports, and LAG)
 - meta_name: "Cisco Certified Network Professional"
   meta_description: >-
     Question pool for the Cisco Certified Network Professional exam.
